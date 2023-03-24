@@ -1,4 +1,4 @@
 # Tech Compensation Insight
 
 ## Documentation
-- [M1 Proposal](/docs/M1 Proposal.pdf)
+- <a href="/docs/M1 Proposal.pdf">M1 Proposal</a>
