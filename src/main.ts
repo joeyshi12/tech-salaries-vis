@@ -1,20 +1,26 @@
-import d3 from 'd3';
+import * as d3 from 'd3';
 import { SalaryRecord, toSalaryRecord } from './view';
 import { ScatterPlot } from './scatterPlot';
 import { Histogram } from './histogram';
 import { BarChart } from './barChart';
 
 const dispatch = d3.dispatch('lmaoidk');
-
+// console.log("HELLO WORLD!");
 // TODO: load csv and map with `toSalaryRecord`
-const data: SalaryRecord[] = [
-    {
-        company: 'Google',
-        title: 'Software Engineer',
-        baseSalary: 100000,
-        yearsOfExperience: 5
-    }
-];
+let data: SalaryRecord[] = [];
+
+d3.csv('data/salaries_data.csv').then(_data => {
+    // console.log('hello');
+    console.log(_data)
+    _data.forEach(d => {
+        // console.log(d)
+        // console.log(toSalaryRecord(d))
+        data.push(toSalaryRecord(d))
+      });
+    // console.log("NEW DATA");
+    // console.log(data);
+})
+
 const scatterPlot = new ScatterPlot(data, {
     parentElement: '#scatter-plot',
     width: 500,
