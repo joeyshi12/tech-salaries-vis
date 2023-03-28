@@ -6,8 +6,8 @@ export interface View {
 
 export interface ViewConfig {
     parentElement: string;
-    width: number;
-    height: number;
+    containerWidth: number;
+    containerHeight: number;
     margin: {
         top: number;
         right: number;
