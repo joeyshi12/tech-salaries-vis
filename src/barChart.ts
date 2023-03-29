@@ -1,4 +1,4 @@
-import d3 from 'd3';
+import * as d3 from 'd3';
 import { View, ViewConfig, SalaryRecord } from './view';
 
 export class BarChart implements View {
@@ -16,18 +16,13 @@ export class BarChart implements View {
     yAxisG: any;
     xValue: (d: any) => any;
     yValue: (d: any) => any;
+    averageData: { yearsOfExperience: number; baseSalary: number | undefined; }[];
 
     public constructor(records: SalaryRecord[], config: ViewConfig, xValue: string) {
-        this.config = {
-            parentElement: config.parentElement,
-            width: 279,
-            height: 300,
-            margin: {top: 40, right: 10, bottom: 30, left: 35}
-          };
         this.records = records;
         this.config = config;
         this.xValue = d => d[xValue];
-        this.initVis;
+        this.initVis();
     }
 
     public initVis() {
@@ -38,10 +33,9 @@ export class BarChart implements View {
         vis.height = vis.config.height - vis.config.margin.top - vis.config.margin.bottom;
 
         // Define size of SVG drawing area
-        vis.svg = d3.select(vis.config.parentElement).append('svg')
-            .attr('id', 'bar-chart')
+        vis.svg = d3.select(vis.config.parentElement)
             .attr('width', vis.config.width)
-            .attr('height', vis.config.height);
+            .attr('height', vis.config.height);;
 
         // Append group element that will contain our actual chart 
         // and position it according to the given margin config
@@ -58,11 +52,11 @@ export class BarChart implements View {
 
         vis.xAxis = d3.axisBottom(vis.xScale)
             .ticks(10)
-            .tickPadding(10)
+            .tickPadding(65)
             .tickSize(0);
 
         vis.yAxis = d3.axisLeft(vis.yScale)
-            .ticks(6)
+            .ticks(8)
             .tickPadding(5)
             .tickSize(-vis.width);
 
@@ -78,10 +72,10 @@ export class BarChart implements View {
         // Append axis title
         vis.chartArea.append('text')
         .attr('class', 'chart-title')
-        .attr('y', -20)
-        .attr('x', 10 - vis.config.margin.left)
+        .attr('y', -10)
+        .attr('x', 0)
         .attr('text-anchor', 'start')
-        .text('Gender');
+        .text('Years of Experience');
 
         vis.updateVis();
     }
@@ -92,8 +86,12 @@ export class BarChart implements View {
         vis.yValue = d => d.baseSalary;
 
         // Set the scale input domains
-        vis.xScale.domain(vis.records.map(vis.xValue));
-        vis.yScale.domain([0, d3.max(vis.records, vis.yValue)]);
+        const data = vis.records.map(vis.xValue);
+        // Calculate the mean for each trial
+        let averages = d3.rollup(vis.records, v => d3.mean(v, d => d.baseSalary), d => d.yearsOfExperience);
+        vis.averageData = Array.from(averages, ([yearsOfExperience, baseSalary]) => ({ yearsOfExperience, baseSalary}));
+        vis.xScale.domain(vis.averageData.map(vis.xValue));
+        vis.yScale.domain([0, d3.max(vis.averageData, vis.yValue)]);
 
         vis.renderVis();
     }
@@ -103,7 +101,7 @@ export class BarChart implements View {
 
     // Bind data to visual elements, update axes
     const bars = vis.chartArea.selectAll('.bar')
-        .data(vis.records, vis.xValue)
+        .data(vis.averageData, vis.xValue)
       .join('rect')
         .attr('class', 'bar')
         .attr('x', (d: any) => vis.xScale(vis.xValue(d)))
