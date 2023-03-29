@@ -36,7 +36,7 @@ export class Histogram implements View {
             .tickFormat((val) => String(val/1000));
 
         vis.yAxis = d3.axisLeft(vis.yScale)
-            .tickSize(-vis.height - 10)
+            .tickSize(-vis.width - 10)
             .tickSizeOuter(0);
 
         vis.svg = d3.select(vis.config.parentElement)
@@ -44,7 +44,7 @@ export class Histogram implements View {
             .attr('height', vis.config.containerHeight);
 
         vis.chart = vis.svg.append('g')
-            .attr('transform', `translate(${vis.config.margin.left + 10},${vis.config.margin.top + 10})`);
+            .attr('transform', `translate(${vis.config.margin.left},${vis.config.margin.top})`);
 
         vis.xAxisG = vis.chart.append('g')
             .attr('class', 'axis x-axis')
@@ -53,29 +53,28 @@ export class Histogram implements View {
         vis.yAxisG = vis.chart.append('g')
             .attr('class', 'axis y-axis');
 
-        vis.chart.append('text')
-            .attr('class', 'axis-title')
-            .attr('y', vis.height + 25)
-            .attr('font-weight', 'bold')
-            .attr('x', vis.width/2)
-            .attr('dy', '.71em')
-            .style('text-anchor', 'end')
-            .text('Salary');
-
         vis.svg.append('text')
             .attr('class', 'axis-title')
             .attr('font-weight', 'bold')
             .attr('font-size', '20')
-            .attr('x', vis.width/3)
-            .attr('y', 0)
-            .attr('dy', '.71em')
+            .attr('x', '20px')
+            .attr('y', '30px')
             .text('Distribution of Tech Salaries');
+
+        vis.chart.append('text')
+            .attr('class', 'axis-title')
+            .attr('x', vis.config.containerWidth / 2)
+            .attr('y', vis.height + 25)
+            .attr('dy', '.71em')
+            .attr('font-weight', 'bold')
+            .style('text-anchor', 'end')
+            .text('Salary (Thousand USD)');
 
         vis.svg.append('text')
             .attr('class', 'axis-title')
             .attr('font-weight', 'bold')
-            .attr('x', - vis.height/1.5)
-            .attr('y', 0)
+            .attr('x', -vis.config.containerHeight / 2)
+            .attr('y', 10)
             .attr('transform', 'rotate(-90)')
             .attr('dy', '.71em')
             .text('Counts');
@@ -115,7 +114,7 @@ export class Histogram implements View {
             .attr("height", (d) => vis.height - vis.yScale(yAccessor(d)))
             .attr("x", (d) => vis.xScale(d.x0))
             .attr("y", (d) => vis.yScale(yAccessor(d)))
-            .attr('fill', "rgb(165, 140, 95)")
+            .attr('fill', "rgb(99, 187, 110)")
 
         vis.xAxisG
             .call(vis.xAxis)

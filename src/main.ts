@@ -4,8 +4,6 @@ import { ChoroplethMap } from './choroplethMap';
 import { Histogram } from './histogram';
 import { BarChart } from './barChart';
 
-const dispatch = d3.dispatch('lmaoidk');
-
 let data: SalaryRecord[];
 
 Promise.all([
@@ -16,14 +14,14 @@ Promise.all([
     const scatterPlot = new ChoroplethMap(data, geoData, {
         parentElement: '#choropleth-map',
         containerWidth: 1000,
-        containerHeight: 1000,
-        margin: { top: 10, right: 10, bottom: 50, left: 50 }
+        containerHeight: 600,
+        margin: { top: 100, right: 100, bottom: 100, left: 100 }
     });
     const histogram = new Histogram(data, {
         parentElement: '#histogram',
-        containerWidth: 500,
+        containerWidth: 700,
         containerHeight: 500,
-        margin: { top: 10, right: 10, bottom: 50, left: 50 }
+        margin: { top: 60, right: 40, bottom: 50, left: 70 }
     });
     const barChart = new BarChart(data, {
         parentElement: '#bar-chart',

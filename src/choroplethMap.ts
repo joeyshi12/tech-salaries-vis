@@ -25,7 +25,7 @@ export class ChoroplethMap {
         vis.svg = d3.select('#choropleth-map')
             .attr('width', vis.config.containerWidth)
             .attr('height', vis.config.containerHeight);
-        vis.colorScale = d3.scaleSequential(d3.interpolateGreens);
+        vis.colorScale = d3.scaleSequential(d3.interpolateBlues);
         vis.geoPath = d3.geoPath();
     }
 

@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset=UTF-8>
-        <title>Tech Salary Insight</title>
+        <title>Visualizing Tech Salaries</title>
         <link rel="icon" href="data:;base64,iVBORwOKGO=" />
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <h1>Visualizing Tech Salaries</h1>
         <div id="vis">
             <svg id="choropleth-map"></svg>
-            <svg id="bar-chart"></svg>
-            <svg id="histogram"></svg>
+            <div>
+                <svg id="histogram"></svg>
+                <svg id="years-of-experience-chart"></svg>
+                <svg id="years-at-company-chart"></svg>
+            </div>
         </div>
         <script src=main.js></script>
+        <div id="tooltip"></div>
     </body>
 </html>
