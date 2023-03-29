@@ -2,7 +2,7 @@ export interface View {
     initVis(): void;
     updateVis(): void;
     renderVis(): void;
-};
+}
 
 export interface ViewConfig {
     parentElement: string;
@@ -19,15 +19,19 @@ export interface ViewConfig {
 export interface SalaryRecord {
     company: string;
     title: string;
+    state: string;
     baseSalary: number;
     yearsOfExperience: number;
-};
+    yearsAtCompany: number;
+}
 
 export function toSalaryRecord(json: any): SalaryRecord {
     return {
         company: json['company'],
         title: json['title'],
+        state: json['state'],
         baseSalary: +json['basesalary'],
-        yearsOfExperience: +json['yearsofexperience']
+        yearsOfExperience: +json['yearsofexperience'],
+        yearsAtCompany: +json['yearsatcompany']
     };
-};
+}

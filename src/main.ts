@@ -9,7 +9,7 @@ const dispatch = d3.dispatch('lmaoidk');
 let data: SalaryRecord[];
 
 Promise.all([
-    d3.csv('/data/salary_data.csv'),
+    d3.csv('/data/salaries_data.csv'),
     d3.json('/data/states-albers-10m.json')
 ]).then(([_data, geoData]) => {
     data = _data.map(toSalaryRecord);
