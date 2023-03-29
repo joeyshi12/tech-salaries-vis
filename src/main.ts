@@ -37,8 +37,8 @@ const barChart = new BarChart(data, {
     parentElement: '#bar-chart',
     width: 500,
     height: 500,
-    margin: { top: 10, right: 10, bottom: 50, left: 50 }
-});
+    margin: { top: 10, right: 10, bottom: 50, left: 50 },
+}, "yearsOfExperience");
 scatterPlot.updateVis();
 histogram.updateVis();
 barChart.updateVis();
