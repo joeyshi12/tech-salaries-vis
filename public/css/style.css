@@ -1,0 +1,30 @@
+#vis svg {
+    border-style: solid;
+    border-color: #e9e9e9;
+    border-width: 1px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#histogram .tick line {
+    color: #e9e9e9;
+}
+
+#histogram .bar:hover {
+    stroke: black;
+}
+
+#tooltip {
+    display: none;
+    position: absolute;
+    background: #fff;
+    box-shadow: 2px 2px 3px 0 rgb(92 92 92 / 0.5);
+    border: 1px solid #ddd;
+    font-size: 12px;
+    padding: 8px 8px;
+}
+
+.tooltip-title {
+    font-weight: bold;
+    font-size: 14px;
+}
