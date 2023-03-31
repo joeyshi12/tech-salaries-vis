@@ -43,3 +43,8 @@ Promise.all([
     }, (d): number => d.yearsAtCompany,
     "Years of Tenure");
 }).catch(err => console.error(err));
+
+d3.selectAll("#map-info-selector").on("change", function() {
+    choroplethMap.mapInfoType = d3.select(this).property("value");
+    choroplethMap.updateVis();
+});
