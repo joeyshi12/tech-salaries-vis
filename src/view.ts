@@ -30,8 +30,8 @@ export function toSalaryRecord(json: any): SalaryRecord {
         company: json['company'],
         title: json['title'],
         state: json['state'],
-        baseSalary: +json['basesalary'],
-        yearsOfExperience: +json['yearsofexperience'],
-        yearsAtCompany: +json['yearsatcompany']
+        baseSalary: +json['baseSalary'],
+        yearsOfExperience: +json['yearsOfExperience'],
+        yearsAtCompany: +json['yearsAtCompany']
     };
 }
