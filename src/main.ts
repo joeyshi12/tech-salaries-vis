@@ -28,24 +28,31 @@ Promise.all([
         containerWidth: 500,
         containerHeight: 400,
         margin: { top: 60, right: 40, bottom: 50, left: 70 }
-    }, (d): number => d.baseSalary, "Salary (Thousand USD)", (val): string => String(val/1000));
+    }, (d): number => d.baseSalary,
+     "Distribution of Tech Salaries", 
+     "Salary (Thousand USD)",
+     (val): string => String(val/1000));
     const yearsOfExperienceHistogram = new Histogram(data, {
         parentElement: '#years-of-experience-chart',
         containerWidth: 500,
         containerHeight: 400,
         margin: { top: 60, right: 40, bottom: 50, left: 70 }
-    }, (d): number => d.yearsOfExperience, "Years of Experience");
+    }, (d): number => d.yearsOfExperience, 
+    "Distribution of Experience", 
+    "Years of Experience");
     const yearsAtCompanyHistogram = new Histogram(data, {
         parentElement: '#years-at-company-chart',
         containerWidth: 500,
         containerHeight: 400,
         margin: { top: 60, right: 40, bottom: 50, left: 70 }
-    }, (d): number => d.yearsAtCompany, "Years at Company");
+    }, (d): number => d.yearsAtCompany, 
+    "Distribution of Company Tenure", 
+    "Years at Company");
 
     scatterPlot.updateVis();
+    barChart.updateVis;
     baseSalaryHistogram.updateVis();
     yearsOfExperienceHistogram.updateVis();
     yearsAtCompanyHistogram.updateVis();
 
-    //barChart.updateVis();
 }).catch(err => console.error(err));

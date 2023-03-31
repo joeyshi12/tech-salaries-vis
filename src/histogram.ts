@@ -17,6 +17,7 @@ export class Histogram implements View {
     public constructor(private data: SalaryRecord[],
                        private config: ViewConfig,
                        private xGetter: (SalaryRecord) => number,
+                       private chartTitle: string,
                        private xAxisTitle: string,
                        private tickFormat: (number) => string = null
                        ) {
@@ -64,7 +65,7 @@ export class Histogram implements View {
             .attr('font-size', '20')
             .attr('x', '20px')
             .attr('y', '30px')
-            .text('Distribution of Tech Salaries');
+            .text(`${vis.chartTitle}`);
 
         vis.chart.append('text')
             .attr('class', 'axis-title')
