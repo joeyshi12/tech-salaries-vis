@@ -5,8 +5,6 @@ import {SalaryRecord, ViewConfig} from './view';
 
 export class ChoroplethMap {
     private states: FeatureCollection;
-    private width: number;
-    private height: number;
     private svg: d3.Selection<any, any, any, any>;
     private colorScale: d3.ScaleSequential<string>;
     private geoPath: d3.GeoPath<any, d3.GeoPermissibleObjects>;
