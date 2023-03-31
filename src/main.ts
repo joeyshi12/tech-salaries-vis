@@ -50,7 +50,7 @@ Promise.all([
     "Years at Company");
 
     scatterPlot.updateVis();
-    barChart.updateVis;
+    barChart.updateVis();
     baseSalaryHistogram.updateVis();
     yearsOfExperienceHistogram.updateVis();
     yearsAtCompanyHistogram.updateVis();
