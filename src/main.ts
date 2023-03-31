@@ -17,6 +17,12 @@ Promise.all([
         containerHeight: 600,
         margin: { top: 100, right: 100, bottom: 100, left: 100 }
     });
+    const barChart = new BarChart(data, {
+        parentElement: '#bar-chart',
+        containerWidth: 500,
+        containerHeight: 400,
+        margin: { top: 60, right: 40, bottom: 50, left: 70 }
+    });
     const baseSalaryHistogram = new Histogram(data, {
         parentElement: '#histogram',
         containerWidth: 500,
@@ -31,16 +37,11 @@ Promise.all([
     }, (d): number => d.yearsOfExperience, "Years of Experience");
     const yearsAtCompanyHistogram = new Histogram(data, {
         parentElement: '#years-at-company-chart',
-        containerWidth: 700,
-        containerHeight: 500,
+        containerWidth: 500,
+        containerHeight: 400,
         margin: { top: 60, right: 40, bottom: 50, left: 70 }
     }, (d): number => d.yearsAtCompany, "Years at Company");
-    // const barChart = new BarChart(data, {
-    //     parentElement: '#bar-chart',
-    //     containerWidth: 500,
-    //     containerHeight: 500,
-    //     margin: { top: 10, right: 10, bottom: 50, left: 50 }
-    // }, "yearsOfExperience");
+
     scatterPlot.updateVis();
     baseSalaryHistogram.updateVis();
     yearsOfExperienceHistogram.updateVis();

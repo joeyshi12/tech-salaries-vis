@@ -1,27 +1,22 @@
 import * as d3 from 'd3';
-import { View, ViewConfig, SalaryRecord } from './view';
+import { View, ViewConfig, SalaryRecord, toSalaryRecord } from './view';
 
 export class BarChart implements View {
-    private records: SalaryRecord[];
-    private config: ViewConfig;
-    width: number;
-    height: number;
-    svg: any;
-    chartArea: any;
-    yScale: d3.ScaleLinear<number, number, never>;
-    xScale: d3.ScaleBand<string>;
-    xAxis: d3.Axis<string>;
-    yAxis: d3.Axis<d3.NumberValue>;
-    xAxisG: any;
-    yAxisG: any;
-    xValue: (d: any) => any;
-    yValue: (d: any) => any;
-    averageData: { yearsOfExperience: number; baseSalary: number | undefined; }[];
+    private width: number;
+    private height: number;
+    private svg: d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
+    private chartArea: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private yScale: d3.ScaleLinear<number, number, never>;
+    private xScale: d3.ScaleBand<string>;
+    private xAxis: d3.Axis<string>;
+    private yAxis: d3.Axis<d3.NumberValue>;
+    private xValue: (d: SalaryRecord) => string;
+    private yValue: (d: SalaryRecord) => number;
+    private averageData: { company: string; baseSalary: number | undefined; }[];
 
-    public constructor(records: SalaryRecord[], config: ViewConfig, xValue: string) {
-        this.records = records;
-        this.config = config;
-        this.xValue = d => d[xValue];
+    public constructor(private records: SalaryRecord[], private config: ViewConfig) {
         this.initVis();
     }
 
@@ -51,31 +46,49 @@ export class BarChart implements View {
             .paddingOuter(0.2);
 
         vis.xAxis = d3.axisBottom(vis.xScale)
-            .ticks(10)
-            .tickPadding(65)
-            .tickSize(0);
+            .tickSize(0)
+            .tickValues([]);
 
         vis.yAxis = d3.axisLeft(vis.yScale)
-            .ticks(8)
-            .tickPadding(5)
-            .tickSize(-vis.width);
+            .tickSize(-vis.width - 10)
+            .tickSizeOuter(0);
 
         // Append empty x-axis group and move it to the bottom of the chart
         vis.xAxisG = vis.chartArea.append('g')
-        .attr('class', 'axis x-axis')
-        .attr('transform', `translate(0,${vis.height})`);
+            .attr('class', 'axis x-axis')
+            .attr('transform', `translate(0,${vis.height})`);
 
         // Append y-axis group 
         vis.yAxisG = vis.chartArea.append('g')
             .attr('class', 'axis y-axis');
 
         // Append axis title
+
+        vis.svg.append('text')
+            .attr('class', 'axis-title')
+            .attr('font-weight', 'bold')
+            .attr('font-size', '20')
+            .attr('x', '20px')
+            .attr('y', '30px')
+            .text('Top 10 Companies in Average Salary');
+
         vis.chartArea.append('text')
-        .attr('class', 'chart-title')
-        .attr('y', -10)
-        .attr('x', 0)
-        .attr('text-anchor', 'start')
-        .text('Years of Experience');
+            .attr('class', 'axis-title')
+            .attr('x', vis.config.containerWidth / 2 - 20)
+            .attr('y', vis.height + 25)
+            .attr('dy', '.71em')
+            .attr('font-weight', 'bold')
+            .style('text-anchor', 'end')
+            .text('Company');
+
+        vis.svg.append('text')
+            .attr('class', 'axis-title')
+            .attr('font-weight', 'bold')
+            .attr('x', -vis.config.containerHeight/1.8)
+            .attr('y', 10)
+            .attr('transform', 'rotate(-90)')
+            .attr('dy', '.71em')
+            .text('Average Salary');
 
         vis.updateVis();
     }
@@ -83,13 +96,18 @@ export class BarChart implements View {
     public updateVis() {
         let vis = this
 
-        vis.yValue = d => d.baseSalary;
+        vis.xValue = (d): string => d.company;
+        vis.yValue = (d): number => d.baseSalary;
 
-        // Set the scale input domains
-        const data = vis.records.map(vis.xValue);
-        // Calculate the mean for each trial
-        let averages = d3.rollup(vis.records, v => d3.mean(v, d => d.baseSalary), d => d.yearsOfExperience);
-        vis.averageData = Array.from(averages, ([yearsOfExperience, baseSalary]) => ({ yearsOfExperience, baseSalary}));
+        // Get the average base salary by company
+        let averages = d3.rollup(vis.records, v => d3.mean(v, d => d.baseSalary), d => d.company);
+
+        // Sort average salary from highest to lowest and filter for the top 10
+        vis.averageData = Array.from(averages, ([company, baseSalary]) => ({ company, baseSalary}))
+            .sort((a, b) => b.baseSalary - a.baseSalary);
+        if (vis.averageData.length > 10) {
+            vis.averageData = vis.averageData.slice(0, 9);
+        }
         vis.xScale.domain(vis.averageData.map(vis.xValue));
         vis.yScale.domain([0, d3.max(vis.averageData, vis.yValue)]);
 
@@ -108,14 +126,15 @@ export class BarChart implements View {
         .attr('width', vis.xScale.bandwidth())
         .attr('height', (d: any) => vis.height - vis.yScale(vis.yValue(d)))
         .attr('y', (d: any) => vis.yScale(vis.yValue(d)))
-        .attr('fill', '#a0a0a0');
-
+        .attr('fill', "#FFCF58");
     
     // Update the axes/gridlines
     vis.xAxisG
       .call(vis.xAxis)
+      .call(g => g.select('.domain').remove());
 
     vis.yAxisG
       .call(vis.yAxis)
+      .call(g => g.select('.domain').remove());
     }
 }
