@@ -38,7 +38,7 @@
 
 #map-info-selector {
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 #job-legend {
@@ -47,7 +47,7 @@
 }
 
 .legend-btn {
-    margin: 0 20px 10px -30px;
+    margin: 0 20px 15px -30px;
     cursor: pointer;
     transition: all ease-in-out 200ms;
     list-style: none;
@@ -70,49 +70,34 @@
 }
 
 .legend-btn[data-category="software-engineer"] .legend-symbol {
-    background: #ccc;
+    background: #F35461;
 }
 .legend-btn[data-category="product-manager"] .legend-symbol {
-    background: #ffffd9;
+    background: #FFBE72;
 }
 .legend-btn[data-category="software-engineer-manager"] .legend-symbol {
-    background: #41b6c4;
+    background: #FFF372;
 }
 .legend-btn[data-category="data-scientist"] .legend-symbol {
-    background: #081d58;
+    background: #A4EB41;
 }
 .legend-btn[data-category="hardware-engineer"] .legend-symbol {
-    background: #c7e9b4;
-}
-.legend-btn[data-category="product-designer"] .legend-symbol {
-    background: #ccc;
-}
-.legend-btn[data-category="tech-program-manager"] .legend-symbol {
-    background: #ffffd9;
+    background: #10942D;
 }
 .legend-btn[data-category="solution-architect"] .legend-symbol {
-    background: #41b6c4;
+    background: #81E1FF;
+}
+.legend-btn[data-category="product-designer"] .legend-symbol {
+    background: #3D6EEF;
+}
+.legend-btn[data-category="tech-program-manager"] .legend-symbol {
+    background: #7B40E0;
 }
 .legend-btn[data-category="management-consultant"] .legend-symbol {
-    background: #081d58;
+    background: #D14FEB;
 }
 .legend-btn[data-category="business-analyst"] .legend-symbol {
-    background: #c7e9b4;
-}
-.legend-btn[data-category="marketing"] .legend-symbol {
-    background: #ccc;
-}
-.legend-btn[data-category="mechanical-engineer"] .legend-symbol {
-    background: #ffffd9;
-}
-.legend-btn[data-category="recruiter"] .legend-symbol {
-    background: #41b6c4;
-}
-.legend-btn[data-category="sales"] .legend-symbol {
-    background: #081d58;
-}
-.legend-btn[data-category="human-resources"] .legend-symbol {
-    background: #c7e9b4;
+    background: #FFA0F4;
 }
 
 /* Tooltip */
