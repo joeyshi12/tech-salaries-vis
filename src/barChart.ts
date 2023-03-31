@@ -8,7 +8,7 @@ export class BarChart implements View {
     private chartArea: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
-    private yScale: d3.ScaleLinear<number, number, never>;
+    private yScale: d3.ScaleLinear<number, number>;
     private xScale: d3.ScaleBand<string>;
     private xAxis: d3.Axis<string>;
     private yAxis: d3.Axis<d3.NumberValue>;
@@ -16,7 +16,7 @@ export class BarChart implements View {
     private yValue: (d: SalaryRecord) => number;
     private averageData: { company: string; baseSalary: number | undefined; }[];
 
-    public constructor(private records: SalaryRecord[], private config: ViewConfig) {
+    public constructor(private data: SalaryRecord[], private config: ViewConfig) {
         this.initVis();
     }
 
@@ -30,20 +30,20 @@ export class BarChart implements View {
         // Define size of SVG drawing area
         vis.svg = d3.select(vis.config.parentElement)
             .attr('width', vis.config.containerWidth)
-            .attr('height', vis.config.containerHeight);;
+            .attr('height', vis.config.containerHeight);
 
-        // Append group element that will contain our actual chart 
+        // Append group element that will contain our actual chart
         // and position it according to the given margin config
         vis.chartArea = vis.svg.append('g')
             .attr('transform', `translate(${vis.config.margin.left},${vis.config.margin.top})`);
 
         vis.yScale = d3.scaleLinear()
-            .range([vis.height, 0]) 
+            .range([vis.height, 0])
 
         vis.xScale = d3.scaleBand()
             .range([0, vis.width])
             .paddingInner(0.2)
-            .paddingOuter(0.2);
+            .paddingOuter(0);
 
         vis.xAxis = d3.axisBottom(vis.xScale)
             .tickSize(0)
@@ -51,6 +51,7 @@ export class BarChart implements View {
 
         vis.yAxis = d3.axisLeft(vis.yScale)
             .tickSize(-vis.width - 10)
+            .tickPadding(10)
             .tickSizeOuter(0);
 
         // Append empty x-axis group and move it to the bottom of the chart
@@ -58,37 +59,27 @@ export class BarChart implements View {
             .attr('class', 'axis x-axis')
             .attr('transform', `translate(0,${vis.height})`);
 
-        // Append y-axis group 
+        // Append y-axis group
         vis.yAxisG = vis.chartArea.append('g')
             .attr('class', 'axis y-axis');
 
         // Append axis title
-
         vis.svg.append('text')
             .attr('class', 'axis-title')
             .attr('font-weight', 'bold')
             .attr('font-size', '20')
-            .attr('x', '20px')
+            .attr('x', '10px')
             .attr('y', '30px')
-            .text('Top 10 Companies in Average Salary');
+            .text('Top 10 Average Company Salaries');
 
         vis.chartArea.append('text')
             .attr('class', 'axis-title')
             .attr('x', vis.config.containerWidth / 2 - 20)
-            .attr('y', vis.height + 25)
+            .attr('y', vis.height + 15)
             .attr('dy', '.71em')
             .attr('font-weight', 'bold')
             .style('text-anchor', 'end')
             .text('Company');
-
-        vis.svg.append('text')
-            .attr('class', 'axis-title')
-            .attr('font-weight', 'bold')
-            .attr('x', -vis.config.containerHeight/1.8)
-            .attr('y', 10)
-            .attr('transform', 'rotate(-90)')
-            .attr('dy', '.71em')
-            .text('Average Salary');
 
         vis.updateVis();
     }
@@ -100,14 +91,12 @@ export class BarChart implements View {
         vis.yValue = (d): number => d.baseSalary;
 
         // Get the average base salary by company
-        let averages = d3.rollup(vis.records, v => d3.mean(v, d => d.baseSalary), d => d.company);
+        let averages = d3.rollup(vis.data, v => d3.mean(v, d => d.baseSalary), d => d.company);
 
         // Sort average salary from highest to lowest and filter for the top 10
         vis.averageData = Array.from(averages, ([company, baseSalary]) => ({ company, baseSalary}))
             .sort((a, b) => b.baseSalary - a.baseSalary);
-        if (vis.averageData.length > 10) {
-            vis.averageData = vis.averageData.slice(0, 9);
-        }
+        vis.averageData = vis.averageData.slice(0, 19);
         vis.xScale.domain(vis.averageData.map(vis.xValue));
         vis.yScale.domain([0, d3.max(vis.averageData, vis.yValue)]);
 
@@ -117,24 +106,24 @@ export class BarChart implements View {
     public renderVis() {
         let vis = this
 
-    // Bind data to visual elements, update axes
-    const bars = vis.chartArea.selectAll('.bar')
-        .data(vis.averageData, vis.xValue)
-      .join('rect')
-        .attr('class', 'bar')
-        .attr('x', (d: any) => vis.xScale(vis.xValue(d)))
-        .attr('width', vis.xScale.bandwidth())
-        .attr('height', (d: any) => vis.height - vis.yScale(vis.yValue(d)))
-        .attr('y', (d: any) => vis.yScale(vis.yValue(d)))
-        .attr('fill', "#FFCF58");
-    
-    // Update the axes/gridlines
-    vis.xAxisG
-      .call(vis.xAxis)
-      .call(g => g.select('.domain').remove());
+        // Bind data to visual elements, update axes
+        vis.chartArea.selectAll('.bar')
+            .data(vis.averageData, vis.xValue)
+            .join('rect')
+            .attr('class', 'bar')
+            .attr('x', (d: any) => vis.xScale(vis.xValue(d)))
+            .attr('width', vis.xScale.bandwidth())
+            .attr('height', (d: any) => vis.height - vis.yScale(vis.yValue(d)))
+            .attr('y', (d: any) => vis.yScale(vis.yValue(d)))
+            .attr('fill', "#FFCF58");
 
-    vis.yAxisG
-      .call(vis.yAxis)
-      .call(g => g.select('.domain').remove());
+        // Update the axes/gridlines
+        vis.xAxisG
+          .call(vis.xAxis)
+          .call(g => g.select('.domain').remove());
+
+        vis.yAxisG
+          .call(vis.yAxis)
+          .call(g => g.select('.domain').remove());
     }
 }

@@ -1,27 +1,36 @@
-#vis {
-    margin-left: 250px;
+:root {
+    font-family: Arial, sans-serif;
 }
+
+#vis {
+    margin-left: 16rem;
+}
+
 #vis svg {
     border-style: solid;
     border-color: #e9e9e9;
     border-width: 1px;
     border-radius: 5px;
-    margin: 10px;
+    margin: 5px;
 }
 
 .tick line {
     color: #e9e9e9;
 }
 
-#histogram .bar:hover {
+#choropleth-map .state {
+    stroke: #ccc;
+}
+
+#choropleth-map .state:hover {
     stroke: black;
 }
 
 /* Sidebar */
 #sidebar {
     position: fixed;
-    background: #003764;
-    width: 250px;
+    background: rgb(8, 48, 107);
+    width: 16rem;
     height: 100%;
     top: 0;
     left: 0;
@@ -33,27 +42,27 @@
 
 #sidebar-content {
     color: grey;
-    margin-left: 20px;
+    margin-left: 1.2rem;
 }
 
 #map-info-selector {
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 1rem;
 }
 
 #job-legend {
     color: #e9e9e9;
     font-size: 14px;
+    padding-left: 0.5rem;
 }
 
 .legend-btn {
-    margin: 0 20px 15px -30px;
+    margin: 1.4rem 0;
     cursor: pointer;
     transition: all ease-in-out 200ms;
     list-style: none;
 }
 
-.legend-btn:hover.legend-btn.inactive:hover  {
+.legend-btn:hover .legend-btn.inactive:hover  {
     opacity: 0.7;
 }
 
