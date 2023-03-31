@@ -1,3 +1,6 @@
+#vis {
+    margin-left: 250px;
+}
 #vis svg {
     border-style: solid;
     border-color: #e9e9e9;
@@ -14,6 +17,105 @@
     stroke: black;
 }
 
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    background: #003764;
+    width: 250px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#sidebar h2 {
+    color: #e9e9e9;
+}
+
+#sidebar-content {
+    color: grey;
+    margin-left: 20px;
+}
+
+#map-info-selector {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#job-legend {
+    color: #e9e9e9;
+    font-size: 14px;
+}
+
+.legend-btn {
+    margin: 0 20px 10px -30px;
+    cursor: pointer;
+    transition: all ease-in-out 200ms;
+    list-style: none;
+}
+
+.legend-btn:hover.legend-btn.inactive:hover  {
+    opacity: 0.7;
+}
+
+.legend-btn.inactive {
+    opacity: 0.4;
+}
+
+.legend-symbol {
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.legend-btn[data-category="software-engineer"] .legend-symbol {
+    background: #ccc;
+}
+.legend-btn[data-category="product-manager"] .legend-symbol {
+    background: #ffffd9;
+}
+.legend-btn[data-category="software-engineer-manager"] .legend-symbol {
+    background: #41b6c4;
+}
+.legend-btn[data-category="data-scientist"] .legend-symbol {
+    background: #081d58;
+}
+.legend-btn[data-category="hardware-engineer"] .legend-symbol {
+    background: #c7e9b4;
+}
+.legend-btn[data-category="product-designer"] .legend-symbol {
+    background: #ccc;
+}
+.legend-btn[data-category="tech-program-manager"] .legend-symbol {
+    background: #ffffd9;
+}
+.legend-btn[data-category="solution-architect"] .legend-symbol {
+    background: #41b6c4;
+}
+.legend-btn[data-category="management-consultant"] .legend-symbol {
+    background: #081d58;
+}
+.legend-btn[data-category="business-analyst"] .legend-symbol {
+    background: #c7e9b4;
+}
+.legend-btn[data-category="marketing"] .legend-symbol {
+    background: #ccc;
+}
+.legend-btn[data-category="mechanical-engineer"] .legend-symbol {
+    background: #ffffd9;
+}
+.legend-btn[data-category="recruiter"] .legend-symbol {
+    background: #41b6c4;
+}
+.legend-btn[data-category="sales"] .legend-symbol {
+    background: #081d58;
+}
+.legend-btn[data-category="human-resources"] .legend-symbol {
+    background: #c7e9b4;
+}
+
+/* Tooltip */
 #tooltip {
     display: none;
     position: absolute;
