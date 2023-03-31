@@ -1,19 +1,115 @@
+:root {
+    font-family: Arial, sans-serif;
+}
+
+#vis {
+    margin-left: 16rem;
+}
+
 #vis svg {
     border-style: solid;
     border-color: #e9e9e9;
     border-width: 1px;
     border-radius: 5px;
-    margin: 10px;
+    margin: 5px;
 }
 
 .tick line {
     color: #e9e9e9;
 }
 
-#histogram .bar:hover {
+#choropleth-map .state {
+    stroke: #ccc;
+}
+
+#choropleth-map .state:hover {
     stroke: black;
 }
 
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    background: rgb(8, 48, 107);
+    width: 16rem;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#sidebar h2 {
+    color: #e9e9e9;
+}
+
+#sidebar-content {
+    color: grey;
+    margin-left: 1.2rem;
+}
+
+#map-info-selector {
+    margin-bottom: 1rem;
+}
+
+#job-legend {
+    color: #e9e9e9;
+    font-size: 14px;
+    padding-left: 0.5rem;
+}
+
+.legend-btn {
+    margin: 1.4rem 0;
+    cursor: pointer;
+    transition: all ease-in-out 200ms;
+    list-style: none;
+}
+
+.legend-btn:hover .legend-btn.inactive:hover  {
+    opacity: 0.7;
+}
+
+.legend-btn.inactive {
+    opacity: 0.4;
+}
+
+.legend-symbol {
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.legend-btn[data-category="software-engineer"] .legend-symbol {
+    background: #F35461;
+}
+.legend-btn[data-category="product-manager"] .legend-symbol {
+    background: #FFBE72;
+}
+.legend-btn[data-category="software-engineer-manager"] .legend-symbol {
+    background: #FFF372;
+}
+.legend-btn[data-category="data-scientist"] .legend-symbol {
+    background: #A4EB41;
+}
+.legend-btn[data-category="hardware-engineer"] .legend-symbol {
+    background: #10942D;
+}
+.legend-btn[data-category="solution-architect"] .legend-symbol {
+    background: #81E1FF;
+}
+.legend-btn[data-category="product-designer"] .legend-symbol {
+    background: #3D6EEF;
+}
+.legend-btn[data-category="tech-program-manager"] .legend-symbol {
+    background: #7B40E0;
+}
+.legend-btn[data-category="management-consultant"] .legend-symbol {
+    background: #D14FEB;
+}
+.legend-btn[data-category="business-analyst"] .legend-symbol {
+    background: #FFA0F4;
+}
+
+/* Tooltip */
 #tooltip {
     display: none;
     position: absolute;

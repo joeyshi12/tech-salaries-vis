@@ -2,12 +2,14 @@ import { SalaryRecord, View, ViewConfig } from './view';
 import * as d3 from 'd3';
 
 export class Histogram implements View {
+    private config;
     private width: number = 0;
     private height: number = 0;
     private xScale: d3.ScaleLinear<number, number>;
     private yScale: d3.ScaleLinear<number, number>;
     private xAxis: d3.Axis<d3.NumberValue>;
     private yAxis: d3.Axis<d3.NumberValue>;
+    private yValue: (d: d3.Bin<SalaryRecord, number>) => number;
     private svg: d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
     private chart: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
@@ -15,12 +17,16 @@ export class Histogram implements View {
     private binnedData: d3.Bin<SalaryRecord, number>[];
 
     public constructor(private data: SalaryRecord[],
-                       private config: ViewConfig,
-                       private xGetter: (SalaryRecord) => number,
+                       config: ViewConfig,
+                       private xValue: (SalaryRecord) => number,
                        private chartTitle: string,
-                       private xAxisTitle: string,
-                       private tickFormat: (number) => string = null
-                       ) {
+                       private tickFormat?: (number) => string) {
+        this.config = {
+            parentElement: config.parentElement,
+            containerWidth: config.containerWidth ?? 470,
+            containerHeight: config.containerHeight ?? 400,
+            margin: config.margin ?? { top: 60, right: 40, bottom: 50, left: 80 }
+        }
         this.initVis();
     }
 
@@ -35,14 +41,17 @@ export class Histogram implements View {
             .range([vis.height, 0]);
 
         vis.xAxis = d3.axisBottom<number>(vis.xScale)
-            .ticks(12)
-            .tickSizeOuter(0)
+            .ticks(10)
+            .tickPadding(5)
+            .tickSizeOuter(0);
+
         if (vis.tickFormat) {
             vis.xAxis.tickFormat(vis.tickFormat);
         }
 
         vis.yAxis = d3.axisLeft(vis.yScale)
             .tickSize(-vis.width - 10)
+            .tickPadding(10)
             .tickSizeOuter(0);
 
         vis.svg = d3.select(vis.config.parentElement)
@@ -63,18 +72,9 @@ export class Histogram implements View {
             .attr('class', 'axis-title')
             .attr('font-weight', 'bold')
             .attr('font-size', '20')
-            .attr('x', '20px')
+            .attr('x', '10px')
             .attr('y', '30px')
             .text(`${vis.chartTitle}`);
-
-        vis.chart.append('text')
-            .attr('class', 'axis-title')
-            .attr('x', vis.config.containerWidth / 2)
-            .attr('y', vis.height + 25)
-            .attr('dy', '.71em')
-            .attr('font-weight', 'bold')
-            .style('text-anchor', 'end')
-            .text(`${vis.xAxisTitle}`);
 
         vis.svg.append('text')
             .attr('class', 'axis-title')
@@ -83,43 +83,37 @@ export class Histogram implements View {
             .attr('y', 10)
             .attr('transform', 'rotate(-90)')
             .attr('dy', '.71em')
-            .text('Counts');
+            .text('Count');
 
         vis.updateVis();
     }
 
     public updateVis() {
         let vis = this;
-        vis.xScale.domain(d3.extent(vis.data, vis.xGetter));
+        vis.xScale.domain(d3.extent(vis.data, vis.xValue));
 
         const bin = d3.bin<SalaryRecord, number>()
             .domain(vis.xScale.domain() as [number, number])
-            .value(vis.xGetter)
-            .thresholds(40);
+            .value(vis.xValue)
+            .thresholds(20);
 
         vis.binnedData = bin(vis.data);
-
-        const yAccessor = (d): number => d.length;
-
-        vis.yScale.domain([0, d3.max(vis.binnedData, yAccessor)]);
-
+        vis.yValue = (d: d3.Bin<SalaryRecord, number>): number => d.length;
+        vis.yScale.domain([0, d3.max(vis.binnedData, (d): number => d.length)]);
         vis.renderVis();
     }
 
     public renderVis() {
         let vis = this;
-        const yAccessor = (d) => d.length;
 
-        vis.chart
-            .append('g')
-            .classed("bars", true)
-            .selectAll("rect")
+        vis.chart.selectAll(".bar")
             .data(vis.binnedData)
             .join("rect")
+            .attr("class", "bar")
             .attr("width", (d) => d3.max([0, vis.xScale(d.x1) - vis.xScale(d.x0)]) - 2)
-            .attr("height", (d) => vis.height - vis.yScale(yAccessor(d)))
+            .attr("height", (d) => vis.height - vis.yScale(vis.yValue(d)))
             .attr("x", (d) => vis.xScale(d.x0))
-            .attr("y", (d) => vis.yScale(yAccessor(d)))
+            .attr("y", (d) => vis.yScale(vis.yValue(d)))
             .attr('fill', "rgb(99, 187, 110)")
 
         vis.xAxisG
