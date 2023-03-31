@@ -13,23 +13,46 @@ Promise.all([
     data = _data.map(toSalaryRecord);
     const scatterPlot = new ChoroplethMap(data, geoData, {
         parentElement: '#choropleth-map',
-        containerWidth: 1000,
+        containerWidth: 1030,
         containerHeight: 600,
         margin: { top: 100, right: 100, bottom: 100, left: 100 }
-    });
-    const histogram = new Histogram(data, {
-        parentElement: '#histogram',
-        containerWidth: 700,
-        containerHeight: 500,
-        margin: { top: 60, right: 40, bottom: 50, left: 70 }
     });
     const barChart = new BarChart(data, {
         parentElement: '#bar-chart',
         containerWidth: 500,
-        containerHeight: 500,
-        margin: { top: 10, right: 10, bottom: 50, left: 50 }
+        containerHeight: 400,
+        margin: { top: 60, right: 40, bottom: 50, left: 70 }
     });
+    const baseSalaryHistogram = new Histogram(data, {
+        parentElement: '#histogram',
+        containerWidth: 500,
+        containerHeight: 400,
+        margin: { top: 60, right: 40, bottom: 50, left: 70 }
+    }, (d): number => d.baseSalary,
+     "Distribution of Tech Salaries", 
+     "Salary (Thousand USD)",
+     (val): string => String(val/1000));
+    const yearsOfExperienceHistogram = new Histogram(data, {
+        parentElement: '#years-of-experience-chart',
+        containerWidth: 500,
+        containerHeight: 400,
+        margin: { top: 60, right: 40, bottom: 50, left: 70 }
+    }, (d): number => d.yearsOfExperience, 
+    "Distribution of Tech Experience", 
+    "Years of Experience");
+    const yearsAtCompanyHistogram = new Histogram(data, {
+        parentElement: '#years-at-company-chart',
+        containerWidth: 500,
+        containerHeight: 400,
+        margin: { top: 60, right: 40, bottom: 50, left: 70 }
+    }, (d): number => d.yearsAtCompany, 
+    "Distribution of Company Tenure", 
+    "Years at Company");
+
     scatterPlot.updateVis();
-    histogram.updateVis();
     barChart.updateVis();
+    baseSalaryHistogram.updateVis();
+    yearsOfExperienceHistogram.updateVis();
+    yearsAtCompanyHistogram.updateVis();
+
 }).catch(err => console.error(err));

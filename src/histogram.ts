@@ -9,14 +9,18 @@ export class Histogram implements View {
     private xAxis: d3.Axis<d3.NumberValue>;
     private yAxis: d3.Axis<d3.NumberValue>;
     private svg: d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
-    private xGetter: (sr: SalaryRecord) => number = (d): number => d.baseSalary;
     private chart: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private binnedData: d3.Bin<SalaryRecord, number>[];
 
     public constructor(private data: SalaryRecord[],
-                       private config: ViewConfig) {
+                       private config: ViewConfig,
+                       private xGetter: (SalaryRecord) => number,
+                       private chartTitle: string,
+                       private xAxisTitle: string,
+                       private tickFormat: (number) => string = null
+                       ) {
         this.initVis();
     }
 
@@ -33,7 +37,9 @@ export class Histogram implements View {
         vis.xAxis = d3.axisBottom<number>(vis.xScale)
             .ticks(12)
             .tickSizeOuter(0)
-            .tickFormat((val) => String(val/1000));
+        if (vis.tickFormat) {
+            vis.xAxis.tickFormat(vis.tickFormat);
+        }
 
         vis.yAxis = d3.axisLeft(vis.yScale)
             .tickSize(-vis.width - 10)
@@ -59,7 +65,7 @@ export class Histogram implements View {
             .attr('font-size', '20')
             .attr('x', '20px')
             .attr('y', '30px')
-            .text('Distribution of Tech Salaries');
+            .text(`${vis.chartTitle}`);
 
         vis.chart.append('text')
             .attr('class', 'axis-title')
@@ -68,7 +74,7 @@ export class Histogram implements View {
             .attr('dy', '.71em')
             .attr('font-weight', 'bold')
             .style('text-anchor', 'end')
-            .text('Salary (Thousand USD)');
+            .text(`${vis.xAxisTitle}`);
 
         vis.svg.append('text')
             .attr('class', 'axis-title')
