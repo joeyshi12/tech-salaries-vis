@@ -17,9 +17,9 @@ export class Histogram implements View {
     public constructor(private data: SalaryRecord[],
                        private config: ViewConfig,
                        private xGetter: (SalaryRecord) => number,
-                       private tickFormat: (number) => string = null) {
-        this.xGetter = xGetter;
-        this.tickFormat = tickFormat;
+                       private xAxisTitle: string,
+                       private tickFormat: (number) => string = null
+                       ) {
         this.initVis();
     }
 
@@ -73,7 +73,7 @@ export class Histogram implements View {
             .attr('dy', '.71em')
             .attr('font-weight', 'bold')
             .style('text-anchor', 'end')
-            .text('Salary (Thousand USD)');
+            .text(`${vis.xAxisTitle}`);
 
         vis.svg.append('text')
             .attr('class', 'axis-title')
