@@ -106,15 +106,15 @@ export class Histogram implements View {
     public renderVis() {
         let vis = this;
 
-        vis.chart.selectAll(".bar")
+        vis.chart.selectAll('.bar')
             .data(vis.binnedData)
-            .join("rect")
-            .attr("class", "bar")
-            .attr("width", (d) => d3.max([0, vis.xScale(d.x1) - vis.xScale(d.x0)]) - 2)
-            .attr("height", (d) => vis.height - vis.yScale(vis.yValue(d)))
-            .attr("x", (d) => vis.xScale(d.x0))
-            .attr("y", (d) => vis.yScale(vis.yValue(d)))
-            .attr('fill', "rgb(99, 187, 110)")
+            .join('rect')
+            .attr('class', 'bar')
+            .attr('width', (d) => d3.max([0, vis.xScale(d.x1) - vis.xScale(d.x0)]) - 2)
+            .attr('height', (d) => vis.height - vis.yScale(vis.yValue(d)))
+            .attr('x', (d) => vis.xScale(d.x0))
+            .attr('y', (d) => vis.yScale(vis.yValue(d)))
+            .attr('fill', 'rgb(99, 187, 110)')
 
         vis.xAxisG
             .call(vis.xAxis)

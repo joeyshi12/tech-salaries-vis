@@ -7,7 +7,7 @@ type ChoroplethMapConfig = ViewConfig & {
     scale: number;
 }
 
-type MapInfoType = "record" | "salary";
+type MapInfoType = 'record' | 'salary';
 
 export class ChoroplethMap {
     private infoType: MapInfoType;
@@ -20,7 +20,7 @@ export class ChoroplethMap {
     constructor(private data: SalaryRecord[],
                 private geoData: any,
                 private config: ChoroplethMapConfig) {
-        this.mapInfoType = "record";
+        this.mapInfoType = 'record';
         this.initVis();
     }
 
@@ -49,7 +49,7 @@ export class ChoroplethMap {
         let vis = this;
         let reduce;
         switch (vis.infoType) {
-            case "salary":
+            case 'salary':
                 reduce = (records: SalaryRecord[]) => d3.mean(records, (record: SalaryRecord) => record.baseSalary);
                 vis.colorScale = d3.scaleSequential(d3.interpolateGreens);
                 break;

@@ -70,7 +70,7 @@ export class BarChart implements View {
             .attr('font-size', '20')
             .attr('x', '10px')
             .attr('y', '30px')
-            .text('Top 10 Average Company Salaries');
+            .text('Top 20 Average Company Salaries');
 
         vis.chartArea.append('text')
             .attr('class', 'axis-title')

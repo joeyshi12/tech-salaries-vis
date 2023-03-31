@@ -32,19 +32,19 @@ Promise.all([
     baseSalaryHistogram = new Histogram(data, {
         parentElement: '#base-salary-histogram',
     }, (d): number => d.baseSalary,
-     "Base Salary (Thousand USD)",
+     'Base Salary (Thousand USD)',
      (val): string => String(val/1000));
     yearsOfExperienceHistogram = new Histogram(data, {
         parentElement: '#years-of-experience-histogram',
     }, (d): number => d.yearsOfExperience,
-    "Years of Experience");
+    'Years of Experience');
     yearsAtCompanyHistogram = new Histogram(data, {
         parentElement: '#years-at-company-histogram',
     }, (d): number => d.yearsAtCompany,
-    "Years of Tenure");
+    'Years of Tenure');
 }).catch(err => console.error(err));
 
-d3.selectAll("#map-info-selector").on("change", function() {
-    choroplethMap.mapInfoType = d3.select(this).property("value");
+d3.selectAll('#map-info-selector').on('change', function() {
+    choroplethMap.mapInfoType = d3.select(this).property('value');
     choroplethMap.updateVis();
 });
