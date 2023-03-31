@@ -7,7 +7,16 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>Visualizing Tech Salaries</h1>
+        <div class="side-panel">
+            <h1>Visualizing Tech Salaries</h1>
+            <section>
+                <label for="info-selector">Select</label>
+                <select id="info-selector">
+                    <option value="records">Records</option>
+                    <option value="salary">Average Salary</option>
+                </select>
+            </section>
+        </div>
         <div id="vis">
             <svg id="choropleth-map"></svg>
             <div>
@@ -17,7 +26,7 @@
                 <svg id="years-at-company-chart"></svg>
             </div>
         </div>
-        <script src=main.js></script>
         <div id="tooltip"></div>
+        <script src=main.js></script>
     </body>
 </html>
