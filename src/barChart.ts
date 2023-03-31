@@ -29,13 +29,13 @@ export class BarChart implements View {
         let vis = this;
 
         // Create SVG area, initialize scales and axes
-        vis.width = vis.config.width - vis.config.margin.left - vis.config.margin.right;
-        vis.height = vis.config.height - vis.config.margin.top - vis.config.margin.bottom;
+        vis.width = vis.config.containerWidth - vis.config.margin.left - vis.config.margin.right;
+        vis.height = vis.config.containerHeight - vis.config.margin.top - vis.config.margin.bottom;
 
         // Define size of SVG drawing area
         vis.svg = d3.select(vis.config.parentElement)
-            .attr('width', vis.config.width)
-            .attr('height', vis.config.height);;
+            .attr('width', vis.config.containerWidth)
+            .attr('height', vis.config.containerHeight);;
 
         // Append group element that will contain our actual chart 
         // and position it according to the given margin config

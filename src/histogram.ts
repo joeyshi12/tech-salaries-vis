@@ -9,14 +9,17 @@ export class Histogram implements View {
     private xAxis: d3.Axis<d3.NumberValue>;
     private yAxis: d3.Axis<d3.NumberValue>;
     private svg: d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
-    private xGetter: (sr: SalaryRecord) => number = (d): number => d.baseSalary;
     private chart: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private binnedData: d3.Bin<SalaryRecord, number>[];
 
     public constructor(private data: SalaryRecord[],
-                       private config: ViewConfig) {
+                       private config: ViewConfig,
+                       private xGetter: (SalaryRecord) => number,
+                       private tickFormat: (number) => string = null) {
+        this.xGetter = xGetter;
+        this.tickFormat = tickFormat;
         this.initVis();
     }
 
@@ -33,7 +36,9 @@ export class Histogram implements View {
         vis.xAxis = d3.axisBottom<number>(vis.xScale)
             .ticks(12)
             .tickSizeOuter(0)
-            .tickFormat((val) => String(val/1000));
+        if (vis.tickFormat) {
+            vis.xAxis.tickFormat(vis.tickFormat);
+        }
 
         vis.yAxis = d3.axisLeft(vis.yScale)
             .tickSize(-vis.width - 10)
