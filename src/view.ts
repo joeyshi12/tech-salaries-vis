@@ -14,6 +14,7 @@ export interface ViewConfig {
         bottom: number;
         left: number;
     }
+    tooltipPadding?: number;
 }
 
 export interface SalaryRecord {

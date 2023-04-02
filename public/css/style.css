@@ -27,6 +27,11 @@
     stroke-width: 2px;
 }
 
+#bar-chart .bar:hover {
+    stroke: black;
+    stroke-width: 1px;
+}
+
 /* Sidebar */
 #sidebar {
     position: fixed;
@@ -119,6 +124,10 @@
     border: 1px solid #ddd;
     font-size: 12px;
     padding: 8px 8px;
+}
+
+#tooltip ul {
+    padding-left: 1rem;
 }
 
 .tooltip-title {

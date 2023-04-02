@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "webpack serve",
         "watch": "webpack --watch",
-        "build": "webpack && mkdir -p dist && cp -r node_modules public/* dist"
+        "build": "webpack && mkdir -p dist && cp -r public/* dist"
     },
     "keywords": [],
     "author": "",

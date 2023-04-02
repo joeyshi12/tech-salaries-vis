@@ -9,18 +9,23 @@ type ChoroplethMapConfig = ViewConfig & {
 
 type MapInfoType = 'record' | 'salary';
 
+interface StateInfo {
+    recordCount: number;
+    averageSalary: number;
+}
+
 export class ChoroplethMap {
-    private infoType: MapInfoType;
     private geoPath: d3.GeoPath<any, d3.GeoPermissibleObjects>;
-    private stateDataMap: Map<string, number>;
+    private stateInfoMap: Map<string, StateInfo>;
     private svg: d3.Selection<any, any, any, any>;
     private chart: d3.Selection<any, any, any, any>
     private colorScale: d3.ScaleSequential<string>;
+    private infoGetter: (d: StateInfo) => number;
 
     constructor(private data: SalaryRecord[],
                 private geoData: any,
-                private config: ChoroplethMapConfig) {
-        this.mapInfoType = 'record';
+                private config: ChoroplethMapConfig,
+                private infoType: MapInfoType) {
         this.initVis();
     }
 
@@ -47,20 +52,25 @@ export class ChoroplethMap {
 
     public updateVis() {
         let vis = this;
-        let reduce;
         switch (vis.infoType) {
             case 'salary':
-                reduce = (records: SalaryRecord[]) => d3.mean(records, (record: SalaryRecord) => record.baseSalary);
+                vis.infoGetter = (info: StateInfo) => info?.averageSalary ?? 0;
                 vis.colorScale = d3.scaleSequential(d3.interpolateGreens);
                 break;
             default:
-                reduce = (records: SalaryRecord[]) => records.length;
+                vis.infoGetter = (info: StateInfo) => info?.recordCount ?? 0;
                 vis.colorScale = d3.scaleSequential(d3.interpolateBlues);
         }
-        const stateRecordCounts = d3.rollups<SalaryRecord, number, string>(
-            vis.data, reduce, (record: SalaryRecord) => record.state);
-        vis.stateDataMap = new Map(stateRecordCounts);
-        vis.colorScale.domain(d3.extent<[string, number], number>(stateRecordCounts, (rollup: [string, number]) => rollup[1]));
+        const stateInfoPairs = d3.rollups<SalaryRecord, StateInfo, string>(vis.data,
+            (records: SalaryRecord[]) => {
+                return {
+                    recordCount: records.length,
+                    averageSalary: Math.round(d3.mean(records, (record: SalaryRecord) => record.baseSalary))
+                };
+            },
+            (record: SalaryRecord) => record.state);
+        vis.stateInfoMap = new Map(stateInfoPairs);
+        vis.colorScale.domain(d3.extent<[string, StateInfo], number>(stateInfoPairs, (pair) => vis.infoGetter(pair[1])));
         this.renderVis();
     }
 
@@ -73,6 +83,22 @@ export class ChoroplethMap {
             .join('path')
             .attr('class', 'state')
             .attr('d', vis.geoPath)
-            .style('fill', (feature) => vis.colorScale(vis.stateDataMap.get(feature.properties.name) ?? 0))
+            .style('fill', (d) => vis.colorScale(
+                vis.infoGetter(vis.stateInfoMap.get(d.properties.name)))
+            )
+            .on('mousemove', (event, d) => {
+                d3.select('#tooltip')
+                    .style('display', 'block')
+                    .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')
+                    .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
+                    .html(`<div class="tooltip-title">${d.properties.name}</div>
+                          <ul>
+                            <li>Average salary: ${vis.stateInfoMap.get(d.properties.name)?.averageSalary ?? 0}</li>
+                            <li>Record count: ${vis.stateInfoMap.get(d.properties.name)?.recordCount ?? 0}</li>
+                          </ul>`);
+            })
+            .on('mouseleave', () => {
+                d3.select('#tooltip').style('display', 'none');
+            });
     }
 }

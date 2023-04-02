@@ -115,7 +115,18 @@ export class BarChart implements View {
             .attr('width', vis.xScale.bandwidth())
             .attr('height', (d: any) => vis.height - vis.yScale(vis.yValue(d)))
             .attr('y', (d: any) => vis.yScale(vis.yValue(d)))
-            .attr('fill', "#FFCF58");
+            .attr('fill', "#FFCF58")
+            .on('mousemove', (event, d) => {
+                d3.select('#tooltip')
+                    .style('display', 'block')
+                    .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')
+                    .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
+                    .html(`<div class="tooltip-title">${d.company}</div>
+                          <ul><li>Average salary: ${Math.round(d.baseSalary)}</li></ul>`);
+            })
+            .on('mouseleave', () => {
+                d3.select('#tooltip').style('display', 'none');
+            });
 
         // Update the axes/gridlines
         vis.xAxisG

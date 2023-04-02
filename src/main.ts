@@ -16,18 +16,22 @@ Promise.all([
     d3.json('/data/states-albers-10m.json')
 ]).then(([_data, geoData]) => {
     data = _data.map(toSalaryRecord);
+    const mapInfoType = d3.select('#map-info-selector').property('value');
+
     choroplethMap = new ChoroplethMap(data, geoData, {
         parentElement: '#choropleth-map',
         containerWidth: 955,
         containerHeight: 600,
         margin: { top: 20, right: 10, bottom: 10, left: 60 },
+        tooltipPadding: 15,
         scale: 0.9
-    });
+    }, mapInfoType);
     barChart = new BarChart(data, {
         parentElement: '#bar-chart',
         containerWidth: 470,
         containerHeight: 600,
-        margin: { top: 60, right: 40, bottom: 50, left: 60 }
+        margin: { top: 60, right: 40, bottom: 50, left: 60 },
+        tooltipPadding: 15
     });
     baseSalaryHistogram = new Histogram(data, {
         parentElement: '#base-salary-histogram',
