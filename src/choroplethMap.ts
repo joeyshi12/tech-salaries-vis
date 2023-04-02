@@ -82,7 +82,7 @@ export class ChoroplethMap implements View {
         let vis = this;
         const states = <FeatureCollection><unknown>topojson.feature(vis.geoData, vis.geoData.objects.states);
 
-        vis.chart.selectAll('state')
+        vis.chart.selectAll('.state')
             .data(states.features)
             .join('path')
             .attr('class', 'state')
