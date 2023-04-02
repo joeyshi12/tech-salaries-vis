@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 import { FeatureCollection } from 'geojson';
-import { SalaryRecord, ViewConfig } from './view';
+import {SalaryRecord, View, ViewConfig} from './view';
 
 type ChoroplethMapConfig = ViewConfig & {
     scale: number;
@@ -14,7 +14,7 @@ interface StateInfo {
     averageSalary: number;
 }
 
-export class ChoroplethMap {
+export class ChoroplethMap implements View {
     private geoPath: d3.GeoPath<any, d3.GeoPermissibleObjects>;
     private stateInfoMap: Map<string, StateInfo>;
     private svg: d3.Selection<any, any, any, any>;
@@ -22,11 +22,15 @@ export class ChoroplethMap {
     private colorScale: d3.ScaleSequential<string>;
     private infoGetter: (d: StateInfo) => number;
 
-    constructor(private data: SalaryRecord[],
+    constructor(private _data: SalaryRecord[],
                 private geoData: any,
                 private config: ChoroplethMapConfig,
                 private infoType: MapInfoType) {
         this.initVis();
+    }
+
+    public set data(val: SalaryRecord[]) {
+        this._data = val;
     }
 
     public set mapInfoType(val: MapInfoType) {
@@ -61,7 +65,7 @@ export class ChoroplethMap {
                 vis.infoGetter = (info: StateInfo) => info?.recordCount ?? 0;
                 vis.colorScale = d3.scaleSequential(d3.interpolateBlues);
         }
-        const stateInfoPairs = d3.rollups<SalaryRecord, StateInfo, string>(vis.data,
+        const stateInfoPairs = d3.rollups<SalaryRecord, StateInfo, string>(vis._data,
             (records: SalaryRecord[]) => {
                 return {
                     recordCount: records.length,

@@ -66,14 +66,16 @@
     cursor: pointer;
     transition: all ease-in-out 200ms;
     list-style: none;
+    color: grey;
+    /* make text unselectable */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.legend-btn:hover .legend-btn.inactive:hover  {
-    opacity: 0.7;
-}
-
-.legend-btn.inactive {
-    opacity: 0.4;
+.legend-btn:is(.active) {
+    color: white;
 }
 
 .legend-symbol {

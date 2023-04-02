@@ -1,6 +1,19 @@
 import { SalaryRecord, View, ViewConfig } from './view';
 import * as d3 from 'd3';
 
+const titleColorMap = new Map([
+    ["Software Engineer", "#F35461"],
+    ["Product Manager", "#FFBE72"],
+    ["Software Engineering Manager", "#FFF372"],
+    ["Data Scientist", "#A4EB41"],
+    ["Hardware Engineer", "#10942D"],
+    ["Solution Architect", "#81E1FF"],
+    ["Product Designer", "#3D6EEF"],
+    ["Technical Program Manager", "#7B40E0"],
+    ["Management Consultant", "#D14FEB"],
+    ["Business Analyst", "#FFA0F4"]
+]);
+
 export class Histogram implements View {
     private config;
     private width: number = 0;
@@ -14,9 +27,12 @@ export class Histogram implements View {
     private chart: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
-    private binnedData: d3.Bin<SalaryRecord, number>[];
+    private binnedData1: d3.Bin<SalaryRecord, number>[];
+    private binnedData2: d3.Bin<SalaryRecord, number>[];
+    private bars2: d3.Selection<d3.BaseType, d3.Bin<SalaryRecord, number>, SVGGElement, unknown>;
+    private _selectedTitles: string[];
 
-    public constructor(private data: SalaryRecord[],
+    public constructor(private _data: SalaryRecord[],
                        config: ViewConfig,
                        private xValue: (SalaryRecord) => number,
                        private chartTitle: string,
@@ -27,7 +43,16 @@ export class Histogram implements View {
             containerHeight: config.containerHeight ?? 400,
             margin: config.margin ?? { top: 60, right: 40, bottom: 50, left: 80 }
         }
+        this._selectedTitles = [];
         this.initVis();
+    }
+
+    public set data(val: SalaryRecord[]) {
+        this._data = val;
+    }
+
+    public set selectedTitles(val: string[]) {
+        this._selectedTitles = val;
     }
 
     public initVis() {
@@ -90,31 +115,70 @@ export class Histogram implements View {
 
     public updateVis() {
         let vis = this;
-        vis.xScale.domain(d3.extent(vis.data, vis.xValue));
+        vis.xScale.domain(d3.extent(vis._data, vis.xValue));
 
         const bin = d3.bin<SalaryRecord, number>()
             .domain(vis.xScale.domain() as [number, number])
             .value(vis.xValue)
             .thresholds(20);
 
-        vis.binnedData = bin(vis.data);
+        if (vis._selectedTitles.length === 0) {
+            vis.binnedData1 = bin(vis._data);
+        } else {
+            const groups = d3.groups(vis._data, (d) => d.title)
+                .filter(([title, _]) => vis._selectedTitles.includes(title));
+            vis.binnedData1 = bin(groups.find(g => g[0] === vis._selectedTitles[0])[1]);
+            if (groups.length === 2) {
+                vis.binnedData2 = bin(groups.find(g => g[0] === vis._selectedTitles[1])[1]);
+            } else {
+                vis.binnedData2 = null;
+            }
+        }
         vis.yValue = (d: d3.Bin<SalaryRecord, number>): number => d.length;
-        vis.yScale.domain([0, d3.max(vis.binnedData, (d): number => d.length)]);
+        let maxCount = d3.max(vis.binnedData1, vis.yValue);
+        if (vis.binnedData2) {
+            const count2 = d3.max(vis.binnedData2, vis.yValue);
+            console.log(maxCount, count2)
+            if (count2 > maxCount) {
+                maxCount = count2;
+            }
+        }
+        vis.yScale.domain([0, maxCount]);
         vis.renderVis();
     }
 
     public renderVis() {
         let vis = this;
+        const barWidth = vis.width / vis.binnedData1.length - 1;
 
+        const fill1 = titleColorMap.get(vis._selectedTitles[0]) ?? 'rgb(99, 187, 110)';
         vis.chart.selectAll('.bar')
-            .data(vis.binnedData)
+            .data(vis.binnedData1)
             .join('rect')
             .attr('class', 'bar')
-            .attr('width', (d) => d3.max([0, vis.xScale(d.x1) - vis.xScale(d.x0)]) - 2)
+            .attr('width', barWidth)
             .attr('height', (d) => vis.height - vis.yScale(vis.yValue(d)))
             .attr('x', (d) => vis.xScale(d.x0))
             .attr('y', (d) => vis.yScale(vis.yValue(d)))
-            .attr('fill', 'rgb(99, 187, 110)')
+            .attr('fill', fill1)
+            .attr('opacity', 0.8);
+
+        if (vis.binnedData2) {
+            const fill2 = titleColorMap.get(vis._selectedTitles[1]);
+            vis.bars2 = vis.chart.selectAll('.bar2')
+                .data(vis.binnedData2)
+                .join('rect')
+                .attr('class', 'bar2')
+                .attr('width', barWidth)
+                .attr('height', (d) => vis.height - vis.yScale(vis.yValue(d)))
+                .attr('x', (d) => vis.xScale(d.x0))
+                .attr('y', (d) => vis.yScale(vis.yValue(d)))
+                .attr('fill', fill2)
+                .attr('opacity', 0.8)
+                .attr('display', 'block');
+        } else {
+            vis.bars2?.attr('display', 'none');
+        }
 
         vis.xAxisG
             .call(vis.xAxis)

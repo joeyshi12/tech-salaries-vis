@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { View, ViewConfig, SalaryRecord, toSalaryRecord } from './view';
+import { View, ViewConfig, SalaryRecord } from './view';
 
 export class BarChart implements View {
     private width: number;
@@ -16,8 +16,12 @@ export class BarChart implements View {
     private yValue: (d: SalaryRecord) => number;
     private averageData: { company: string; baseSalary: number | undefined; }[];
 
-    public constructor(private data: SalaryRecord[], private config: ViewConfig) {
+    public constructor(private _data: SalaryRecord[], private config: ViewConfig) {
         this.initVis();
+    }
+
+    public set data(val: SalaryRecord[]) {
+        this._data = val;
     }
 
     public initVis() {
@@ -70,7 +74,7 @@ export class BarChart implements View {
             .attr('font-size', '20')
             .attr('x', '10px')
             .attr('y', '30px')
-            .text('Top 20 Average Company Salaries');
+            .text('Top 10 Average Company Salaries');
 
         vis.chartArea.append('text')
             .attr('class', 'axis-title')
@@ -91,12 +95,12 @@ export class BarChart implements View {
         vis.yValue = (d): number => d.baseSalary;
 
         // Get the average base salary by company
-        let averages = d3.rollup(vis.data, v => d3.mean(v, d => d.baseSalary), d => d.company);
+        let averages = d3.rollup(vis._data, v => d3.mean(v, d => d.baseSalary), d => d.company);
 
         // Sort average salary from highest to lowest and filter for the top 10
         vis.averageData = Array.from(averages, ([company, baseSalary]) => ({ company, baseSalary}))
             .sort((a, b) => b.baseSalary - a.baseSalary);
-        vis.averageData = vis.averageData.slice(0, 19);
+        vis.averageData = vis.averageData.slice(0, 9);
         vis.xScale.domain(vis.averageData.map(vis.xValue));
         vis.yScale.domain([0, d3.max(vis.averageData, vis.yValue)]);
 
