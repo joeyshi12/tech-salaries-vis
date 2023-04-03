@@ -150,7 +150,7 @@ export class Histogram implements View {
             .attr('x', (d) => vis.xScale(d.x0))
             .attr('y', (d) => vis.yScale(vis.yValue(d)))
             .attr('fill', fill1)
-            .attr('opacity', 0.8);
+            .attr('opacity', 0.6);
 
         if (vis.binnedData2) {
             const fill2 = titleColourMap.get(vis._selectedTitles[1]);
@@ -163,7 +163,7 @@ export class Histogram implements View {
                 .attr('x', (d) => vis.xScale(d.x0))
                 .attr('y', (d) => vis.yScale(vis.yValue(d)))
                 .attr('fill', fill2)
-                .attr('opacity', 0.8)
+                .attr('opacity', 0.6)
                 .attr('display', 'block');
         } else {
             vis.bars2?.attr('display', 'none');
