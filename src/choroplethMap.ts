@@ -17,10 +17,11 @@ interface StateInfo {
 export class ChoroplethMap implements View {
     private geoPath: d3.GeoPath<any, d3.GeoPermissibleObjects>;
     private stateInfoMap: Map<string, StateInfo>;
-    private svg: d3.Selection<any, any, any, any>;
-    private chart: d3.Selection<any, any, any, any>
     private colorScale: d3.ScaleSequential<string>;
     private infoGetter: (d: StateInfo) => number;
+
+    private svg: d3.Selection<any, any, any, any>;
+    private chart: d3.Selection<any, any, any, any>
 
     constructor(private _data: SalaryRecord[],
                 private geoData: any,
@@ -44,8 +45,8 @@ export class ChoroplethMap implements View {
             .attr('width', vis.config.containerWidth)
             .attr('height', vis.config.containerHeight);
 
-        vis.chart = vis.svg.append('g')
-            .attr('transform', `translate(${vis.config.margin.left},${vis.config.margin.top}) scale(${vis.config.scale})`)
+        vis.chart = vis.svg.append('g').attr('transform',
+            `translate(${vis.config.margin.left},${vis.config.margin.top}) scale(${vis.config.scale})`)
 
         // Initialize path generator
         vis.geoPath = d3.geoPath();
@@ -66,15 +67,14 @@ export class ChoroplethMap implements View {
                 vis.colorScale = d3.scaleSequential(d3.interpolateBlues);
         }
         const stateInfoPairs = d3.rollups<SalaryRecord, StateInfo, string>(vis._data,
-            (records: SalaryRecord[]) => {
-                return {
-                    recordCount: records.length,
-                    averageSalary: Math.round(d3.mean(records, (record: SalaryRecord) => record.baseSalary))
-                };
-            },
+            (records: SalaryRecord[]) => ({
+                recordCount: records.length,
+                averageSalary: Math.round(d3.mean(records, (record: SalaryRecord) => record.baseSalary))
+            }),
             (record: SalaryRecord) => record.state);
         vis.stateInfoMap = new Map(stateInfoPairs);
-        vis.colorScale.domain(d3.extent<[string, StateInfo], number>(stateInfoPairs, (pair) => vis.infoGetter(pair[1])));
+        vis.colorScale.domain(d3.extent<[string, StateInfo], number>(stateInfoPairs,
+            (pair) => vis.infoGetter(pair[1])));
         this.renderVis();
     }
 

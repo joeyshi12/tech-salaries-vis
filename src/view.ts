@@ -36,3 +36,16 @@ export function toSalaryRecord(json: any): SalaryRecord {
         yearsAtCompany: +json['yearsAtCompany']
     };
 }
+
+export const titleColourMap = new Map([
+    ["Software Engineer", "#F35461"],
+    ["Product Manager", "#FFBE72"],
+    ["Software Engineering Manager", "#FFF372"],
+    ["Data Scientist", "#A4EB41"],
+    ["Hardware Engineer", "#10942D"],
+    ["Solution Architect", "#81E1FF"],
+    ["Product Designer", "#3D6EEF"],
+    ["Technical Program Manager", "#7B40E0"],
+    ["Management Consultant", "#D14FEB"],
+    ["Business Analyst", "#FFA0F4"]
+]);

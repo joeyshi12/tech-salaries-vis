@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { toSalaryRecord } from './view';
+import { SalaryRecord, toSalaryRecord } from './view';
 import { ChoroplethMap } from './choroplethMap';
 import { Histogram } from './histogram';
 import { BarChart } from './barChart';
@@ -60,18 +60,14 @@ Promise.all([
             return;
         } else {
             d3.select(this).classed('active', true);
+            selectedCategories.push(selectedRole);
         }
 
-        const selectedTitles = [];
-        d3.selectAll('.legend-btn:is(.active)').each(function() {
-            selectedTitles.push(categoryToTitle(d3.select(this).attr('data-category')));
-        });
-
-        let newData;
-        if (selectedTitles.length === 0) {
+        let newData: SalaryRecord[];
+        if (selectedCategories.length === 0) {
             newData = records;
         } else {
-            newData = records.filter((d) => selectedTitles.includes(d.title));
+            newData = records.filter((d) => selectedCategories.includes(d.title));
         }
 
         choroplethMap.data = newData;
@@ -80,9 +76,9 @@ Promise.all([
         yearsOfExperienceHistogram.data = newData;
         yearsAtCompanyHistogram.data = newData;
 
-        baseSalaryHistogram.selectedTitles = selectedTitles;
-        yearsOfExperienceHistogram.selectedTitles = selectedTitles;
-        yearsAtCompanyHistogram.selectedTitles = selectedTitles;
+        baseSalaryHistogram.selectedTitles = selectedCategories;
+        yearsOfExperienceHistogram.selectedTitles = selectedCategories;
+        yearsAtCompanyHistogram.selectedTitles = selectedCategories;
 
         choroplethMap.updateVis();
         barChart.updateVis();
@@ -91,30 +87,3 @@ Promise.all([
         yearsAtCompanyHistogram.updateVis();
     });
 }).catch(err => console.error(err));
-
-function categoryToTitle(category: string): string {
-    switch (category) {
-        case "software-engineer":
-            return "Software Engineer";
-        case "product-manager":
-            return "Product Manager";
-        case "software-engineer-manager":
-            return "Software Engineering Manager";
-        case "data-scientist":
-            return "Data Scientist";
-        case "hardware-engineer":
-            return "Hardware Engineer";
-        case "solution-architect":
-            return "Solution Architect";
-        case "product-designer":
-            return "Product Designer";
-        case "tech-program-manager":
-            return "Technical Program Manager";
-        case "management-consultant":
-            return "Management Consultant";
-        case "business-analyst":
-            return "Business Analyst";
-        default:
-            throw new Error("Invalid category");
-    }
-}

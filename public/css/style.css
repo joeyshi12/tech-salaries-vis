@@ -86,34 +86,34 @@
     border-radius: 50%;
 }
 
-.legend-btn[data-category="software-engineer"] .legend-symbol {
+.legend-btn[data-category="Software Engineer"] .legend-symbol {
     background: #F35461;
 }
-.legend-btn[data-category="product-manager"] .legend-symbol {
+.legend-btn[data-category="Product Manager"] .legend-symbol {
     background: #FFBE72;
 }
-.legend-btn[data-category="software-engineer-manager"] .legend-symbol {
+.legend-btn[data-category="Software Engineering Manager"] .legend-symbol {
     background: #FFF372;
 }
-.legend-btn[data-category="data-scientist"] .legend-symbol {
+.legend-btn[data-category="Data Scientist"] .legend-symbol {
     background: #A4EB41;
 }
-.legend-btn[data-category="hardware-engineer"] .legend-symbol {
+.legend-btn[data-category="Hardware Engineer"] .legend-symbol {
     background: #10942D;
 }
-.legend-btn[data-category="solution-architect"] .legend-symbol {
+.legend-btn[data-category="Solution Architect"] .legend-symbol {
     background: #81E1FF;
 }
-.legend-btn[data-category="product-designer"] .legend-symbol {
+.legend-btn[data-category="Product Designer"] .legend-symbol {
     background: #3D6EEF;
 }
-.legend-btn[data-category="tech-program-manager"] .legend-symbol {
+.legend-btn[data-category="Technical Program Manager"] .legend-symbol {
     background: #7B40E0;
 }
-.legend-btn[data-category="management-consultant"] .legend-symbol {
+.legend-btn[data-category="Management Consultant"] .legend-symbol {
     background: #D14FEB;
 }
-.legend-btn[data-category="business-analyst"] .legend-symbol {
+.legend-btn[data-category="Business Analyst"] .legend-symbol {
     background: #FFA0F4;
 }
 

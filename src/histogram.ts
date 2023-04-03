@@ -1,21 +1,8 @@
-import { SalaryRecord, View, ViewConfig } from './view';
+import { SalaryRecord, View, ViewConfig, titleColourMap } from './view';
 import * as d3 from 'd3';
 
-const titleColorMap = new Map([
-    ["Software Engineer", "#F35461"],
-    ["Product Manager", "#FFBE72"],
-    ["Software Engineering Manager", "#FFF372"],
-    ["Data Scientist", "#A4EB41"],
-    ["Hardware Engineer", "#10942D"],
-    ["Solution Architect", "#81E1FF"],
-    ["Product Designer", "#3D6EEF"],
-    ["Technical Program Manager", "#7B40E0"],
-    ["Management Consultant", "#D14FEB"],
-    ["Business Analyst", "#FFA0F4"]
-]);
-
 export class Histogram implements View {
-    private config;
+    private config: ViewConfig;
     private width: number = 0;
     private height: number = 0;
     private xScale: d3.ScaleLinear<number, number>;
@@ -23,20 +10,21 @@ export class Histogram implements View {
     private xAxis: d3.Axis<d3.NumberValue>;
     private yAxis: d3.Axis<d3.NumberValue>;
     private yValue: (d: d3.Bin<SalaryRecord, number>) => number;
+    private binnedData1: d3.Bin<SalaryRecord, number>[];
+    private binnedData2: d3.Bin<SalaryRecord, number>[]
+    private _selectedTitles: string[];
+
     private svg: d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
     private chart: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
-    private binnedData1: d3.Bin<SalaryRecord, number>[];
-    private binnedData2: d3.Bin<SalaryRecord, number>[];
     private bars2: d3.Selection<d3.BaseType, d3.Bin<SalaryRecord, number>, SVGGElement, unknown>;
-    private _selectedTitles: string[];
 
     public constructor(private _data: SalaryRecord[],
                        config: ViewConfig,
-                       private xValue: (SalaryRecord) => number,
+                       private xValue: (d: SalaryRecord) => number,
                        private chartTitle: string,
-                       private tickFormat?: (number) => string) {
+                       private tickFormat?: (d: number) => string) {
         this.config = {
             parentElement: config.parentElement,
             containerWidth: config.containerWidth ?? 470,
@@ -122,6 +110,7 @@ export class Histogram implements View {
             .value(vis.xValue)
             .thresholds(20);
 
+        // Set binned data
         if (vis._selectedTitles.length === 0) {
             vis.binnedData1 = bin(vis._data);
         } else {
@@ -151,7 +140,7 @@ export class Histogram implements View {
         let vis = this;
         const barWidth = vis.width / vis.binnedData1.length - 1;
 
-        const fill1 = titleColorMap.get(vis._selectedTitles[0]) ?? 'rgb(99, 187, 110)';
+        const fill1 = titleColourMap.get(vis._selectedTitles[0]) ?? 'rgb(99, 187, 110)';
         vis.chart.selectAll('.bar')
             .data(vis.binnedData1)
             .join('rect')
@@ -164,7 +153,7 @@ export class Histogram implements View {
             .attr('opacity', 0.8);
 
         if (vis.binnedData2) {
-            const fill2 = titleColorMap.get(vis._selectedTitles[1]);
+            const fill2 = titleColourMap.get(vis._selectedTitles[1]);
             vis.bars2 = vis.chart.selectAll('.bar2')
                 .data(vis.binnedData2)
                 .join('rect')

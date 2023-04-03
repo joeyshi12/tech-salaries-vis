@@ -1,20 +1,26 @@
 import * as d3 from 'd3';
 import { View, ViewConfig, SalaryRecord } from './view';
 
+interface CompanyInfo {
+    name: string;
+    baseSalary: number;
+}
+
 export class BarChart implements View {
     private width: number;
     private height: number;
-    private svg: d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
-    private chartArea: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
-    private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
-    private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yScale: d3.ScaleLinear<number, number>;
     private xScale: d3.ScaleBand<string>;
     private xAxis: d3.Axis<string>;
     private yAxis: d3.Axis<d3.NumberValue>;
-    private xValue: (d: SalaryRecord) => string;
-    private yValue: (d: SalaryRecord) => number;
-    private averageData: { company: string; baseSalary: number | undefined; }[];
+    private xValue: (d: CompanyInfo) => string;
+    private yValue: (d: CompanyInfo) => number;
+    private companyInfos: CompanyInfo[];
+
+    private svg: d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
+    private chartArea: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
 
     public constructor(private _data: SalaryRecord[], private config: ViewConfig) {
         this.initVis();
@@ -91,18 +97,18 @@ export class BarChart implements View {
     public updateVis() {
         let vis = this
 
-        vis.xValue = (d): string => d.company;
+        vis.xValue = (d): string => d.name;
         vis.yValue = (d): number => d.baseSalary;
 
         // Get the average base salary by company
         let averages = d3.rollup(vis._data, v => d3.mean(v, d => d.baseSalary), d => d.company);
 
         // Sort average salary from highest to lowest and filter for the top 10
-        vis.averageData = Array.from(averages, ([company, baseSalary]) => ({ company, baseSalary}))
+        vis.companyInfos = Array.from(averages, ([name, baseSalary]): CompanyInfo => ({name, baseSalary}))
             .sort((a, b) => b.baseSalary - a.baseSalary);
-        vis.averageData = vis.averageData.slice(0, 9);
-        vis.xScale.domain(vis.averageData.map(vis.xValue));
-        vis.yScale.domain([0, d3.max(vis.averageData, vis.yValue)]);
+        vis.companyInfos = vis.companyInfos.slice(0, 9);
+        vis.xScale.domain(vis.companyInfos.map(vis.xValue));
+        vis.yScale.domain([0, d3.max(vis.companyInfos, vis.yValue)]);
 
         vis.renderVis();
     }
@@ -112,7 +118,7 @@ export class BarChart implements View {
 
         // Bind data to visual elements, update axes
         vis.chartArea.selectAll('.bar')
-            .data(vis.averageData, vis.xValue)
+            .data(vis.companyInfos, vis.xValue)
             .join('rect')
             .attr('class', 'bar')
             .attr('x', (d: any) => vis.xScale(vis.xValue(d)))
@@ -125,7 +131,7 @@ export class BarChart implements View {
                     .style('display', 'block')
                     .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')
                     .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
-                    .html(`<div class="tooltip-title">${d.company}</div>
+                    .html(`<div class="tooltip-title">${d.name}</div>
                           <ul><li>Average salary: ${Math.round(d.baseSalary)}</li></ul>`);
             })
             .on('mouseleave', () => {
