@@ -27,6 +27,10 @@ body {
     fill: var(--fg);
 }
 
+#vis svg .tick text {
+    font-size: 12px;
+}
+
 .tick line {
     color: var(--border-color);
 }

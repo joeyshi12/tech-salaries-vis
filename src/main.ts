@@ -22,7 +22,7 @@ Promise.all([
         parentElement: '#bar-chart',
         containerWidth: 470,
         containerHeight: 600,
-        margin: { top: 60, right: 40, bottom: 50, left: 60 },
+        margin: { top: 60, right: 40, bottom: 50, left: 70 },
         tooltipPadding: 15
     });
     const baseSalaryHistogram = new Histogram(records, {
@@ -48,7 +48,7 @@ Promise.all([
         // Check which categories are active
         let selectedCategories = [];
         d3.selectAll('.legend-btn:is(.active)').each(function() {
-            selectedCategories.push(d3.select(this).attr('data-category'));
+            selectedCategories.push(d3.select(<Window>this).attr('data-category'));
         });
 
         // Toggle categories while making sure only at most 2 is active

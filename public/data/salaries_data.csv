@@ -1002,7 +1002,6 @@
 1054,Microsoft,Software Engineering Manager,10.0,10.0,33000.0,California
 1055,Amazon,Product Manager,10.0,4.5,121000.0,Washington
 1056,Mi,Software Engineer,2.0,2.0,114000.0,Washington
-1057,Intel,Software Engineering Manager,32.0,30.0,170000.0,Oregon
 1058,Microsoft,Software Engineer,5.0,5.0,146000.0,Washington
 1059,Twitter,Software Engineer,4.0,1.0,140000.0,Washington
 1060,Yahoo,Software Engineer,14.0,4.0,180000.0,New York
@@ -1052,6 +1051,7 @@
 1105,Microsoft,Software Engineer,1.0,0.0,109000.0,Washington
 1106,Uber,Software Engineering Manager,12.0,1.0,224000.0,California
 1108,Dell Technologies,Software Engineer,12.0,7.0,157000.0,California
+1109,Netflix,Software Engineer,7.0,1.0,400000.0,California
 1110,Ge Digital,Software Engineer,9.0,4.0,151000.0,California
 1111,Ebay,Data Scientist,5.0,0.7,189000.0,Washington
 1112,Groupon,Software Engineer,12.0,2.0,0.0,Washington
@@ -1208,7 +1208,6 @@
 1281,Uber,Software Engineer,18.0,2.0,195000.0,California
 1282,Google,Software Engineer,20.0,6.0,223000.0,California
 1283,Box,Software Engineer,12.0,1.0,220000.0,California
-1284,Ibm,Solution Architect,25.0,25.0,195000.0,Massachusetts
 1285,Amazon,Software Engineer,0.0,0.0,112000.0,Washington
 1286,Google,Software Engineer,0.0,0.0,105000.0,Washington
 1287,Amazon,Data Scientist,3.0,1.0,160000.0,California
@@ -1263,9 +1262,11 @@
 1338,Adobe,Software Engineer,3.0,1.5,140000.0,California
 1339,Lyft,Product Designer,7.0,1.0,180000.0,California
 1340,Amazon,Product Designer,10.0,1.0,155000.0,Washington
+1341,Netflix,Software Engineer,6.0,1.0,380000.0,California
 1342,Netapp,Software Engineer,2.0,1.0,105000.0,North Carolina
 1344,Microsoft,Product Designer,11.0,3.0,160000.0,Washington
 1345,Linkedin,Product Manager,8.0,1.0,185000.0,California
+1346,Netflix,Software Engineering Manager,20.0,7.0,450000.0,California
 1347,Google,Software Engineer,1.0,0.0,120000.0,Washington
 1349,Google,Software Engineer,2.0,2.0,120000.0,New York
 1351,Adobe,Software Engineer,10.0,0.0,200000.0,California
@@ -1541,6 +1542,7 @@
 1630,Amazon,Product Manager,3.0,0.0,0.0,Washington
 1631,Salesforce,Solution Architect,10.0,2.0,0.0,Indiana
 1632,Salesforce,Software Engineer,17.0,5.0,240000.0,California
+1633,Salesforce,Software Engineer,13.0,3.0,400000.0,California
 1635,Salesforce,Product Manager,12.0,3.0,0.0,California
 1636,Salesforce,Software Engineer,15.0,1.0,164000.0,Indiana
 1637,Box,Software Engineering Manager,14.0,1.0,250000.0,California
@@ -1869,8 +1871,10 @@
 1979,Intercom,Software Engineer,8.0,4.0,155000.0,California
 1980,Cloudera,Software Engineer,10.0,2.0,190000.0,California
 1981,Microsoft,Software Engineer,10.0,2.0,140000.0,Washington
+1982,Netflix,Software Engineering Manager,10.0,6.0,400000.0,California
 1983,Groupon,Software Engineer,0.0,0.0,120000.0,California
 1984,Oracle,Software Engineer,14.0,2.0,200000.0,Washington
+1988,Ca Technologies,Solution Architect,10.0,4.0,388000.0,New York
 1989,Capital One,Solution Architect,12.0,10.0,200000.0,New York
 1990,Ca Technologies,Solution Architect,10.0,3.0,180000.0,New York
 1991,Google,Product Manager,5.0,1.0,175000.0,California
@@ -2154,7 +2158,6 @@
 2291,Facebook,Software Engineer,0.0,0.0,115000.0,Washington
 2292,Dropbox,Software Engineer,7.0,2.0,193000.0,Washington
 2293,Facebook,Software Engineer,10.0,2.0,180000.0,Washington
-2294,Ibm,Software Engineer,35.0,25.0,0.0,New York
 2295,Microsoft,Software Engineer,1.0,1.0,109000.0,Washington
 2296,General Motors,Software Engineer,10.0,4.0,120000.0,Georgia
 2297,Google,Software Engineer,6.0,4.0,0.0,California
@@ -3047,6 +3050,7 @@
 3272,Roku,Software Engineer,3.0,0.0,260000.0,California
 3273,Google,Product Manager,10.0,5.0,0.0,New York
 3274,Quantcast,Data Scientist,20.0,2.5,0.0,California
+3275,Netflix,Software Engineer,5.0,0.0,380000.0,California
 3276,Workday,Software Engineer,2.0,2.0,125000.0,California
 3277,Amazon,Data Scientist,4.0,1.0,0.0,California
 3278,Twitch,Software Engineer,0.0,0.0,135000.0,California
@@ -3132,6 +3136,7 @@
 3360,Square,Product Manager,2.0,2.0,114000.0,California
 3361,Paypal,Software Engineer,0.0,0.0,108000.0,California
 3362,Apple,Software Engineer,8.0,1.0,175000.0,California
+3363,Netflix,Software Engineer,10.0,3.0,420000.0,California
 3364,Amazon,Product Manager,5.0,0.0,130000.0,Washington
 3365,Fitbit,Software Engineer,8.0,4.0,150000.0,California
 3366,Linkedin,Software Engineer,5.0,2.0,152000.0,New York
@@ -3239,7 +3244,6 @@
 3477,Facebook,Software Engineering Manager,15.0,1.0,260000.0,California
 3478,Expedia,Product Manager,20.0,3.0,185000.0,Washington
 3479,Amazon,Software Engineer,0.0,0.0,108000.0,Washington
-3480,Oracle,Software Engineering Manager,27.0,24.0,0.0,California
 3481,Lyft,Software Engineer,4.0,1.0,192000.0,California
 3482,Oracle,Software Engineering Manager,13.0,6.0,160000.0,Colorado
 3483,Google,Software Engineer,0.0,0.0,125000.0,California
@@ -3284,6 +3288,7 @@
 3526,Cambia Health Solutions,Software Engineer,5.0,1.0,135000.0,Oregon
 3527,Amazon,Software Engineering Manager,16.0,3.0,152000.0,Washington
 3528,Uber,Software Engineer,8.0,1.5,190000.0,California
+3529,Netflix,Software Engineer,5.0,0.5,430000.0,California
 3530,Facebook,Software Engineer,10.0,4.0,180000.0,California
 3531,Adobe,Software Engineer,2.0,2.0,120000.0,California
 3532,Amazon,Software Engineer,3.0,1.0,143000.0,Massachusetts
@@ -4253,6 +4258,7 @@
 4567,Google,Software Engineer,0.0,0.0,120000.0,California
 4568,Amazon,Software Engineer,4.0,0.0,125000.0,Washington
 4569,Stripe,Software Engineer,7.0,0.0,229000.0,California
+4570,Netflix,Software Engineer,7.0,0.0,460000.0,California
 4571,Jpmorgan Chase,Software Engineer,15.0,2.0,0.0,Florida
 4573,Lyft,Software Engineer,10.0,0.0,190000.0,Washington
 4574,Google,Software Engineer,0.0,0.0,100000.0,California
@@ -4567,6 +4573,7 @@
 4904,Amazon,Product Manager,2.0,2.0,150000.0,California
 4905,Amazon,Software Engineer,1.0,1.0,112000.0,New Jersey
 4906,Amazon,Software Engineering Manager,15.0,6.0,0.0,Washington
+4907,Netflix,Software Engineer,10.0,3.0,375000.0,California
 4908,Uber,Product Designer,2.0,2.0,110000.0,California
 4909,Amazon,Software Engineer,9.0,5.0,133000.0,Washington
 4910,Google,Product Designer,6.0,0.0,137000.0,California
@@ -4696,6 +4703,7 @@
 5042,Amazon,Product Manager,7.0,1.0,145000.0,Washington
 5043,Facebook,Software Engineer,5.0,1.5,0.0,New York
 5044,Amazon,Software Engineering Manager,7.0,6.0,0.0,Washington
+5045,Ford,Product Manager,15.0,2.0,450000.0,Michigan
 5046,Atlassian,Software Engineer,10.0,5.0,170000.0,California
 5048,Medtronic,Data Scientist,2.0,2.0,0.0,New York
 5049,Microsoft,Software Engineer,2.0,0.0,115000.0,Washington
@@ -5143,7 +5151,6 @@
 5525,Workday,Software Engineer,5.0,0.0,140000.0,California
 5526,Microsoft,Product Manager,15.0,15.0,0.0,Washington
 5527,Visa,Software Engineer,1.0,1.0,95000.0,Texas
-5529,Expedia,Product Manager,8.0,23.0,0.0,Washington
 5531,Cisco Systems,Software Engineering Manager,17.0,17.0,186000.0,California
 5532,Bank Of America,Software Engineer,4.0,2.5,123000.0,North Carolina
 5534,Amazon,Software Engineer,3.0,1.0,130000.0,Virginia
@@ -5154,6 +5161,7 @@
 5539,Microsoft,Software Engineer,4.0,4.0,147000.0,Washington
 5540,Amazon,Data Scientist,5.0,3.0,151000.0,Washington
 5541,Google,Software Engineer,1.0,0.0,160000.0,California
+5542,Google,Solution Architect,20.0,2.0,400000.0,Texas
 5543,Amazon,Software Engineer,5.0,3.0,145000.0,California
 5544,Amazon,Software Engineer,2.0,2.0,0.0,California
 5545,Apple,Software Engineer,2.0,0.0,140000.0,California
@@ -5474,7 +5482,6 @@
 5886,Facebook,Software Engineer,10.0,0.0,230000.0,California
 5887,Amazon,Data Scientist,3.0,3.0,0.0,Washington
 5888,Google,Software Engineer,10.0,0.0,200000.0,California
-5889,Microsoft,Product Manager,21.0,25.0,203000.0,Washington
 5890,Amazon,Software Engineer,4.0,3.0,145000.0,Washington
 5891,Amazon,Software Engineer,9.0,3.0,185000.0,California
 5892,Google,Software Engineer,7.0,4.0,0.0,New York
@@ -6087,7 +6094,6 @@
 6537,Amazon,Software Engineer,29.0,4.0,160000.0,Texas
 6538,Microsoft,Product Manager,6.0,6.0,133000.0,Washington
 6539,Sap,Software Engineer,7.0,7.0,0.0,Pennsylvania
-6540,Intel,Product Designer,24.0,24.0,184000.0,Oregon
 6541,Microsoft,Software Engineer,14.0,1.0,152000.0,Washington
 6543,Juniper Networks,Software Engineer,12.0,1.0,0.0,California
 6544,Amazon,Software Engineer,2.0,2.0,0.0,Colorado
@@ -6156,6 +6162,7 @@
 6615,Appdirect,Product Manager,4.0,5.0,152000.0,California
 6616,Google,Product Manager,5.0,0.0,0.0,New York
 6617,Segment,Software Engineer,5.0,3.0,150000.0,California
+6618,Netflix,Software Engineer,6.0,1.0,385000.0,California
 6619,Godaddy,Software Engineer,12.0,3.0,138000.0,Washington
 6620,Microsoft,Software Engineer,6.0,1.0,139000.0,Washington
 6621,Google,Product Manager,4.0,0.0,140000.0,California
@@ -6973,7 +6980,6 @@
 7499,Visa,Product Manager,6.0,1.0,160000.0,California
 7500,Amazon,Software Engineer,4.0,2.0,142000.0,Washington
 7501,Amazon,Software Engineer,10.0,4.0,154000.0,Washington
-7502,Microsoft,Software Engineer,35.0,30.0,0.0,Washington
 7503,Texas Instruments,Software Engineer,19.0,17.0,140000.0,California
 7504,Intuit,Software Engineer,9.0,7.0,150000.0,California
 7505,Walmart Labs,Software Engineer,13.0,4.0,204000.0,California
@@ -6997,7 +7003,6 @@
 7525,Mathworks,Software Engineer,4.0,4.0,112000.0,Massachusetts
 7526,Jpmorgan Chase,Software Engineer,2.0,2.0,87000.0,New York
 7527,Oracle,Software Engineer,11.0,11.0,172000.0,California
-7528,Ibm,Software Engineer,34.0,34.0,146000.0,North Carolina
 7529,Goldman Sachs,Software Engineer,0.0,0.0,100000.0,New York
 7530,Sap,Software Engineer,2.0,2.0,95000.0,Washington
 7531,Sap,Software Engineer,2.0,2.0,95000.0,Washington
@@ -7058,6 +7063,7 @@
 7589,Qualcomm,Software Engineer,4.0,4.0,110000.0,California
 7590,Microsoft,Software Engineer,7.0,1.0,192000.0,Washington
 7591,Amazon,Product Manager,7.0,2.0,150000.0,California
+7592,Netflix,Software Engineer,5.0,1.0,390000.0,California
 7593,Microsoft,Product Manager,2.0,2.0,139000.0,Washington
 7594,Amazon,Product Manager,15.0,3.0,160000.0,Washington
 7595,Qualcomm,Software Engineer,13.0,10.0,150000.0,California
@@ -7110,6 +7116,7 @@
 7643,Microsoft,Software Engineer,2.0,0.0,118000.0,Washington
 7644,Ncr,Software Engineer,12.0,6.0,135000.0,Georgia
 7645,Linkedin,Software Engineer,4.0,4.0,0.0,California
+7646,Netflix,Software Engineer,6.0,1.0,400000.0,California
 7647,Amazon,Software Engineer,5.0,2.5,150000.0,Washington
 7648,Stripe,Software Engineer,3.0,0.0,165000.0,California
 7649,Zillow,Software Engineer,8.0,1.0,0.0,California
@@ -7264,6 +7271,7 @@
 7832,Shutterstock,Product Manager,8.0,2.0,195000.0,New York
 7833,Electronic Arts,Data Scientist,2.0,2.0,120000.0,California
 7834,Apple,Hardware Engineer,0.0,0.0,140000.0,California
+7835,Jane Street Capital,Software Engineer,7.0,4.0,400000.0,New York
 7836,Stripe,Software Engineer,1.0,0.0,121000.0,California
 7837,Google,Software Engineer,3.0,3.0,162000.0,New York
 7838,Bloomberg,Software Engineer,14.0,4.0,171000.0,New York
@@ -7311,6 +7319,7 @@
 7889,Microsoft,Software Engineer,4.0,1.0,150000.0,Washington
 7890,Cruise,Software Engineer,6.0,0.0,215000.0,California
 7891,Microsoft,Product Manager,12.0,4.0,155000.0,Colorado
+7892,Netflix,Data Scientist,8.0,1.0,380000.0,California
 7893,Yahoo,Product Manager,8.0,2.0,175000.0,California
 7894,Amazon,Software Engineer,8.0,8.0,156000.0,Washington
 7895,Hulu,Software Engineer,2.0,0.0,140000.0,California
@@ -7527,6 +7536,7 @@
 8118,Google,Software Engineer,3.0,3.0,146000.0,Washington
 8119,Western Digital,Hardware Engineer,9.0,6.0,160000.0,California
 8120,Lyft,Data Scientist,4.0,2.0,150000.0,California
+8122,Sofi,Software Engineer,8.0,2.0,400000.0,California
 8123,Kroger,Software Engineer,7.0,3.0,0.0,Ohio
 8124,Amazon,Software Engineer,3.0,2.0,155000.0,Washington
 8125,Ticketmaster,Software Engineer,33.0,5.0,235000.0,California
@@ -8571,6 +8581,7 @@
 9261,Microsoft,Software Engineer,8.0,4.0,160000.0,Washington
 9262,Tesla,Software Engineer,7.0,2.5,90000.0,California
 9263,Lucid Software,Software Engineer,2.0,2.0,86000.0,Utah
+9265,Netflix,Software Engineer,10.0,4.0,420000.0,California
 9266,Ibm,Data Scientist,5.0,2.0,0.0,California
 9267,Facebook,Software Engineer,6.0,0.0,167000.0,California
 9268,Wework,Software Engineer,7.0,1.0,208000.0,New York
@@ -8592,6 +8603,7 @@
 9284,Google,Software Engineer,1.0,1.0,0.0,California
 9285,Paypal,Software Engineer,15.0,1.0,215000.0,California
 9286,Uber,Software Engineer,8.0,0.0,200000.0,California
+9287,Netflix,Software Engineer,14.0,1.0,440000.0,California
 9288,Intuit,Software Engineer,7.0,5.0,201000.0,California
 9289,Google,Software Engineer,1.0,1.0,0.0,California
 9290,Intel,Hardware Engineer,6.0,3.0,110000.0,Oregon
@@ -9800,9 +9812,11 @@
 10571,Lyft,Software Engineer,6.0,0.0,190000.0,California
 10572,Atlassian,Software Engineer,1.0,1.0,115000.0,California
 10573,Jpmorgan Chase,Software Engineer,0.0,0.0,100000.0,New York
+10574,Netflix,Software Engineer,6.0,0.0,405000.0,California
 10575,Amazon,Product Manager,4.0,2.0,140000.0,Washington
 10576,Bloomberg,Software Engineer,2.0,2.0,146000.0,New York
 10577,Facebook,Software Engineer,7.0,1.0,205000.0,California
+10578,Netflix,Software Engineer,6.0,3.0,460000.0,California
 10579,Google,Software Engineer,8.0,2.0,180000.0,California
 10581,Amazon,Software Engineer,9.0,5.0,133000.0,California
 10582,Vmware,Software Engineer,16.0,6.0,184000.0,Massachusetts
@@ -9870,6 +9884,7 @@
 10645,Splunk,Software Engineer,11.0,2.0,0.0,Washington
 10646,Amazon,Software Engineer,4.0,0.0,170000.0,New York
 10647,Microsoft,Hardware Engineer,0.0,0.0,119000.0,California
+10648,Netflix,Data Scientist,4.0,2.0,425000.0,California
 10649,T-Mobile,Software Engineer,4.0,2.0,105000.0,Washington
 10650,Amd,Hardware Engineer,10.0,3.0,160000.0,Massachusetts
 10651,Google,Software Engineer,1.0,1.0,135000.0,California
@@ -10483,7 +10498,6 @@
 11357,Uber,Software Engineer,8.0,8.0,250000.0,Washington
 11358,Rubrik,Software Engineer,8.0,1.0,190000.0,California
 11359,Facebook,Product Designer,10.0,1.0,160000.0,California
-11360,Microsoft,Product Manager,30.0,25.0,200000.0,Washington
 11361,Lockheed Martin,Software Engineer,3.0,2.0,76000.0,Texas
 11362,Microsoft,Software Engineer,11.0,0.0,144000.0,Washington
 11363,Ripple,Software Engineer,6.0,1.0,150000.0,New York
@@ -10562,6 +10576,7 @@
 11438,Indeed,Software Engineer,4.0,4.0,150000.0,Texas
 11439,Amazon,Product Manager,5.0,4.0,128000.0,Virginia
 11440,Yelp,Software Engineer,2.0,2.0,118000.0,California
+11441,Netflix,Software Engineer,10.0,1.0,405000.0,California
 11442,Apple,Hardware Engineer,12.0,9.0,220000.0,California
 11443,Bloomberg,Software Engineer,6.0,1.0,160000.0,New York
 11444,Citrix Systems Inc,Software Engineer,20.0,0.0,200000.0,California
@@ -10590,8 +10605,8 @@
 11468,Lockheed Martin,Software Engineer,1.0,1.0,58000.0,Nebraska
 11469,Intel,Software Engineer,8.0,8.0,120000.0,Arizona
 11470,Cerner,Software Engineering Manager,16.0,15.0,175000.0,Missouri
-11471,Cerner,Software Engineer,25.0,25.0,195000.0,Missouri
 11472,Apple,Software Engineer,14.0,7.0,200000.0,California
+11473,Netflix,Software Engineer,10.0,5.0,420000.0,California
 11474,Jpmorgan Chase,Software Engineer,4.0,2.0,110000.0,Ohio
 11475,Amazon,Software Engineer,4.0,4.0,138000.0,Washington
 11476,Facebook,Software Engineering Manager,4.0,0.0,205000.0,California
@@ -10759,6 +10774,7 @@
 11649,Facebook,Hardware Engineer,8.0,0.0,220000.0,Washington
 11650,Amazon,Product Designer,10.0,5.0,132000.0,Washington
 11651,Apple,Data Scientist,4.0,2.0,180000.0,California
+11652,Netflix,Software Engineer,15.0,1.0,400000.0,California
 11653,Google,Software Engineer,3.0,0.0,170000.0,California
 11654,Amazon,Software Engineer,4.0,1.0,160000.0,California
 11655,Google,Software Engineer,3.0,3.0,177000.0,California
@@ -10939,6 +10955,7 @@
 11858,Jpmorgan Chase,Software Engineer,5.0,2.0,119000.0,New York
 11859,Amazon,Software Engineer,2.0,2.0,142000.0,Massachusetts
 11860,Pivotal,Software Engineer,3.0,3.0,142000.0,Colorado
+11861,Netflix,Software Engineer,6.0,1.0,420000.0,California
 11862,Salesforce,Software Engineer,8.0,2.0,180000.0,Washington
 11864,Cruise,Software Engineer,4.0,0.0,175000.0,California
 11865,Microsoft,Software Engineer,1.0,0.0,130000.0,Washington
@@ -10997,6 +11014,7 @@
 11918,Stripe,Software Engineer,2.0,2.0,153000.0,California
 11919,Amazon,Software Engineer,2.0,1.0,150000.0,California
 11920,Yext,Software Engineer,1.0,1.0,125000.0,New York
+11921,Netflix,Software Engineer,7.0,0.0,400000.0,California
 11922,Apple,Software Engineer,21.0,12.0,226000.0,California
 11923,Google,Software Engineer,15.0,1.0,155000.0,California
 11924,Indeed,Software Engineer,12.0,5.0,150000.0,Texas
@@ -11452,6 +11470,7 @@
 12415,Google,Software Engineer,6.0,6.0,178000.0,New York
 12416,Yahoo,Software Engineer,8.0,2.0,133000.0,California
 12417,Amazon,Software Engineer,15.0,5.0,160000.0,Washington
+12418,Netflix,Software Engineer,8.0,1.0,390000.0,California
 12420,Walmart Labs,Product Designer,4.0,1.0,125000.0,California
 12421,Apple,Software Engineer,2.0,2.0,190000.0,California
 12423,Elastic,Software Engineer,4.0,1.0,154000.0,Virginia
@@ -11606,6 +11625,7 @@
 12582,Intel,Software Engineer,9.0,9.0,180000.0,California
 12583,Amazon,Product Manager,3.0,2.0,110000.0,Washington
 12584,Johnson And Johnson,Data Scientist,19.0,13.0,200000.0,New Jersey
+12585,Netflix,Software Engineer,4.0,0.5,450000.0,California
 12586,Microsoft,Software Engineer,20.0,5.0,162000.0,Washington
 12587,Bloomberg,Software Engineer,0.0,0.0,142000.0,New York
 12589,Zillow,Software Engineering Manager,8.0,3.0,173000.0,Washington
@@ -11712,6 +11732,7 @@
 12700,Cimpress,Software Engineer,4.0,4.0,150000.0,Massachusetts
 12701,Google,Software Engineer,0.0,1.0,102000.0,Pennsylvania
 12702,Duolingo,Product Designer,4.0,3.0,105000.0,Pennsylvania
+12704,Goldman Sachs,Data Scientist,8.0,2.0,450000.0,Illinois
 12705,Amazon,Software Engineering Manager,20.0,4.0,160000.0,Washington
 12706,Thoughtworks,Software Engineer,21.0,4.5,134000.0,Georgia
 12707,Amazon,Software Engineer,2.0,2.0,142000.0,Washington
@@ -11833,6 +11854,7 @@
 12833,Mozilla,Software Engineer,1.0,1.0,145000.0,California
 12834,Pivotal,Product Manager,16.0,1.0,200000.0,California
 12835,Prudential Financial,Product Manager,12.0,1.0,150000.0,California
+12836,Bloomberg,Software Engineering Manager,10.0,2.0,400000.0,New York
 12837,Dell Technologies,Software Engineer,4.0,1.5,137000.0,Washington
 12838,Expedia,Software Engineer,0.0,0.3,113000.0,Washington
 12839,Here Technologies,Software Engineer,8.0,6.0,147000.0,California
@@ -12001,6 +12023,7 @@
 13023,Amazon,Software Engineer,2.0,0.0,158000.0,Massachusetts
 13024,Sofi,Product Manager,8.0,2.0,200000.0,New York
 13025,Leidos,Software Engineer,1.0,1.0,76000.0,Virginia
+13026,Netflix,Data Scientist,6.0,3.0,465000.0,California
 13027,Amazon,Software Engineer,11.0,8.0,160000.0,Washington
 13028,Salesforce,Software Engineer,8.0,3.0,180000.0,California
 13029,Blue Origin,Software Engineer,1.0,1.0,104000.0,Washington
@@ -12469,6 +12492,7 @@
 13561,Microsoft,Software Engineer,1.0,1.0,118000.0,Washington
 13562,Ge Digital,Data Scientist,4.0,0.0,130000.0,California
 13563,Walmart Labs,Software Engineer,15.0,5.0,200000.0,California
+13564,Netflix,Software Engineer,7.0,2.0,440000.0,California
 13566,Intuit,Software Engineer,12.0,8.0,185000.0,California
 13567,Wipro,Software Engineer,9.0,3.0,130000.0,California
 13569,Microsoft,Software Engineer,6.0,3.0,140000.0,Washington
@@ -12478,6 +12502,7 @@
 13574,Tesla,Software Engineer,0.0,0.0,140000.0,California
 13575,Facebook,Software Engineer,18.0,1.0,200000.0,Washington
 13576,Disney,Data Scientist,8.0,1.0,180000.0,New York
+13577,Netflix,Software Engineer,9.0,0.0,450000.0,California
 13579,Microsoft,Software Engineer,0.0,0.0,110000.0,Washington
 13580,Yelp,Software Engineer,1.0,0.0,135000.0,California
 13581,Netapp,Software Engineer,8.0,2.0,100000.0,Colorado
@@ -12894,6 +12919,7 @@
 14044,Slack,Software Engineer,5.0,2.0,190000.0,California
 14045,Google,Software Engineer,6.0,3.0,211000.0,California
 14046,Wayfair,Software Engineer,4.0,0.0,135000.0,Massachusetts
+14048,Netflix,Software Engineer,7.0,2.0,450000.0,California
 14049,Palantir,Product Manager,13.0,3.0,180000.0,New York
 14050,Amazon,Software Engineer,7.0,3.0,136000.0,Washington
 14051,Sap,Product Designer,2.0,2.0,117000.0,California
@@ -13006,6 +13032,7 @@
 14172,Lyft,Software Engineer,15.0,0.0,225000.0,California
 14173,Hubspot,Software Engineer,3.0,0.0,138000.0,Massachusetts
 14174,Wayfair,Software Engineer,3.0,3.0,132000.0,Massachusetts
+14175,Netflix,Data Scientist,2.0,1.0,400000.0,California
 14176,Amazon,Software Engineer,4.0,0.0,180000.0,California
 14177,Amazon,Software Engineer,0.0,0.0,112000.0,Washington
 14178,Dexcom,Software Engineer,4.0,3.0,120000.0,California
@@ -13145,6 +13172,7 @@
 14324,Anaplan,Software Engineer,15.0,0.0,250000.0,California
 14325,Splunk,Software Engineering Manager,10.0,1.0,245000.0,California
 14326,Vrbo,Product Manager,4.0,2.0,151000.0,Texas
+14327,Netflix,Software Engineer,10.0,3.0,420000.0,California
 14328,Hulu,Software Engineer,3.0,3.0,161000.0,Washington
 14329,Doordash,Software Engineer,10.0,1.2,180000.0,California
 14331,Goldman Sachs,Software Engineer,10.0,6.0,172000.0,New York
@@ -13218,6 +13246,7 @@
 14411,Uber,Software Engineer,2.0,0.0,150000.0,California
 14412,Cohesity,Software Engineer,9.0,1.0,200000.0,California
 14413,Google,Product Designer,11.0,7.0,215000.0,California
+14414,Netflix,Software Engineer,9.0,0.0,405000.0,California
 14415,Vmware,Software Engineer,6.0,0.0,160000.0,California
 14416,Cisco,Data Scientist,5.0,0.0,200000.0,California
 14418,Vmware,Software Engineering Manager,19.0,11.0,237000.0,California
@@ -13812,6 +13841,7 @@
 15091,Tableau Software,Software Engineer,6.0,4.0,151000.0,Washington
 15092,Google,Software Engineer,6.0,6.0,170000.0,California
 15093,Amazon,Hardware Engineer,15.0,7.0,180000.0,California
+15094,Netflix,Software Engineer,10.0,3.0,450000.0,California
 15095,Uber,Software Engineer,9.0,1.0,180000.0,California
 15096,Google,Software Engineer,2.0,0.0,128000.0,California
 15097,Ibm,Software Engineer,15.0,10.0,250000.0,California
@@ -14034,7 +14064,6 @@
 15339,Gusto,Software Engineer,4.0,4.0,157000.0,California
 15341,Wayfair,Software Engineer,0.0,1.0,107000.0,Massachusetts
 15342,Paypal,Software Engineer,8.0,0.0,165000.0,California
-15343,Ibm,Software Engineer,26.0,26.0,132000.0,Minnesota
 15344,Google,Software Engineer,12.0,10.0,161000.0,Colorado
 15345,Microsoft,Software Engineer,13.0,6.0,190000.0,Washington
 15346,Amazon,Solution Architect,26.0,2.0,150000.0,Massachusetts
@@ -14054,6 +14083,7 @@
 15360,Amazon,Software Engineer,5.0,1.0,160000.0,California
 15361,Google,Software Engineer,7.0,5.0,168000.0,California
 15362,Capital One,Software Engineering Manager,18.0,8.0,165000.0,Virginia
+15363,Netflix,Software Engineer,9.0,0.0,430000.0,California
 15364,Twitter,Software Engineer,6.0,1.0,170000.0,Washington
 15365,Microsoft,Software Engineering Manager,8.0,1.0,185000.0,Washington
 15366,Groupon,Software Engineer,8.0,1.5,160000.0,California
@@ -14249,6 +14279,7 @@
 15582,Microsoft,Software Engineer,5.0,5.0,189000.0,Washington
 15583,Amazon,Software Engineer,5.0,4.0,150000.0,Washington
 15584,Wayfair,Data Scientist,4.0,1.0,130000.0,Massachusetts
+15585,Netflix,Software Engineer,5.0,3.0,420000.0,California
 15586,Sysdig,Software Engineer,6.0,6.0,165000.0,California
 15587,Amazon,Software Engineering Manager,16.0,4.0,185000.0,California
 15588,Facebook,Software Engineering Manager,16.0,1.0,270000.0,California
@@ -15011,6 +15042,7 @@
 16422,Bloomberg,Software Engineer,2.0,2.0,152000.0,New York
 16423,Wayfair,Software Engineer,5.0,2.0,125000.0,Massachusetts
 16424,Epic Systems,Software Engineer,9.0,9.0,195000.0,Wisconsin
+16425,Netflix,Software Engineer,4.0,0.0,430000.0,California
 16426,Oracle,Software Engineer,1.0,0.0,140000.0,Washington
 16427,Capital One,Software Engineer,2.0,2.0,118000.0,New York
 16428,Vimeo,Software Engineer,5.0,2.0,170000.0,New York
@@ -15200,6 +15232,7 @@
 16631,Amazon,Software Engineer,2.0,2.0,142000.0,Washington
 16632,Ebay,Software Engineer,8.0,2.0,172000.0,California
 16633,Bloomberg,Software Engineer,0.0,0.0,142000.0,New York
+16635,Netflix,Software Engineer,6.0,2.0,400000.0,California
 16638,Amazon,Product Designer,8.0,0.0,160000.0,Washington
 16639,Google,Software Engineer,2.0,0.0,170000.0,California
 16641,F5 Networks,Software Engineer,3.0,3.0,105000.0,Washington
@@ -15307,6 +15340,7 @@
 16787,Facebook,Software Engineer,12.0,2.5,225000.0,New York
 16789,Twitter,Software Engineer,7.0,1.0,160000.0,Massachusetts
 16790,Google,Software Engineer,12.0,10.0,200000.0,California
+16791,Netflix,Software Engineer,11.0,2.0,450000.0,California
 16792,Jpmorgan Chase,Software Engineer,7.0,3.0,135000.0,Illinois
 16794,Lockheed Martin,Software Engineer,22.0,9.0,150000.0,Texas
 16795,Squarespace,Software Engineer,2.0,2.0,130000.0,New York
@@ -15538,6 +15572,7 @@
 17085,Amazon,Software Engineer,5.0,0.0,140000.0,Washington
 17086,Facebook,Software Engineer,5.0,5.0,230000.0,California
 17087,Disney,Software Engineer,5.0,1.0,120000.0,California
+17088,Netflix,Software Engineer,10.0,3.0,395000.0,California
 17089,Cisco,Hardware Engineer,9.0,9.0,173000.0,California
 17090,Google Llc,Software Engineer,7.0,5.0,176000.0,California
 17091,Splunk,Software Engineer,8.0,1.0,170000.0,California
@@ -15587,7 +15622,6 @@
 17145,Servicenow,Software Engineer,3.0,5.0,135000.0,California
 17146,Intel,Software Engineer,4.0,4.0,110000.0,Oregon
 17147,Tableau Software,Software Engineer,0.0,0.0,125000.0,Washington
-17148,Ibm,Software Engineer,23.0,23.0,240000.0,New York
 17149,Amazon,Software Engineer,10.0,3.0,150000.0,Washington
 17150,Qualcomm,Software Engineer,7.0,7.0,135000.0,Colorado
 17151,Wayfair,Software Engineer,1.0,1.0,120000.0,New York
@@ -15668,6 +15702,7 @@
 17234,Microsoft,Software Engineer,9.0,2.0,245000.0,Washington
 17235,Intel,Software Engineer,5.0,5.0,103000.0,California
 17236,Facebook,Software Engineer,14.0,3.5,235000.0,Washington
+17237,Netflix,Software Engineer,5.0,2.0,380000.0,California
 17238,Docusign,Software Engineer,16.0,1.0,200000.0,Washington
 17239,Disney,Software Engineer,1.0,1.0,91000.0,California
 17240,Google,Software Engineer,5.0,3.0,139000.0,California
@@ -16124,6 +16159,7 @@
 17747,Epam,Software Engineer,15.0,5.0,119000.0,Texas
 17748,Microsoft,Software Engineer,1.0,1.0,121000.0,Washington
 17749,Capital One,Software Engineer,1.0,1.0,100000.0,Illinois
+17750,Bloomberg,Software Engineering Manager,14.0,12.0,400000.0,New York
 17751,Amazon,Software Engineer,3.0,3.0,142000.0,Virginia
 17752,Dropbox,Software Engineer,6.0,0.0,210000.0,Washington
 17753,Square,Software Engineer,6.0,0.0,190000.0,Washington
@@ -16663,6 +16699,7 @@
 18350,Microsoft,Software Engineer,8.0,1.0,144000.0,Washington
 18351,Facebook,Software Engineer,14.0,1.0,185000.0,Washington
 18352,Amazon,Software Engineer,1.0,0.0,120000.0,Washington
+18353,Netflix,Software Engineer,16.0,3.0,390000.0,California
 18354,Google,Software Engineer,0.0,0.0,135000.0,California
 18356,Intel,Hardware Engineer,7.0,7.0,135000.0,Texas
 18357,Bank Of America Merrill Lynch,Software Engineer,10.0,2.0,128000.0,North Carolina
@@ -16765,12 +16802,14 @@
 18463,Amazon,Software Engineer,6.0,0.0,160000.0,Washington
 18464,Coinbase,Software Engineer,5.0,3.0,160000.0,California
 18466,Amazon,Software Engineer,7.0,4.0,135000.0,Washington
+18467,Netflix,Data Scientist,2.0,1.0,445000.0,California
 18468,Startup,Software Engineer,10.0,1.5,165000.0,Ohio
 18469,Amazon,Software Engineer,5.0,5.0,134000.0,Washington
 18470,Facebook,Software Engineer,6.0,0.0,205000.0,California
 18471,Slack,Software Engineer,3.0,0.0,165000.0,California
 18472,Lyft,Software Engineer,7.0,4.0,180000.0,Ohio
 18473,Amazon,Software Engineering Manager,15.0,1.0,160000.0,Washington
+18474,Netflix,Software Engineer,10.0,1.0,450000.0,California
 18475,Microsoft,Software Engineer,7.0,7.0,190000.0,Washington
 18476,Microsoft,Software Engineer,3.0,3.0,134000.0,Washington
 18477,Startup,Data Scientist,7.0,1.0,200000.0,California
@@ -17342,6 +17381,7 @@
 19116,Nutanix,Software Engineer,2.0,0.0,138000.0,California
 19117,Apple,Software Engineer,2.0,0.0,170000.0,California
 19118,Google,Software Engineer,4.0,3.0,151000.0,California
+19119,Netflix,Data Scientist,6.0,2.0,380000.0,California
 19120,Salesforce,Software Engineer,3.0,1.0,156000.0,California
 19121,Salesforce,Software Engineer,1.0,1.0,120000.0,Washington
 19122,Amazon,Software Engineer,8.0,8.0,148000.0,Washington
@@ -17864,10 +17904,11 @@
 19716,Dropbox,Software Engineer,9.0,0.0,250000.0,California
 19717,Wish,Product Designer,2.0,0.0,150000.0,California
 19718,Uipath,Software Engineer,10.0,1.0,220000.0,Washington
+19719,Roku,Software Engineer,13.0,2.0,400000.0,California
+19720,Netflix,Software Engineer,13.0,6.0,435000.0,California
 19721,Bloomberg,Software Engineer,3.0,0.0,202000.0,New York
 19722,Nextdoor,Software Engineer,8.0,0.0,212000.0,California
 19723,Apple,Software Engineer,5.0,3.0,149000.0,California
-19725,Genesys,Software Engineer,31.0,24.0,113000.0,California
 19727,Salesforce,Software Engineer,7.0,0.0,205000.0,California
 19728,Facebook,Software Engineer,6.0,0.0,180000.0,California
 19729,Jpmorgan Chase,Software Engineer,0.0,0.0,100000.0,New York
@@ -18140,6 +18181,7 @@
 20024,Cisco,Software Engineer,10.0,0.0,175000.0,California
 20025,Amazon,Software Engineer,6.0,6.0,143000.0,Washington
 20026,Postmates,Product Manager,6.0,5.0,133000.0,California
+20027,Apple,Data Scientist,7.0,2.0,375000.0,Washington
 20028,Google,Software Engineer,1.0,1.0,130000.0,California
 20029,Usaa,Software Engineer,6.0,6.0,100000.0,Texas
 20030,Amazon,Software Engineer,6.0,3.0,150000.0,Massachusetts
@@ -18230,6 +18272,7 @@
 20126,Docusign,Software Engineer,2.0,2.0,175000.0,Washington
 20127,Intel,Hardware Engineer,2.0,2.0,124000.0,Arizona
 20131,Booz Allen Hamilton,Solution Architect,12.0,1.0,144000.0,California
+20132,Goldman Sachs,Software Engineering Manager,15.0,12.0,400000.0,New York
 20134,Marqeta,Software Engineer,4.0,1.0,164000.0,California
 20135,Vmware,Product Designer,15.0,1.0,270000.0,California
 20136,Amazon,Software Engineering Manager,22.0,0.0,160000.0,Washington
@@ -18598,6 +18641,7 @@
 20558,Oliver Wyman,Management Consultant,1.0,1.0,85000.0,New York
 20559,Amazon,Software Engineering Manager,40.0,3.0,160000.0,Washington
 20560,Amazon,Software Engineer,13.0,8.0,156000.0,Washington
+20561,Google,Product Manager,20.0,1.0,450000.0,California
 20562,Intel,Hardware Engineer,3.0,3.0,126000.0,California
 20563,Amazon,Software Engineer,6.0,6.0,155000.0,Washington
 20564,Microsoft,Software Engineer,7.0,3.0,147000.0,Washington
@@ -18697,6 +18741,7 @@
 20676,Ebay,Software Engineer,7.0,1.0,155000.0,California
 20677,Facebook,Software Engineer,2.0,0.0,165000.0,New York
 20678,Yahoo,Software Engineer,3.0,3.0,143000.0,California
+20679,Netflix,Software Engineer,9.0,1.0,405000.0,California
 20681,At&T,Software Engineer,2.0,1.0,89000.0,Illinois
 20682,Microsoft,Software Engineering Manager,6.0,6.0,200000.0,Washington
 20683,Slack,Software Engineer,20.0,3.0,171000.0,California
@@ -18889,6 +18934,7 @@
 20896,Facebook,Software Engineer,3.0,3.0,158000.0,California
 20897,Vmware,Software Engineer,13.0,9.0,260000.0,California
 20898,Nvidia,Hardware Engineer,8.0,5.0,138000.0,Massachusetts
+20899,Netflix,Software Engineer,9.0,2.0,420000.0,California
 20900,Logitech,Product Manager,20.0,7.0,125000.0,California
 20901,Microsoft,Software Engineer,13.0,8.0,169000.0,Minnesota
 20902,Nvidia,Solution Architect,14.0,1.0,170000.0,Washington
@@ -19308,6 +19354,7 @@
 21372,Oracle,Software Engineer,19.0,19.0,185000.0,California
 21374,Amazon,Software Engineer,1.0,0.0,112000.0,Washington
 21375,Workday,Data Scientist,5.0,1.0,154000.0,Colorado
+21376,Netflix,Data Scientist,5.0,2.0,400000.0,California
 21377,Amazon,Software Engineer,16.0,4.0,160000.0,Massachusetts
 21378,Amazon,Product Manager,6.0,6.0,167000.0,Washington
 21379,Just Eat,Solution Architect,7.0,4.0,120000.0,California
@@ -19374,6 +19421,7 @@
 21454,Apple,Software Engineer,11.0,4.0,188000.0,California
 21455,Amazon,Software Engineering Manager,15.0,0.0,178000.0,New York
 21457,Barclays,Software Engineer,9.0,2.0,134000.0,New Jersey
+21458,Netflix,Software Engineer,6.0,1.0,450000.0,California
 21459,Google,Software Engineer,6.0,5.0,190000.0,California
 21460,Google,Hardware Engineer,7.0,1.0,180000.0,California
 21461,Jpmorgan Chase,Software Engineer,2.0,2.0,110000.0,New Jersey
@@ -20253,6 +20301,7 @@
 22500,Cisco Systems,Software Engineer,20.0,2.0,190000.0,California
 22501,Sap Concur,Software Engineer,26.0,5.0,181000.0,Washington
 22502,Intel,Software Engineer,5.0,3.0,112000.0,Oregon
+22503,Roku,Software Engineer,17.0,0.0,425000.0,California
 22505,Wayfair,Software Engineer,5.0,1.0,130000.0,Massachusetts
 22506,Bloomberg,Software Engineer,7.0,0.0,210000.0,New York
 22507,Instacart,Software Engineer,6.0,1.0,185000.0,California
@@ -20274,7 +20323,6 @@
 22527,Spotify,Software Engineer,20.0,4.0,227000.0,New York
 22528,Cruise,Software Engineer,15.0,0.0,210000.0,California
 22529,Amazon,Technical Program Manager,7.0,1.0,160000.0,Washington
-22531,Intel,Hardware Engineer,23.0,23.0,235000.0,Oregon
 22533,Apple,Software Engineer,3.0,3.0,146000.0,California
 22534,Vmware,Software Engineering Manager,15.0,4.0,203000.0,California
 22535,Intel,Hardware Engineer,2.0,2.0,92000.0,Oregon
@@ -20364,7 +20412,6 @@
 22634,Macy'S,Product Manager,5.0,4.0,96000.0,New York
 22635,Amazon,Software Engineer,20.0,1.0,160000.0,California
 22637,Salesforce,Software Engineer,2.0,2.0,117000.0,Colorado
-22638,Dell Technologies,Software Engineering Manager,32.0,32.0,181000.0,Massachusetts
 22639,Intel Corporation,Hardware Engineer,10.0,10.0,139000.0,Oregon
 22640,Google,Solution Architect,5.0,0.0,140000.0,Texas
 22641,Oracle,Software Engineer,8.0,8.0,135000.0,Colorado
@@ -20409,6 +20456,7 @@
 22689,Clover Health,Software Engineer,5.0,1.0,130000.0,Georgia
 22691,Amazon,Software Engineer,15.0,4.0,143000.0,Washington
 22692,Amazon,Solution Architect,10.0,4.0,160000.0,Washington
+22693,Netflix,Software Engineer,6.0,0.0,450000.0,California
 22694,Uber,Software Engineering Manager,19.0,2.0,241000.0,California
 22695,Facebook,Product Manager,9.0,0.0,200000.0,California
 22697,Oracle,Software Engineer,5.0,1.0,136000.0,Colorado
@@ -20417,6 +20465,7 @@
 22700,Amazon,Product Manager,5.0,1.0,155000.0,Washington
 22701,Amazon,Software Engineer,2.0,2.0,135000.0,California
 22702,Microsoft,Product Manager,5.0,5.0,150000.0,Washington
+22703,Netflix,Software Engineer,8.0,0.0,450000.0,California
 22704,Intel,Hardware Engineer,11.0,11.0,177000.0,California
 22705,Amazon,Software Engineer,18.0,4.0,160000.0,Washington
 22706,Accenture,Software Engineering Manager,12.0,12.0,145000.0,Texas
@@ -21282,6 +21331,7 @@
 23704,Amazon,Software Engineer,4.0,3.0,150000.0,California
 23705,Amazon,Software Engineer,0.0,0.0,123000.0,New York
 23707,Google,Software Engineer,5.0,5.0,176000.0,California
+23710,Netflix,Software Engineer,7.0,2.0,420000.0,California
 23711,Bloomberg,Software Engineer,3.0,0.0,160000.0,New York
 23712,Salesforce,Software Engineer,4.0,1.0,190000.0,Washington
 23718,Microsoft,Recruiter,12.0,3.0,130000.0,Washington
@@ -21435,6 +21485,7 @@
 23900,Wayfair,Software Engineer,9.0,2.0,147000.0,Massachusetts
 23902,Rally Health,Software Engineer,7.0,1.0,145000.0,California
 23903,Facebook,Product Manager,9.0,0.0,198000.0,California
+23904,Netflix,Software Engineer,8.0,2.0,450000.0,California
 23905,Accenture,Software Engineer,3.0,1.0,100000.0,New York
 23906,F5 Networks,Software Engineer,4.0,1.0,130000.0,California
 23907,Amazon,Software Engineer,0.0,0.0,145000.0,California
@@ -21955,6 +22006,7 @@
 24501,Cisco,Solution Architect,13.0,8.0,139000.0,North Carolina
 24502,Ge,Mechanical Engineer,10.0,10.0,100000.0,Utah
 24504,Uber,Software Engineer,13.0,5.0,210000.0,California
+24505,Netflix,Software Engineer,15.0,4.0,460000.0,California
 24506,Continental,Mechanical Engineer,3.0,3.0,73000.0,Virginia
 24507,Bloomberg,Software Engineer,4.0,2.0,180000.0,New York
 24510,Ibm,Software Engineer,2.0,2.0,75000.0,Washington
@@ -22702,7 +22754,6 @@
 25375,Bank Of America Merrill Lynch,Software Engineer,8.0,1.0,130000.0,New Jersey
 25376,Blue Origin,Mechanical Engineer,1.0,1.0,92000.0,Washington
 25377,Cadence,Software Engineer,15.0,5.0,155000.0,California
-25378,Microsoft,Software Engineer,25.0,24.0,150000.0,Washington
 25379,Twilio,Sales,8.0,6.0,179000.0,New York
 25380,Airbnb,Product Manager,8.0,2.0,200000.0,California
 25381,At&T,Software Engineer,2.0,2.0,93000.0,Texas
@@ -22729,7 +22780,6 @@
 25405,Blizzard Entertainment,Software Engineer,11.0,4.0,145000.0,California
 25406,Airbnb,Technical Program Manager,17.0,1.0,205000.0,California
 25407,Google,Software Engineer,14.0,6.0,180000.0,California
-25408,Intel,Human Resources,29.0,25.0,215000.0,Oregon
 25409,Blizzard Entertainment,Marketing,5.0,4.0,82000.0,California
 25410,Qualcomm,Software Engineer,2.0,0.0,109000.0,California
 25411,Mercer,Product Manager,6.0,6.0,155000.0,Texas
@@ -22893,6 +22943,7 @@
 25587,Usaa,Software Engineer,3.0,1.0,85000.0,Texas
 25588,Google,Product Designer,5.0,5.0,100000.0,California
 25590,Blizzard Entertainment,Software Engineer,7.0,0.0,105000.0,California
+25592,Blackstone,Software Engineer,20.0,2.0,432000.0,New York
 25594,Facebook,Software Engineer,13.0,2.0,225000.0,New York
 25595,Microsoft,Software Engineering Manager,21.0,13.0,241000.0,Washington
 25596,Optum,Software Engineer,1.0,1.0,89000.0,Illinois
@@ -23314,6 +23365,7 @@
 26078,Capital One,Software Engineer,0.0,0.0,106000.0,New York
 26079,Salesforce,Software Engineer,1.0,1.0,152000.0,California
 26080,Amazon,Software Engineer,3.0,3.0,145000.0,Washington
+26082,Netflix,Data Scientist,3.0,3.0,400000.0,California
 26084,Epic Systems,Software Engineer,4.0,4.0,136000.0,Wisconsin
 26085,Deloitte,Software Engineering Manager,14.0,7.0,125000.0,Michigan
 26086,Mcafee,Solution Architect,20.0,4.0,240000.0,Washington
@@ -23370,6 +23422,7 @@
 26149,Mediaocean,Software Engineer,2.0,2.0,59000.0,Illinois
 26150,Microsoft,Software Engineer,6.0,4.0,160000.0,Washington
 26152,Adobe,Data Scientist,1.0,1.0,145000.0,California
+26153,Netflix,Software Engineer,7.0,2.0,420000.0,California
 26154,Pure Storage,Software Engineer,10.0,2.0,178000.0,California
 26155,Microsoft,Data Scientist,1.0,1.0,110000.0,Washington
 26156,Microsoft,Technical Program Manager,13.0,8.0,173000.0,Washington
@@ -23521,6 +23574,7 @@
 26328,Amazon,Software Engineer,15.0,2.0,160000.0,Washington
 26329,Amazon,Software Engineer,2.0,2.0,144000.0,Washington
 26331,Cisco Systems,Software Engineering Manager,10.0,10.0,150000.0,California
+26332,Netflix,Data Scientist,15.0,5.0,450000.0,California
 26333,Microsoft,Solution Architect,8.0,1.0,180000.0,New York
 26334,Facebook,Technical Program Manager,9.0,2.0,200000.0,California
 26336,Amazon,Software Engineering Manager,15.0,13.0,160000.0,Washington
@@ -23672,7 +23726,6 @@
 26495,Uber,Software Engineer,4.0,2.0,170000.0,California
 26496,Microsoft,Software Engineer,1.0,0.0,110000.0,Massachusetts
 26497,Facebook,Product Designer,4.0,0.0,160000.0,California
-26498,Microsoft,Technical Program Manager,24.0,24.0,225000.0,Washington
 26499,Capital One,Data Scientist,3.0,1.0,145000.0,Texas
 26500,Microsoft,Software Engineer,0.0,0.0,111000.0,Washington
 26501,Dell Technologies,Software Engineering Manager,15.0,10.0,237000.0,Texas
@@ -23941,6 +23994,7 @@
 26808,Maxar Technologies,Mechanical Engineer,5.0,3.0,100000.0,California
 26809,Amazon,Software Engineer,7.0,7.0,156000.0,Washington
 26810,Rivian,Hardware Engineer,1.0,0.0,133000.0,California
+26811,Netflix,Software Engineer,3.0,0.0,400000.0,California
 26812,Amazon,Software Engineer,5.0,0.0,172000.0,New York
 26813,Oracle,Software Engineer,25.0,11.0,155000.0,North Carolina
 26814,Hubspot,Software Engineer,9.0,7.0,198000.0,Massachusetts
@@ -24297,7 +24351,6 @@
 27220,Etsy,Product Manager,10.0,7.0,136000.0,Illinois
 27221,Microsoft,Software Engineer,3.0,3.0,135000.0,Washington
 27222,Kpmg,Management Consultant,5.0,1.0,148000.0,Texas
-27223,Walmart Labs,Software Engineer,23.0,23.0,124000.0,Arkansas
 27224,Goldman Sachs,Software Engineer,0.0,0.0,110000.0,New York
 27225,Amazon,Software Engineer,14.0,2.0,125000.0,Washington
 27226,Compass,Software Engineer,4.0,2.0,150000.0,New York
@@ -25440,7 +25493,6 @@
 28589,Two Sigma,Software Engineer,4.0,4.0,185000.0,New York
 28590,Linkedin,Software Engineer,3.0,2.0,161000.0,California
 28591,Ibm,Product Manager,3.0,3.0,148000.0,Texas
-28592,Microsoft,Software Engineer,27.0,27.0,239000.0,Washington
 28593,Lendingclub,Software Engineer,2.0,1.0,126000.0,California
 28594,Facebook,Technical Program Manager,18.0,2.0,215000.0,Washington
 28595,Microsoft,Software Engineer,13.0,13.0,238000.0,Washington
@@ -25537,11 +25589,9 @@
 28697,Amazon,Software Engineer,1.0,0.0,112000.0,Washington
 28699,Amazon,Recruiter,8.0,1.0,84000.0,Texas
 28700,Compass,Software Engineer,5.0,0.0,165000.0,New York
-28701,Microsoft,Software Engineering Manager,28.0,28.0,210000.0,Washington
 28702,Ebay,Product Manager,10.0,1.0,174000.0,California
 28703,Autodesk,Software Engineering Manager,15.0,2.0,204000.0,California
 28704,Microsoft,Software Engineer,7.0,0.0,110000.0,Washington
-28705,Oracle,Marketing,35.0,23.0,178000.0,Oregon
 28706,Microsoft,Software Engineer,15.0,14.0,160000.0,Washington
 28707,Usaa,Software Engineer,7.0,0.0,98000.0,Texas
 28709,Oracle,Technical Program Manager,6.0,3.0,75000.0,Washington
@@ -25687,6 +25737,7 @@
 28867,Optiver,Software Engineer,1.0,1.0,150000.0,Illinois
 28868,Walmart Labs,Software Engineer,20.0,1.0,185000.0,California
 28869,Jpmorgan Chase,Software Engineer,5.0,5.0,86000.0,Delaware
+28870,Netflix,Data Scientist,10.0,3.0,410000.0,California
 28872,Boeing,Software Engineer,2.0,1.0,87000.0,Missouri
 28875,Red Hat,Software Engineering Manager,20.0,10.0,195000.0,North Carolina
 28876,Microsoft,Software Engineer,0.0,0.0,111000.0,Washington
@@ -26131,7 +26182,6 @@
 29430,Cornerstone Ondemand,Product Manager,10.0,3.0,130000.0,California
 29431,Constant Contact,Software Engineer,5.0,5.0,145000.0,Massachusetts
 29432,Policygenius,Software Engineer,3.0,2.0,130000.0,New York
-29434,Microsoft,Software Engineering Manager,26.0,26.0,225000.0,Washington
 29435,Booz Allen Hamilton,Software Engineer,2.0,2.0,90000.0,California
 29436,Charter Communications,Data Scientist,9.0,5.0,95000.0,North Carolina
 29437,Dropbox,Recruiter,6.0,2.0,129000.0,California
@@ -26614,6 +26664,7 @@
 30013,Lyft,Recruiter,5.0,2.0,130000.0,California
 30014,Google,Software Engineer,2.0,2.0,159000.0,New York
 30015,Fidelity Investments,Software Engineer,0.0,0.0,70000.0,Massachusetts
+30016,Netflix,Software Engineer,10.0,1.0,430000.0,California
 30017,Sap,Software Engineer,12.0,12.0,135000.0,Pennsylvania
 30018,Riot Games,Software Engineer,5.0,0.0,170000.0,California
 30019,Dell Technologies,Software Engineering Manager,20.0,6.0,290000.0,Massachusetts
@@ -26974,7 +27025,6 @@
 30452,Informatica,Software Engineer,0.0,0.0,120000.0,California
 30453,Raytheon,Software Engineer,1.0,1.0,72000.0,Arizona
 30454,Oracle,Software Engineer,1.0,0.0,135000.0,Washington
-30455,Intel,Hardware Engineer,25.0,25.0,183000.0,Oregon
 30456,Palantir,Software Engineer,6.0,0.0,170000.0,California
 30457,Amazon,Software Engineer,0.0,0.0,116000.0,Virginia
 30458,Microsoft,Mechanical Engineer,1.0,1.0,109000.0,Washington
@@ -27127,7 +27177,6 @@
 30629,Box,Software Engineer,10.0,5.0,184000.0,California
 30631,Blue Origin,Business Analyst,4.0,3.0,88000.0,Washington
 30632,Walmart Labs,Product Manager,5.0,3.0,192000.0,California
-30633,Microsoft,Software Engineer,37.0,25.0,203000.0,Washington
 30634,Intuit,Product Manager,8.0,3.0,133000.0,California
 30635,Bcg,Business Analyst,2.0,1.0,90000.0,Washington
 30636,Wells Fargo,Business Analyst,6.0,1.0,90000.0,California
@@ -27148,6 +27197,7 @@
 30652,Amazon,Software Engineer,0.0,0.0,112000.0,Washington
 30653,Adobe,Recruiter,5.0,3.0,120000.0,California
 30654,Uber,Product Manager,5.0,3.0,200000.0,California
+30655,Ey,Management Consultant,22.0,9.0,465000.0,Washington
 30656,Google,Technical Program Manager,12.0,2.0,151000.0,Washington
 30657,Google,Software Engineer,12.0,9.0,231000.0,Washington
 30658,Salesforce,Software Engineer,0.0,0.0,133000.0,California
@@ -27725,7 +27775,6 @@
 31351,Amazon,Software Engineer,4.0,1.0,123000.0,Washington
 31352,Tableau Software,Software Engineer,8.0,1.0,145000.0,Washington
 31353,Headspace,Sales,1.0,1.0,60000.0,California
-31354,Intel,Human Resources,27.0,27.0,151000.0,California
 31355,Jp Morgan Chase,Software Engineer,15.0,8.0,153000.0,Ohio
 31356,Deloitte,Management Consultant,2.0,2.0,120000.0,North Carolina
 31357,Google,Data Scientist,20.0,5.0,157000.0,California
@@ -28055,7 +28104,6 @@
 31742,Facebook,Hardware Engineer,7.0,1.0,160000.0,California
 31743,Opendoor,Software Engineering Manager,12.0,1.0,215000.0,California
 31744,Zillow,Software Engineering Manager,15.0,4.0,194000.0,California
-31745,Intel,Technical Program Manager,27.0,23.0,140000.0,Oregon
 31746,Google,Software Engineer,17.0,6.0,200000.0,New York
 31747,Goldman Sachs,Software Engineer,16.0,0.0,220000.0,New York
 31748,Microsoft,Software Engineer,0.0,0.0,111000.0,Washington
@@ -28159,7 +28207,6 @@
 31869,Sap,Technical Program Manager,20.0,10.0,150000.0,Arizona
 31870,Booking.Com,Marketing,10.0,3.0,176000.0,New York
 31871,Flatiron Health,Software Engineer,8.0,2.0,180000.0,New York
-31872,Cisco,Software Engineer,31.0,25.0,134000.0,Texas
 31873,Cisco,Software Engineer,12.0,2.0,168000.0,California
 31874,Booz Allen Hamilton,Management Consultant,9.0,5.0,120000.0,California
 31876,T-Mobile,Solution Architect,15.0,15.0,185000.0,Washington
@@ -28589,7 +28636,6 @@
 32387,Amazon,Solution Architect,14.0,0.0,185000.0,California
 32389,Expedia,Software Engineer,6.0,1.0,165000.0,Washington
 32393,Barclays,Software Engineer,2.0,0.0,130000.0,New York
-32394,Texas Instruments,Hardware Engineer,25.0,25.0,165000.0,Texas
 32398,Amazon,Business Analyst,1.0,1.0,75000.0,Washington
 32399,Microsoft,Software Engineering Manager,19.0,1.0,199000.0,Washington
 32400,Western Digital,Hardware Engineer,1.0,1.0,80000.0,California
@@ -28817,6 +28863,7 @@
 32662,Comcast,Human Resources,5.0,5.0,101000.0,Pennsylvania
 32663,Capgemini,Business Analyst,0.0,0.0,68000.0,Illinois
 32664,Linkedin,Software Engineer,0.0,0.0,140000.0,California
+32665,Facebook,Product Manager,10.0,6.0,400000.0,California
 32666,Facebook,Product Designer,5.0,5.0,176000.0,California
 32667,Comscore,Data Scientist,8.0,8.0,150000.0,Virginia
 32668,Microsoft,Software Engineer,5.0,1.0,182000.0,Washington
@@ -28840,7 +28887,6 @@
 32687,Pepsico,Software Engineer,10.0,1.0,220000.0,California
 32689,Accenture,Solution Architect,1.0,1.0,72000.0,Texas
 32690,Tcs,Product Manager,5.0,1.0,125000.0,Illinois
-32692,At&T,Technical Program Manager,25.0,25.0,130000.0,Georgia
 32695,Cognizant,Software Engineer,10.0,5.0,122000.0,California
 32696,Leidos,Software Engineer,10.0,1.0,85000.0,West Virginia
 32697,Ford Motor,Product Manager,5.0,5.0,128000.0,Michigan
@@ -28993,7 +29039,6 @@
 32869,Datadog,Software Engineer,10.0,0.0,160000.0,North Carolina
 32870,Google,Product Manager,15.0,1.0,250000.0,California
 32871,Apple Inc.,Hardware Engineer,10.0,10.0,178000.0,California
-32872,Microsoft,Software Engineer,37.0,28.0,300000.0,Washington
 32873,Boeing,Technical Program Manager,24.0,1.0,195000.0,Washington
 32875,Garmin,Software Engineer,12.0,10.0,100000.0,Kansas
 32876,Microsoft,Product Manager,20.0,12.0,265000.0,Washington
@@ -29533,6 +29578,7 @@
 33518,Datadog,Software Engineer,0.0,0.0,120000.0,New York
 33521,Google,Product Manager,7.0,4.0,177000.0,California
 33522,Apple,Software Engineer,0.0,0.0,120000.0,Colorado
+33523,Goldman Sachs,Software Engineering Manager,15.0,2.0,400000.0,New York
 33524,Facebook,Software Engineer,5.0,2.0,194000.0,New York
 33525,Rackspace,Solution Architect,20.0,4.0,165000.0,California
 33526,Flatiron Health,Software Engineering Manager,8.0,5.0,205000.0,New York
@@ -29859,7 +29905,6 @@
 33918,Amazon,Sales,8.0,0.0,101000.0,Washington
 33919,Facebook,Product Designer,6.0,0.0,180000.0,California
 33920,Ibm,Software Engineer,1.0,0.0,93000.0,Ohio
-33921,Intel,Software Engineer,35.0,23.0,220000.0,Colorado
 33922,Netapp,Software Engineer,11.0,3.0,142000.0,California
 33923,Amazon,Product Manager,7.0,6.0,126000.0,Washington
 33924,Mitchell International,Software Engineer,4.0,4.0,120000.0,California
@@ -29941,6 +29986,7 @@
 34008,Schlumberger,Software Engineer,4.0,3.0,124000.0,Texas
 34009,Apple,Software Engineer,10.0,10.0,180000.0,California
 34010,Walmart,Technical Program Manager,9.0,1.0,150000.0,California
+34011,Netflix,Software Engineer,9.0,0.0,430000.0,California
 34014,Indeed,Business Analyst,1.0,1.0,90000.0,California
 34015,Google,Technical Program Manager,5.0,1.0,140000.0,California
 34016,Appfolio,Software Engineer,5.0,5.0,170000.0,California
@@ -29979,6 +30025,7 @@
 34051,Qualcomm,Software Engineer,1.0,1.0,109000.0,New Jersey
 34052,Walmart,Software Engineer,8.0,4.0,105000.0,Arkansas
 34054,Ancestry,Software Engineer,8.0,1.0,160000.0,California
+34055,Netflix,Software Engineer,10.0,0.0,415000.0,Oregon
 34056,Amazon,Software Engineer,2.0,1.0,120000.0,Texas
 34057,Amazon,Software Engineer,0.0,0.0,116000.0,Washington
 34058,Google,Software Engineer,17.0,11.0,240000.0,California
@@ -30002,19 +30049,20 @@
 34083,Amazon,Software Engineer,18.0,0.0,178000.0,New York
 34085,Gartner,Software Engineering Manager,15.0,3.0,155000.0,Texas
 34086,Jpmorgan Chase,Software Engineer,1.0,1.0,88000.0,Texas
-34087,Ge,Software Engineer,25.0,25.0,161000.0,Oregon
 34088,Facebook,Software Engineer,2.0,0.0,137000.0,California
 34089,Google,Software Engineer,7.0,5.0,216000.0,California
 34090,Turo,Software Engineer,4.0,2.0,155000.0,California
 34091,Amazon,Software Engineer,2.0,0.0,140000.0,North Carolina
 34092,Apple,Software Engineer,8.0,0.0,195000.0,California
 34094,Amazon,Solution Architect,8.0,0.0,185000.0,California
+34095,Netflix,Software Engineer,12.0,5.0,450000.0,California
 34096,Ernst And Young,Management Consultant,5.0,0.0,145000.0,New York
 34097,Ibm,Product Designer,8.0,4.0,134000.0,Massachusetts
 34098,Amazon,Product Designer,15.0,0.0,160000.0,Washington
 34099,Robinhood,Software Engineer,0.0,0.0,135000.0,California
 34100,Wp Engine,Human Resources,10.0,5.0,150000.0,Texas
 34101,Visa,Software Engineer,6.0,4.0,125000.0,Washington
+34102,Netflix,Software Engineer,9.0,7.0,400000.0,California
 34104,Veeva Systems,Software Engineer,3.0,3.0,127000.0,California
 34105,Paypal,Software Engineer,2.0,2.0,121000.0,California
 34106,Vmware,Software Engineer,1.0,1.0,132000.0,California
@@ -30537,6 +30585,7 @@
 34731,Microsoft,Product Designer,3.0,1.0,135000.0,Washington
 34732,Jpmorgan Chase,Software Engineer,11.0,3.0,119000.0,Texas
 34733,Dropbox,Software Engineer,14.0,3.0,239000.0,California
+34734,Netflix,Software Engineer,10.0,1.0,400000.0,California
 34736,Amazon,Software Engineer,1.0,0.0,125000.0,Washington
 34737,Bny Mellon,Software Engineer,0.0,0.0,90000.0,New Jersey
 34738,Intel,Hardware Engineer,7.0,7.0,139000.0,Texas
@@ -30599,6 +30648,7 @@
 34807,Buzzfeed,Data Scientist,4.0,2.0,145000.0,New York
 34808,Google,Product Designer,7.0,7.0,203000.0,California
 34811,Amazon,Software Engineer,6.0,4.0,160000.0,Washington
+34812,Google,Software Engineering Manager,15.0,12.0,380000.0,California
 34813,Google,Software Engineer,0.0,0.0,129000.0,California
 34814,Glassdoor,Software Engineer,14.0,4.0,181000.0,California
 34817,Snap,Software Engineer,3.0,0.0,190000.0,California
@@ -31036,7 +31086,6 @@
 35352,Qualcomm,Hardware Engineer,7.0,1.0,160000.0,California
 35353,Rubrik,Product Manager,5.0,2.0,176000.0,California
 35354,Google,Software Engineer,2.0,0.0,135000.0,California
-35356,Microsoft,Software Engineer,29.0,27.0,360000.0,Washington
 35357,Snapchat,Software Engineer,0.0,0.0,130000.0,California
 35358,Amazon,Software Engineer,13.0,5.0,158000.0,Washington
 35359,Capital One,Software Engineer,1.0,1.0,100000.0,Illinois
@@ -31445,7 +31494,6 @@
 35839,Walmart Labs,Technical Program Manager,10.0,1.0,150000.0,California
 35840,Deloitte,Management Consultant,18.0,5.0,185000.0,Virginia
 35841,Twitter,Software Engineer,7.0,0.0,220000.0,Washington
-35842,Intel,Product Designer,28.0,23.0,306000.0,Oregon
 35844,Amazon,Software Engineer,1.0,1.0,144000.0,Washington
 35845,Capgemini,Business Analyst,10.0,1.0,100000.0,New Jersey
 35846,Dropbox,Product Manager,8.0,3.0,239000.0,California
@@ -32044,6 +32092,7 @@
 36602,Amazon,Software Engineer,0.0,0.0,134000.0,California
 36603,Amazon,Software Engineer,0.0,0.0,112000.0,Tennessee
 36605,Amazon,Product Manager,4.0,0.0,150000.0,Washington
+36606,Netflix,Data Scientist,3.0,0.0,450000.0,California
 36607,Morgan Stanley,Software Engineer,20.0,4.0,87000.0,Missouri
 36608,Nike,Product Manager,16.0,4.0,208000.0,Oregon
 36609,Cisco,Hardware Engineer,3.0,2.0,112000.0,California
@@ -32128,6 +32177,7 @@
 36706,Segment,Recruiter,5.0,2.0,155000.0,California
 36707,American Family Insurance,Software Engineer,5.0,0.0,145000.0,Wisconsin
 36708,Northwestern Mutual,Software Engineer,3.0,1.0,105000.0,Wisconsin
+36709,Netflix,Software Engineer,8.0,2.0,400000.0,California
 36710,Point72,Software Engineer,2.0,2.0,150000.0,New York
 36712,Startup,Software Engineer,15.0,1.0,150000.0,Wisconsin
 36713,Goldman Sachs,Software Engineering Manager,12.0,4.0,225000.0,New York
@@ -32268,6 +32318,7 @@
 36879,Barclays,Software Engineer,2.0,2.0,110000.0,New York
 36882,Nvidia,Software Engineer,0.0,0.0,135000.0,California
 36883,Microsoft,Software Engineering Manager,13.0,0.0,157000.0,Massachusetts
+36884,Netflix,Software Engineer,7.0,3.0,420000.0,California
 36885,Hpe,Software Engineer,9.0,5.0,160000.0,California
 36886,Microsoft,Software Engineer,4.0,1.0,124000.0,Washington
 36888,Dexcom,Technical Program Manager,6.0,6.0,65000.0,California
@@ -32286,7 +32337,6 @@
 36903,Amazon,Software Engineer,0.0,0.0,122000.0,Washington
 36904,Postmates,Software Engineer,5.0,2.0,165000.0,California
 36905,Disney,Product Manager,10.0,2.0,218000.0,California
-36906,Intel,Human Resources,30.0,25.0,215000.0,Oregon
 36907,Airtable,Software Engineer,0.0,0.0,155000.0,California
 36909,Qualcomm,Software Engineer,0.0,0.0,110000.0,California
 36910,Google,Software Engineer,4.0,2.0,161000.0,California
@@ -32421,7 +32471,6 @@
 37069,Lam Research,Hardware Engineer,5.0,4.0,97000.0,Oregon
 37070,Wework,Software Engineer,7.0,2.0,170000.0,New York
 37071,Amazon,Software Engineer,10.0,4.0,160000.0,Washington
-37073,Intel,Hardware Engineer,24.0,24.0,144000.0,Oregon
 37074,Google,Product Manager,20.0,2.0,265000.0,California
 37075,Pepsico,Software Engineer,5.0,1.0,140000.0,California
 37076,Goldman Sachs,Software Engineering Manager,6.0,6.0,167000.0,New York
@@ -32563,7 +32612,6 @@
 37241,Microsoft,Software Engineer,0.0,0.0,111000.0,Washington
 37244,Uber,Software Engineer,5.0,0.0,167000.0,California
 37245,Lockheed Martin,Software Engineer,3.0,3.0,94000.0,Texas
-37246,Intel,Hardware Engineer,25.0,25.0,197000.0,Oregon
 37247,Zoom,Software Engineer,4.0,1.0,135000.0,New York
 37248,Microsoft,Software Engineering Manager,14.0,0.0,220000.0,Washington
 37250,Walmart Labs,Data Scientist,7.0,1.0,142000.0,California
@@ -32600,6 +32648,7 @@
 37282,Amazon,Technical Program Manager,8.0,3.0,145000.0,California
 37283,Wipro,Hardware Engineer,8.0,3.0,135000.0,California
 37284,Uber,Software Engineer,3.0,0.0,167000.0,California
+37285,Netflix,Data Scientist,4.0,2.0,400000.0,California
 37286,Microsoft,Software Engineer,8.0,0.0,180000.0,Massachusetts
 37287,Amazon,Software Engineering Manager,15.0,0.0,200000.0,Washington
 37288,Goldman Sachs,Software Engineer,2.0,2.0,110000.0,New York
@@ -32745,6 +32794,7 @@
 37447,Pinterest,Software Engineer,0.0,0.0,145000.0,California
 37448,Carrier,Mechanical Engineer,0.0,0.0,75000.0,Georgia
 37449,Amazon,Software Engineer,3.0,0.0,145000.0,Washington
+37450,Netflix,Software Engineer,5.0,3.0,441000.0,California
 37451,Salesforce,Technical Program Manager,20.0,1.0,202000.0,Washington
 37452,Coupa Software,Software Engineer,30.0,8.0,158000.0,California
 37453,Apple,Software Engineer,9.0,5.0,167000.0,California
@@ -33026,6 +33076,7 @@
 37795,Amazon,Software Engineer,10.0,0.0,130000.0,Missouri
 37796,Lucid Motors,Product Designer,4.0,2.0,120000.0,California
 37797,Ibm,Software Engineer,2.0,2.0,88000.0,Minnesota
+37798,Netflix,Software Engineer,6.0,0.0,435000.0,New York
 37799,Amazon,Software Engineer,0.0,0.0,128000.0,New York
 37801,Microsoft,Technical Program Manager,22.0,5.0,156000.0,California
 37804,Amazon,Software Engineering Manager,10.0,5.0,160000.0,Washington
@@ -33128,6 +33179,7 @@
 37923,Zulily,Software Engineer,1.0,0.0,150000.0,Washington
 37924,Amazon,Software Engineer,0.0,0.0,116000.0,Washington
 37925,Facebook,Software Engineer,10.0,0.0,200000.0,California
+37926,Brex,Software Engineer,10.0,0.0,450000.0,California
 37927,Stripe,Software Engineer,10.0,0.0,216000.0,California
 37928,Accenture,Product Manager,15.0,15.0,95000.0,New Jersey
 37929,Facebook,Software Engineer,8.0,0.0,200000.0,California
@@ -33806,6 +33858,7 @@
 38754,Lti,Software Engineer,11.0,11.0,63000.0,Oklahoma
 38756,Dtcc,Software Engineering Manager,21.0,2.0,137000.0,Florida
 38757,Apple,Software Engineering Manager,25.0,8.0,285000.0,California
+38758,Google,Software Engineering Manager,18.0,14.0,460000.0,California
 38759,Stripe,Software Engineer,15.0,0.0,197000.0,Oregon
 38760,Argo Ai,Software Engineer,7.0,1.0,205000.0,California
 38761,Airtable,Software Engineer,5.0,1.0,200000.0,California
@@ -33822,7 +33875,6 @@
 38780,Mcafee,Solution Architect,15.0,5.0,240000.0,Texas
 38781,Cruise,Software Engineer,7.0,3.0,245000.0,California
 38782,Cerner,Software Engineer,2.0,0.0,71000.0,Missouri
-38783,Oracle,Software Engineering Manager,27.0,24.0,184000.0,California
 38784,Ford Motor,Data Scientist,6.0,4.0,100000.0,Michigan
 38786,Google,Software Engineer,3.0,3.0,125000.0,Pennsylvania
 38788,Vmware,Software Engineer,12.0,2.0,215000.0,California
@@ -33849,7 +33901,6 @@
 38809,Robinhood,Software Engineer,5.0,0.0,230000.0,California
 38810,Flexport,Software Engineer,2.0,1.0,135000.0,Illinois
 38811,Amazon,Software Engineer,2.0,0.0,112000.0,Washington
-38812,Microsoft,Software Engineer,33.0,23.0,201000.0,Washington
 38813,Capital One,Software Engineer,2.0,0.0,116000.0,Washington
 38814,Compass,Product Designer,5.0,3.0,113000.0,New York
 38815,Databricks,Software Engineering Manager,15.0,1.0,170000.0,Pennsylvania
@@ -34472,6 +34523,7 @@
 39572,Amazon,Software Engineer,3.0,3.0,144000.0,Washington
 39574,Waymo,Software Engineer,5.0,0.0,175000.0,California
 39575,Cockroach Labs,Software Engineer,6.0,1.0,165000.0,New York
+39576,Roku,Software Engineer,11.0,1.0,400000.0,California
 39577,Deloitte,Software Engineer,0.0,0.0,95000.0,Georgia
 39578,Oracle,Software Engineer,8.0,2.0,175000.0,Washington
 39579,Google,Software Engineer,10.0,0.0,167000.0,California
@@ -35234,7 +35286,6 @@
 40494,Elastic,Software Engineer,4.0,2.0,137000.0,Oregon
 40495,Microsoft,Software Engineer,4.0,3.0,132000.0,Washington
 40496,Slack,Software Engineer,5.0,1.0,180000.0,California
-40497,Trimble,Software Engineer,30.0,25.0,102000.0,Ohio
 40498,Accenture,Software Engineer,2.0,0.0,105000.0,Pennsylvania
 40500,Slack,Software Engineer,4.0,1.0,165000.0,California
 40501,Slack,Software Engineer,8.0,1.0,200000.0,California
@@ -35294,7 +35345,6 @@
 40561,Ibm,Solution Architect,14.0,8.0,155000.0,Washington
 40562,Cerner,Software Engineer,5.0,5.0,120000.0,Missouri
 40563,Broadcom,Software Engineer,14.0,1.0,220000.0,California
-40564,Boeing,Software Engineer,25.0,25.0,201000.0,California
 40565,Lam Research,Hardware Engineer,2.0,0.0,125000.0,California
 40566,Intuit,Software Engineer,5.0,4.0,143000.0,California
 40567,Google,Software Engineer,2.0,2.0,156000.0,California
@@ -35665,6 +35715,7 @@
 41007,Facebook,Software Engineering Manager,17.0,1.0,235000.0,New York
 41008,Google,Software Engineer,8.0,8.0,248000.0,California
 41009,Amazon,Software Engineer,0.0,0.0,130000.0,New York
+41010,Netflix,Technical Program Manager,18.0,12.0,430000.0,California
 41011,Intuit,Software Engineer,18.0,4.0,173000.0,California
 41012,Linkedin,Software Engineering Manager,15.0,4.0,300000.0,California
 41013,Google,Software Engineering Manager,16.0,10.0,204000.0,Washington
@@ -35980,7 +36031,6 @@
 41382,Confluent,Software Engineer,15.0,1.0,200000.0,California
 41383,Microsoft,Software Engineer,17.0,8.0,190000.0,California
 41384,Facebook,Software Engineer,15.0,0.0,185000.0,California
-41385,Intel,Software Engineer,28.0,23.0,307000.0,Oregon
 41386,Google,Product Designer,20.0,9.0,225000.0,California
 41387,Atlassian,Software Engineer,10.0,1.0,195000.0,California
 41389,Dell Technologies,Product Manager,12.0,7.0,128000.0,Texas
@@ -36005,7 +36055,6 @@
 41412,General Motors,Software Engineer,5.0,0.0,103000.0,Michigan
 41413,Google,Software Engineer,8.0,4.0,190000.0,Texas
 41414,Vmware,Software Engineer,4.0,4.0,144000.0,California
-41415,Texas Instruments,Hardware Engineer,23.0,23.0,156000.0,Texas
 41416,Arista Networks,Software Engineer,10.0,5.0,130000.0,Texas
 41417,Amazon,Human Resources,6.0,2.0,102000.0,Washington
 41418,Microsoft,Solution Architect,22.0,8.0,185000.0,Washington
@@ -36119,6 +36168,7 @@
 41548,Cdk Global,Software Engineer,3.0,2.0,70000.0,Oregon
 41550,Autodesk,Software Engineer,4.0,2.0,170000.0,California
 41551,Caci,Technical Program Manager,9.0,7.0,148000.0,New Jersey
+41553,Netflix,Software Engineer,10.0,5.0,405000.0,California
 41554,Roku,Software Engineer,13.0,3.0,200000.0,California
 41556,Apple,Software Engineer,5.0,3.0,150000.0,California
 41557,Uber,Data Scientist,5.0,4.0,150000.0,California
@@ -36565,7 +36615,6 @@
 42075,Autodesk,Software Engineer,6.0,6.0,131000.0,New Hampshire
 42076,Barclays,Software Engineer,2.0,2.0,110000.0,New York
 42077,Microsoft,Software Engineer,0.0,0.0,110000.0,Washington
-42078,Amadeus,Product Manager,24.0,24.0,107000.0,Florida
 42079,Microsoft,Software Engineer,10.0,0.0,145000.0,Washington
 42080,Qualtrics,Software Engineer,0.0,0.0,115000.0,Washington
 42082,Ibm,Software Engineer,3.0,3.0,120000.0,Texas
@@ -36617,6 +36666,7 @@
 42136,Jpmorgan Chase,Software Engineer,2.0,1.0,110000.0,Ohio
 42137,Amazon,Human Resources,4.0,1.0,56000.0,Florida
 42138,Zscaler,Software Engineer,4.0,2.0,130000.0,California
+42139,Netflix,Software Engineer,9.0,2.0,410000.0,California
 42140,Amazon,Software Engineer,11.0,5.0,160000.0,Texas
 42141,Dell Technologies,Software Engineer,3.0,1.0,115000.0,California
 42145,Visa,Software Engineer,12.0,6.0,145000.0,California
@@ -37351,7 +37401,6 @@
 43018,Facebook,Software Engineer,2.0,2.0,196000.0,California
 43019,Facebook,Software Engineer,2.0,2.0,156000.0,Washington
 43020,Qualtrics,Software Engineer,0.0,0.0,160000.0,Washington
-43021,Ibm,Hardware Engineer,23.0,23.0,165000.0,Minnesota
 43022,Apple,Software Engineer,1.0,1.0,119000.0,California
 43023,Facebook,Software Engineer,2.0,2.0,162000.0,California
 43026,Doordash,Software Engineer,10.0,0.0,240000.0,California
@@ -37419,7 +37468,6 @@
 43101,Google,Software Engineer,7.0,5.0,184000.0,California
 43102,Facebook,Product Designer,16.0,5.0,185000.0,California
 43103,L3Harris Technologies,Software Engineer,1.0,1.0,80000.0,Florida
-43104,Oracle,Software Engineer,25.0,23.0,300000.0,California
 43106,Capital One,Software Engineer,3.0,0.0,110000.0,Virginia
 43107,Convoy,Software Engineer,10.0,2.0,175000.0,Washington
 43108,Ge Healthcare,Software Engineer,3.0,3.0,98000.0,Illinois
@@ -37596,7 +37644,6 @@
 43317,Verily Life Sciences,Hardware Engineer,6.0,5.0,167000.0,California
 43319,Actioniq,Software Engineer,1.0,1.0,100000.0,New York
 43320,Actioniq,Software Engineer,4.0,4.0,155000.0,New York
-43321,Ibm,Hardware Engineer,23.0,23.0,168000.0,Minnesota
 43322,Facebook,Software Engineer,4.0,2.0,204000.0,California
 43323,Facebook,Software Engineer,2.0,2.0,174000.0,California
 43324,Amazon,Solution Architect,0.0,0.0,112000.0,New York
@@ -38120,7 +38167,6 @@
 43965,Docusign,Product Designer,3.0,2.0,126000.0,Washington
 43966,New Relic,Software Engineering Manager,12.0,3.0,181000.0,Oregon
 43967,Hashicorp,Software Engineering Manager,20.0,2.0,235000.0,California
-43968,Microsoft,Software Engineering Manager,23.0,23.0,224000.0,Washington
 43969,Facebook,Software Engineer,18.0,5.0,235000.0,Washington
 43971,Amazon,Software Engineer,5.0,3.0,150000.0,Washington
 43973,Capital One,Software Engineer,2.0,2.0,135000.0,California
@@ -38263,7 +38309,6 @@
 44145,Hp Inc,Software Engineer,4.0,3.0,83000.0,Oregon
 44146,Tesla,Hardware Engineer,9.0,0.0,121000.0,Nevada
 44149,Tiktok,Marketing,10.0,1.0,105000.0,California
-44150,Apple,Product Manager,27.0,27.0,275000.0,California
 44153,Google,Marketing,22.0,8.0,265000.0,California
 44154,Amazon,Marketing,6.0,0.0,145000.0,California
 44155,Amazon,Management Consultant,23.0,0.0,185000.0,New York
@@ -38309,6 +38354,7 @@
 44201,Facebook,Data Scientist,2.0,2.0,183000.0,New York
 44202,Usaa,Software Engineer,11.0,2.0,124000.0,Texas
 44203,Blue Origin,Mechanical Engineer,2.0,1.0,38000.0,Washington
+44204,Netflix,Software Engineer,3.0,0.0,430000.0,California
 44205,Sophos,Software Engineer,5.0,0.0,110000.0,Massachusetts
 44206,Marqeta,Software Engineer,0.0,0.0,120000.0,California
 44207,Google,Software Engineer,2.0,2.0,139000.0,California
@@ -38948,7 +38994,6 @@
 44975,Move,Software Engineer,2.0,2.0,132000.0,California
 44976,Amgen,Software Engineer,4.0,4.0,125000.0,California
 44977,Google,Software Engineer,6.0,0.0,175000.0,California
-44979,Microsoft,Software Engineering Manager,28.0,24.0,286000.0,Washington
 44980,Amazon,Software Engineer,0.0,0.0,116000.0,Maryland
 44981,Compass,Software Engineer,5.0,0.0,176000.0,New York
 44982,Deloitte,Management Consultant,2.0,2.0,78000.0,Virginia
@@ -39476,7 +39521,6 @@
 45607,Western Digital,Software Engineer,10.0,10.0,100000.0,California
 45608,Microsoft,Product Manager,14.0,0.0,198000.0,Washington
 45609,Atlassian,Software Engineer,12.0,2.0,190000.0,California
-45610,Intel,Solution Architect,25.0,25.0,175000.0,California
 45611,Intel,Software Engineer,2.0,2.0,168000.0,California
 45612,Bloomberg,Software Engineer,1.0,1.0,145000.0,New York
 45613,Oracle,Technical Program Manager,8.0,1.0,165000.0,Washington
@@ -39543,7 +39587,6 @@
 45693,Amazon,Software Engineer,0.0,0.0,116000.0,Washington
 45694,Uber,Business Analyst,5.0,2.0,93000.0,New York
 45695,Ebay,Software Engineer,15.0,0.0,150000.0,Texas
-45696,T-Mobile,Solution Architect,23.0,23.0,105000.0,Kansas
 45697,3M,Data Scientist,2.0,2.0,95000.0,Minnesota
 45698,Medtronic,Software Engineer,2.0,0.0,78000.0,Connecticut
 45699,Google,Software Engineer,4.0,0.0,170000.0,New York
@@ -39749,6 +39792,7 @@
 45943,Peloton,Software Engineer,6.0,0.0,195000.0,New York
 45945,Oracle,Software Engineer,4.0,4.0,160000.0,California
 45946,Intel,Hardware Engineer,5.0,5.0,125000.0,Oregon
+45947,Brex,Software Engineer,8.0,1.0,400000.0,California
 45948,Capital One,Product Manager,6.0,6.0,171000.0,Washington
 45949,Cisco,Software Engineer,7.0,7.0,175000.0,California
 45950,Yahoo,Software Engineer,0.0,0.0,95000.0,Illinois
@@ -40594,7 +40638,6 @@
 46984,Capital One,Software Engineer,5.0,2.0,114000.0,Virginia
 46985,Paypal,Software Engineer,3.0,3.0,130000.0,California
 46987,Visa,Software Engineer,2.0,2.0,120000.0,California
-46988,Disney,Product Designer,69.0,69.0,100000.0,Maryland
 46990,Asurion,Software Engineer,2.0,2.0,108000.0,Tennessee
 46991,Intuit,Software Engineer,11.0,2.0,180000.0,California
 46993,Amazon,Software Engineer,1.0,1.0,108000.0,Washington
@@ -40898,7 +40941,6 @@
 47378,Rally Health,Software Engineer,6.0,2.0,135000.0,California
 47379,Poshmark,Software Engineer,6.0,0.0,155000.0,California
 47383,Apple,Software Engineer,4.0,1.0,130000.0,California
-47384,Micron Technology,Software Engineer,25.0,25.0,110000.0,Utah
 47385,Jpmorgan Chase,Software Engineer,3.0,3.0,90000.0,Delaware
 47387,Verizon,Software Engineer,5.0,0.0,190000.0,New York
 47388,Ernst And Young,Management Consultant,8.0,8.0,140000.0,New York
@@ -40975,6 +41017,7 @@
 47466,Amazon,Software Engineering Manager,18.0,14.0,160000.0,Washington
 47467,Vmware,Software Engineer,7.0,5.0,164000.0,California
 47468,Oracle,Software Engineer,2.0,0.0,145000.0,Washington
+47469,Netflix,Data Scientist,6.0,2.0,400000.0,California
 47470,Facebook,Software Engineer,3.0,0.0,167000.0,California
 47471,Google,Product Manager,10.0,0.0,265000.0,California
 47472,Facebook,Technical Program Manager,20.0,1.0,280000.0,California
@@ -41220,6 +41263,7 @@
 47760,Nike,Software Engineer,4.0,3.0,122000.0,Oregon
 47761,Cisco,Software Engineer,1.0,0.0,111000.0,California
 47763,Exxonmobil,Software Engineer,5.0,5.0,110000.0,Texas
+47765,Roku,Software Engineer,18.0,0.0,446000.0,California
 47771,Comcast,Data Scientist,1.0,1.0,80000.0,Pennsylvania
 47772,Amazon,Business Analyst,15.0,1.0,164000.0,Washington
 47773,Tanium,Software Engineer,12.0,2.0,160000.0,North Carolina
@@ -41246,6 +41290,7 @@
 47795,Amazon,Software Engineering Manager,11.0,9.0,160000.0,Washington
 47796,Comcast,Product Designer,10.0,2.0,175000.0,Pennsylvania
 47797,American Family Insurance,Software Engineer,2.0,0.0,85000.0,Wisconsin
+47798,Netflix,Software Engineer,6.0,0.0,385000.0,New York
 47799,Facebook,Software Engineer,7.0,0.0,200000.0,California
 47800,Capsule,Software Engineer,4.0,1.0,155000.0,New York
 47801,Deloitte,Software Engineer,3.0,0.0,100000.0,Virginia
@@ -41329,7 +41374,6 @@
 47902,Fiserv,Software Engineer,11.0,3.0,108000.0,Nebraska
 47903,Bae Systems,Software Engineer,8.0,5.0,128000.0,New Hampshire
 47904,Jpmorgan Chase,Software Engineering Manager,16.0,16.0,118000.0,Ohio
-47905,Oracle,Business Analyst,24.0,24.0,150000.0,California
 47906,Spacex,Software Engineer,4.0,0.0,115000.0,California
 47907,Amazon,Software Engineering Manager,15.0,2.0,185000.0,California
 47908,Cisco,Software Engineer,11.0,5.0,195000.0,California
@@ -41419,6 +41463,7 @@
 48022,Northrop Grumman,Hardware Engineer,4.0,4.0,82000.0,Maryland
 48023,Microsoft,Software Engineer,3.0,0.0,123000.0,Washington
 48024,Salesforce,Software Engineer,20.0,8.0,290000.0,California
+48025,Netflix,Software Engineer,9.0,3.0,390000.0,California
 48026,Amazon,Product Manager,10.0,5.0,160000.0,Washington
 48027,Jpmorgan Chase,Business Analyst,0.0,0.0,70000.0,New York
 48028,Aruba,Software Engineer,5.0,5.0,145000.0,California
@@ -41596,7 +41641,6 @@
 48245,Talend,Software Engineer,5.0,1.0,133000.0,Pennsylvania
 48246,Splunk,Product Manager,14.0,2.0,258000.0,California
 48247,Amazon,Software Engineer,6.0,3.0,156000.0,Washington
-48248,Cisco,Software Engineer,24.0,23.0,138000.0,Washington
 48249,Amazon,Software Engineer,1.0,1.0,118000.0,Washington
 48250,Bytedance,Software Engineer,2.0,0.0,112000.0,California
 48251,Jpmorgan Chase,Software Engineer,5.0,3.0,135000.0,New Jersey
@@ -41891,6 +41935,7 @@
 48621,Facebook,Hardware Engineer,30.0,0.0,150000.0,Washington
 48622,Collins Aerospace,Human Resources,8.0,8.0,137000.0,North Carolina
 48624,Facebook,Software Engineer,12.0,2.0,165000.0,New York
+48626,Netflix,Software Engineer,15.0,8.0,430000.0,California
 48627,Salesforce,Software Engineer,15.0,2.0,144000.0,Indiana
 48628,Google,Software Engineer,1.0,0.0,141000.0,California
 48629,Google,Product Manager,3.0,0.0,160000.0,Georgia
@@ -42328,6 +42373,7 @@
 49196,Luxoft,Software Engineer,10.0,6.0,117000.0,California
 49198,Cisco,Marketing,9.0,9.0,159000.0,California
 49200,Apple,Software Engineer,8.0,1.0,200000.0,Washington
+49201,Roblox,Software Engineer,15.0,4.0,400000.0,California
 49202,Macy'S,Software Engineer,6.0,0.0,155000.0,California
 49203,Coinbase,Software Engineer,12.0,2.0,230000.0,California
 49204,Coinbase,Software Engineer,9.0,1.0,230000.0,California
@@ -42507,7 +42553,6 @@
 49417,Google,Software Engineer,4.0,2.0,138000.0,California
 49418,Bloomberg,Software Engineer,6.0,4.0,220000.0,New York
 49419,Amazon,Product Manager,13.0,2.0,175000.0,New York
-49420,Ibm,Software Engineer,33.0,33.0,162000.0,North Carolina
 49422,Veeva Systems,Software Engineer,1.0,1.0,105000.0,California
 49423,Sony,Software Engineering Manager,11.0,4.0,220000.0,California
 49424,Amazon,Software Engineer,18.0,12.0,151000.0,Washington
@@ -42856,6 +42901,7 @@
 49859,Facebook,Software Engineer,3.0,3.0,201000.0,Washington
 49861,Facebook,Product Manager,10.0,3.0,200000.0,New York
 49862,Cisco,Solution Architect,17.0,10.0,165000.0,California
+49863,Roblox,Software Engineer,10.0,0.0,390000.0,California
 49864,Etsy,Software Engineer,2.0,0.0,130000.0,New York
 49865,Amazon,Product Manager,5.0,0.0,144000.0,Washington
 49867,Teradata,Software Engineer,4.0,4.0,98000.0,California
@@ -42945,6 +42991,7 @@
 49974,Uber,Software Engineer,5.0,0.0,203000.0,California
 49975,Cisco,Software Engineer,0.0,0.0,133000.0,California
 49976,Chewy,Software Engineer,2.0,2.0,108000.0,Massachusetts
+49978,Netflix,Software Engineer,10.0,5.0,446000.0,California
 49979,Microsoft,Marketing,5.0,1.0,119000.0,Washington
 49980,Amazon,Technical Program Manager,10.0,6.0,138000.0,Massachusetts
 49981,Palo Alto Networks,Software Engineer,12.0,0.0,190000.0,California
@@ -43093,7 +43140,6 @@
 50146,Walmart Labs,Software Engineer,5.0,0.0,140000.0,California
 50147,Chick-Fil-A,Software Engineer,5.0,0.0,115000.0,Georgia
 50148,Google,Software Engineer,5.0,0.0,158000.0,Washington
-50149,Intel,Hardware Engineer,34.0,34.0,170000.0,Arizona
 50150,Snapdocs,Software Engineer,6.0,0.0,170000.0,California
 50151,Cisco,Technical Program Manager,15.0,15.0,150000.0,California
 50152,Deloitte,Product Designer,1.0,1.0,90000.0,Washington
@@ -43177,7 +43223,6 @@
 50270,L3Harris Technologies,Software Engineer,2.0,0.0,130000.0,Virginia
 50273,Credit Suisse,Software Engineer,2.0,2.0,93000.0,New York
 50274,Goldman Sachs,Software Engineer,2.0,2.0,115000.0,New York
-50275,Cisco,Hardware Engineer,25.0,24.0,205000.0,California
 50277,At&T,Software Engineer,2.0,0.0,99000.0,California
 50279,Salesforce,Software Engineer,3.0,1.0,172000.0,California
 50280,Albertsons,Software Engineer,10.0,0.0,170000.0,California
@@ -44096,7 +44141,6 @@
 51433,Google,Product Manager,16.0,16.0,230000.0,Washington
 51434,Pwc,Management Consultant,8.0,4.0,117000.0,California
 51435,Nielsen,Product Manager,5.0,5.0,135000.0,Illinois
-51436,Lockheed Martin,Software Engineer,40.0,40.0,158000.0,Colorado
 51437,Facebook,Software Engineer,6.0,0.0,200000.0,New York
 51438,L3Harris Technologies,Hardware Engineer,5.0,1.0,95000.0,Utah
 51439,Mathworks,Software Engineer,5.0,3.0,117000.0,Massachusetts
@@ -44630,6 +44674,7 @@
 52109,Wells Fargo,Software Engineer,25.0,20.0,152000.0,Maryland
 52110,Facebook,Software Engineer,2.0,2.0,172000.0,California
 52111,General Dynamics Information Technology,Software Engineer,15.0,15.0,170000.0,Maryland
+52112,Salesforce,Software Engineering Manager,22.0,7.0,400000.0,California
 52113,Comscore,Software Engineer,18.0,6.0,170000.0,New York
 52114,Facebook,Product Manager,10.0,2.0,198000.0,California
 52115,Expedia,Software Engineering Manager,5.0,1.0,210000.0,Washington
@@ -44656,6 +44701,7 @@
 52148,Google,Product Manager,10.0,10.0,193000.0,California
 52149,Google,Software Engineer,2.0,2.0,135000.0,Washington
 52150,Rapid7,Software Engineer,1.0,0.0,82000.0,Texas
+52151,Netflix,Software Engineer,10.0,0.0,400000.0,Washington
 52152,Twitter,Product Designer,4.0,3.0,185000.0,California
 52153,Rapid7,Software Engineer,8.0,5.0,131000.0,Texas
 52154,Thoughtworks,Software Engineer,2.0,2.0,88000.0,Colorado
@@ -44790,7 +44836,6 @@
 52311,Twilio,Software Engineer,5.0,0.0,170000.0,California
 52312,Deutsche Bank,Software Engineer,4.0,2.0,110000.0,New York
 52313,Slack,Software Engineer,11.0,1.0,180000.0,California
-52314,Ibm,Product Manager,25.0,25.0,119000.0,North Carolina
 52315,Vmware,Software Engineer,14.0,3.0,240000.0,California
 52316,Amazon,Data Scientist,2.0,2.0,112000.0,California
 52317,Snap,Software Engineer,4.0,0.0,170000.0,California
@@ -44896,6 +44941,7 @@
 52441,Oracle,Product Designer,13.0,6.0,163000.0,California
 52442,Booz Allen Hamilton,Product Manager,8.0,6.0,100000.0,Washington
 52443,Google,Software Engineer,0.0,0.0,135000.0,California
+52444,Netflix,Software Engineer,11.0,3.0,451000.0,California
 52445,Amazon,Software Engineer,2.0,2.0,128000.0,California
 52446,Deutsche Bank,Human Resources,14.0,5.0,180000.0,New York
 52448,Bloomberg,Software Engineer,20.0,1.0,225000.0,New York
@@ -45562,6 +45608,7 @@
 53340,Snap,Software Engineer,6.0,0.0,210000.0,California
 53341,Jpmorgan Chase,Software Engineer,7.0,7.0,115000.0,New Jersey
 53342,American Express,Technical Program Manager,25.0,6.0,124000.0,Arizona
+53343,Netflix,Software Engineer,7.0,1.0,450000.0,California
 53344,Facebook,Recruiter,5.0,3.0,131000.0,Washington
 53345,Dell Technologies,Software Engineer,1.0,0.0,84000.0,Texas
 53346,Cerner,Software Engineer,6.0,4.0,78000.0,Pennsylvania
@@ -46581,7 +46628,6 @@
 54659,Servicenow,Business Analyst,5.0,2.0,118000.0,California
 54660,Convoy,Data Scientist,4.0,0.0,123000.0,Washington
 54662,Vmware,Business Analyst,5.0,2.0,123000.0,California
-54663,Intel,Technical Program Manager,38.0,25.0,220000.0,Massachusetts
 54664,Vmware,Solution Architect,15.0,3.0,150000.0,New York
 54667,Microsoft,Software Engineer,2.0,2.0,124000.0,Washington
 54668,Microsoft,Software Engineer,0.0,0.0,170000.0,California
@@ -46795,6 +46841,7 @@
 54921,Microsoft,Software Engineer,4.0,0.0,111000.0,Washington
 54922,Amazon,Software Engineer,2.0,0.0,160000.0,Washington
 54923,Linkedin,Technical Program Manager,5.0,5.0,179000.0,California
+54924,Netflix,Software Engineer,11.0,0.0,420000.0,California
 54925,Nvidia,Technical Program Manager,15.0,6.0,240000.0,California
 54926,Google,Software Engineer,3.0,0.0,139000.0,California
 54927,Slalom,Software Engineer,15.0,2.0,150000.0,California
@@ -46848,6 +46895,7 @@
 54993,Microsoft,Software Engineer,8.0,5.0,155000.0,Massachusetts
 54994,Visa,Software Engineer,13.0,6.0,187000.0,Texas
 54997,Visa,Software Engineer,1.0,1.0,100000.0,Texas
+54998,Netflix,Software Engineer,11.0,6.0,450000.0,California
 54999,Salesforce,Software Engineer,6.0,3.0,222000.0,California
 55001,Vanguard,Data Scientist,4.0,0.0,139000.0,Pennsylvania
 55004,Google,Product Manager,20.0,0.0,240000.0,Massachusetts
@@ -47979,11 +48027,9 @@
 56525,Lockheed Martin,Software Engineer,3.0,2.0,101000.0,Colorado
 56526,Capital One,Business Analyst,3.0,0.0,105000.0,Nebraska
 56527,Google,Software Engineer,4.0,1.0,200000.0,California
-56530,Intel,Technical Program Manager,26.0,26.0,235000.0,California
 56531,Epic Systems,Software Engineer,0.0,0.0,100000.0,Wisconsin
 56532,Verizon,Software Engineer,8.0,1.0,97000.0,Georgia
 56533,Quantcast,Software Engineer,3.0,3.0,161000.0,California
-56534,Intel,Hardware Engineer,24.0,24.0,182000.0,Oregon
 56535,Apple,Product Designer,5.0,2.0,170000.0,California
 56539,Amazon,Technical Program Manager,14.0,12.0,155000.0,New Jersey
 56541,Microsoft,Software Engineer,3.0,0.0,137000.0,Washington
@@ -48064,6 +48110,7 @@
 56672,Qualcomm,Hardware Engineer,14.0,4.0,185000.0,California
 56673,Akamai,Software Engineer,4.0,4.0,136000.0,Massachusetts
 56675,Google,Software Engineering Manager,15.0,8.0,275000.0,California
+56676,Netflix,Software Engineer,6.0,1.0,441000.0,California
 56677,Microsoft,Software Engineer,5.0,3.0,121000.0,Washington
 56678,Nvidia,Software Engineer,5.0,3.0,145000.0,California
 56680,Nasa Jpl,Product Designer,3.0,3.0,98000.0,California
@@ -48491,7 +48538,6 @@
 57237,Facebook,Software Engineer,1.0,1.0,133000.0,California
 57238,Amazon,Marketing,3.0,3.0,100000.0,California
 57240,Altran,Software Engineer,3.0,1.0,95000.0,New York
-57241,Cisco,Technical Program Manager,25.0,23.0,200000.0,California
 57242,Amazon,Software Engineer,3.0,0.0,130000.0,Washington
 57243,Amazon,Software Engineer,1.0,1.0,112000.0,Washington
 57245,Xilinx,Hardware Engineer,8.0,8.0,185000.0,California
@@ -48707,7 +48753,6 @@
 57546,Verily Life Sciences,Software Engineer,2.0,0.0,140000.0,California
 57547,Liveperson,Software Engineer,4.0,1.0,130000.0,Washington
 57548,Facebook,Software Engineer,5.0,0.0,203000.0,Washington
-57549,Intel Corporation,Hardware Engineer,25.0,25.0,195000.0,California
 57550,Facebook,Software Engineer,9.0,0.0,198000.0,California
 57551,Linkedin,Marketing,9.0,2.0,184000.0,California
 57552,Nvidia,Hardware Engineer,2.0,2.0,154000.0,California
@@ -48950,7 +48995,6 @@
 57853,Microsoft,Solution Architect,3.0,1.0,119000.0,Texas
 57854,Google,Software Engineer,8.0,0.0,195000.0,California
 57855,Google,Human Resources,15.0,10.0,164000.0,California
-57856,Intel,Hardware Engineer,25.0,25.0,275000.0,California
 57857,Indeed,Product Manager,8.0,5.0,202000.0,California
 57858,State Farm,Software Engineer,1.0,1.0,78000.0,Georgia
 57859,Spotify,Marketing,3.0,1.0,73000.0,New York
@@ -49874,7 +49918,6 @@
 59072,Amazon,Solution Architect,0.0,0.0,113000.0,New York
 59073,Google,Software Engineer,2.0,0.0,160000.0,California
 59074,Github,Software Engineer,5.0,0.0,165000.0,Missouri
-59075,Intel,Hardware Engineer,30.0,26.0,326000.0,California
 59076,Lockheed Martin,Software Engineer,3.0,3.0,122000.0,Colorado
 59077,Autodesk,Product Manager,7.0,1.0,153000.0,California
 59078,Tata Consultancy Services,Software Engineer,4.0,0.0,115000.0,Michigan
@@ -50694,6 +50737,7 @@
 60227,Microsoft,Software Engineer,20.0,3.0,154000.0,Washington
 60228,Capital One,Software Engineer,3.0,3.0,129000.0,Illinois
 60229,Ford Motor,Product Designer,3.0,3.0,108000.0,Michigan
+60231,Salesforce,Software Engineering Manager,21.0,0.0,450000.0,California
 60232,Apple,Marketing,8.0,3.0,175000.0,California
 60233,Broadcom,Product Designer,8.0,1.0,175000.0,California
 60234,Nielsen,Data Scientist,0.0,0.0,120000.0,Illinois
@@ -50826,6 +50870,7 @@
 60420,Intel,Hardware Engineer,13.0,3.0,106000.0,Arizona
 60421,Charles Schwab,Software Engineer,3.0,3.0,125000.0,California
 60423,Vmware,Software Engineer,5.0,5.0,175000.0,California
+60424,Roku,Software Engineer,14.0,0.0,374000.0,California
 60425,Visa,Product Manager,5.0,2.0,120000.0,California
 60426,Ibm,Software Engineer,4.0,0.0,137000.0,California
 60428,Uber,Software Engineer,6.0,1.0,160000.0,California
@@ -50923,12 +50968,14 @@
 60569,Amazon,Human Resources,10.0,1.0,110000.0,Virginia
 60571,Microsoft,Software Engineer,5.0,5.0,142000.0,Washington
 60575,Warby Parker,Software Engineering Manager,15.0,0.0,230000.0,New York
+60576,Amazon,Software Engineering Manager,18.0,9.0,380000.0,Washington
 60577,Intel,Hardware Engineer,3.0,3.0,140000.0,California
 60579,Facebook,Technical Program Manager,17.0,0.0,225000.0,Washington
 60580,Microsoft,Software Engineer,16.0,4.0,190000.0,Washington
 60584,Cloudera,Software Engineer,9.0,0.0,208000.0,California
 60585,Marqeta,Software Engineer,1.0,0.0,120000.0,California
 60586,Intel,Hardware Engineer,32.0,4.0,341000.0,California
+60590,Netflix,Data Scientist,4.0,0.0,400000.0,California
 60594,Nvidia,Hardware Engineer,10.0,9.0,192000.0,California
 60596,The Home Depot,Data Scientist,3.0,0.0,115000.0,Georgia
 60598,Qualcomm,Hardware Engineer,1.0,0.0,95000.0,California
@@ -51065,7 +51112,6 @@
 60789,Amazon,Software Engineer,3.0,0.0,125000.0,Washington
 60790,Infosys,Software Engineer,0.0,0.0,57000.0,California
 60791,Amazon,Software Engineer,11.0,1.0,180000.0,New York
-60792,Cvs Health,Technical Program Manager,27.0,27.0,153000.0,Florida
 60793,Blockfi,Software Engineer,5.0,2.0,95000.0,Texas
 60794,Mediatek,Hardware Engineer,8.0,8.0,160000.0,Texas
 60795,Amazon,Software Engineer,1.0,0.0,134000.0,Washington
@@ -51289,7 +51335,6 @@
 61075,Amd,Hardware Engineer,11.0,5.0,165000.0,California
 61076,Facebook,Human Resources,3.0,2.0,92000.0,Illinois
 61077,Pwc,Management Consultant,5.0,2.0,120000.0,New York
-61078,Intel,Hardware Engineer,26.0,26.0,168000.0,Arizona
 61079,Nike,Data Scientist,7.0,3.0,153000.0,Oregon
 61080,Amazon,Software Engineer,1.0,1.0,113000.0,Washington
 61081,Qualcomm,Hardware Engineer,6.0,2.0,157000.0,California
@@ -51495,6 +51540,7 @@
 61345,Dell Technologies,Software Engineer,1.0,1.0,100000.0,California
 61353,Sap,Software Engineer,10.0,1.0,99000.0,Washington
 61355,Tempus,Software Engineering Manager,10.0,4.0,150000.0,Illinois
+61358,Netflix,Software Engineer,15.0,5.0,450000.0,California
 61359,Comcast,Software Engineer,3.0,2.0,87000.0,Pennsylvania
 61362,American Airlines,Software Engineer,0.0,0.0,81000.0,Texas
 61364,Google,Software Engineer,5.0,0.0,127000.0,California
@@ -51571,6 +51617,7 @@
 61471,National Instruments,Software Engineer,20.0,20.0,135000.0,Texas
 61473,General Motors,Software Engineer,0.0,0.0,65000.0,Texas
 61475,Microsoft,Hardware Engineer,4.0,0.0,130000.0,North Carolina
+61476,Roku,Software Engineer,6.0,0.0,425000.0,California
 61477,Mastercard,Software Engineer,11.0,4.0,135000.0,New York
 61478,Apple,Hardware Engineer,0.0,0.0,135000.0,California
 61479,Vanguard,Software Engineer,1.0,1.0,70000.0,Pennsylvania
@@ -51622,6 +51669,7 @@
 61565,Ncr,Software Engineer,11.0,1.0,135000.0,Texas
 61567,Cisco,Software Engineer,4.0,1.0,142000.0,California
 61568,Amazon,Software Engineer,4.0,2.0,141000.0,Washington
+61569,Roblox,Software Engineer,15.0,0.0,420000.0,California
 61571,Amazon,Software Engineer,0.0,0.0,116000.0,Washington
 61572,Google,Software Engineer,12.0,2.0,190000.0,California
 61574,Palantir,Software Engineer,0.0,0.0,135000.0,New York
@@ -51877,7 +51925,6 @@
 61901,Ibm,Software Engineer,3.0,1.0,130000.0,California
 61902,Apple,Software Engineer,4.0,2.0,140000.0,California
 61903,Amazon,Software Engineer,4.0,4.0,145500.0,Washington
-61904,Workday,Software Engineer,10.0,33.0,180000.0,California
 61905,Thumbtack,Product Manager,4.0,2.0,110000.0,California
 61906,Arm,Software Engineer,6.0,4.0,135000.0,Texas
 61907,Uber,Software Engineer,10.0,1.0,173000.0,New York
@@ -51901,6 +51948,7 @@
 61927,Northrop Grumman,Software Engineering Manager,6.0,6.0,120000.0,Ohio
 61928,Ibm,Data Scientist,5.0,2.0,165000.0,California
 61929,Netflix,Software Engineer,10.0,5.0,365000.0,California
+61930,Netflix,Software Engineer,10.0,3.0,380000.0,California
 61931,American Express,Data Scientist,3.0,1.0,140000.0,New York
 61932,Bandwidth,Software Engineer,1.0,0.0,70000.0,North Carolina
 61933,Zillow,Software Engineer,1.0,1.0,130000.0,California
@@ -51919,7 +51967,6 @@
 61946,Amazon,Software Engineer,2.0,0.0,156000.0,Washington
 61947,Lyft,Software Engineer,6.0,1.0,205000.0,Washington
 61948,Walmart,Product Manager,3.0,0.5,105000.0,California
-61949,Microsoft,Software Engineering Manager,27.0,25.0,300000.0,Washington
 61950,Amazon,Software Engineer,20.0,2.0,181000.0,California
 61951,Lyft,Software Engineer,6.0,0.0,175000.0,California
 61952,Amazon,Data Scientist,5.0,3.0,150000.0,Washington
@@ -51938,8 +51985,10 @@
 61965,Facebook,Product Manager,25.0,1.0,325000.0,California
 61966,Facebook,Product Manager,25.0,1.0,325000.0,California
 61968,Pinterest,Software Engineer,0.0,0.0,150000.0,California
+61969,Snap,Software Engineering Manager,20.0,4.0,400000.0,California
 61970,Facebook,Software Engineering Manager,10.0,0.0,300000.0,California
 61971,Snap,Software Engineering Manager,22.0,5.0,270000.0,Washington
+61972,Sofi,Software Engineering Manager,20.0,2.0,400000.0,California
 61973,Facebook,Software Engineering Manager,30.0,1.0,320000.0,California
 61974,Google,Software Engineering Manager,21.0,8.0,350000.0,California
 61975,Facebook,Software Engineering Manager,23.0,6.0,288000.0,Washington
@@ -51947,7 +51996,9 @@
 61977,Coupa Software,Product Manager,20.0,1.0,203000.0,New York
 61978,Pinterest,Technical Program Manager,20.0,5.0,225000.0,California
 61979,Broadcom,Marketing,21.0,9.0,220000.0,California
+61980,Google,Software Engineering Manager,21.0,9.0,385000.0,California
 61981,Facebook,Software Engineering Manager,9.0,7.0,290000.0,California
+61982,Google,Product Manager,20.0,14.0,450000.0,California
 61983,Instacart,Software Engineering Manager,20.0,1.0,240000.0,California
 61984,Zapier,Software Engineering Manager,16.0,2.0,250000.0,Colorado
 61985,Facebook,Software Engineering Manager,20.0,3.0,310000.0,California
@@ -51956,6 +52007,7 @@
 61988,Uber,Product Manager,18.0,1.0,350000.0,California
 61989,Uber,Product Manager,23.0,6.0,300000.0,California
 61990,Facebook,Software Engineer,13.0,9.0,350000.0,California
+61991,Facebook,Product Manager,17.0,0.0,380000.0,California
 61992,Amazon,Software Engineer,3.0,3.0,110000.0,Washington
 61993,Oracle,Software Engineering Manager,6.5,1.0,210000.0,California
 61994,Amazon,Software Engineer,6.0,6.0,12800.0,Washington
@@ -51999,6 +52051,7 @@
 62032,Apple,Software Engineer,5.0,1.0,155000.0,California
 62033,Oracle,Software Engineer,9.0,1.0,160000.0,Washington
 62034,Amazon,Software Engineer,7.0,6.5,130000.0,Washington
+62035,Netflix,Software Engineer,7.0,0.0,380000.0,California
 62036,Snap,Software Engineer,6.0,0.0,180000.0,Washington
 62037,Oracle,Software Engineer,7.0,1.0,175000.0,California
 62038,Amazon,Software Engineering Manager,15.0,5.0,160000.0,Washington
@@ -52044,6 +52097,7 @@
 62080,Amazon,Product Manager,4.0,2.5,111000.0,Washington
 62081,Amazon,Software Engineering Manager,9.0,3.0,157500.0,Washington
 62082,Amazon,Data Scientist,7.0,2.0,125000.0,Washington
+62083,Netflix,Software Engineering Manager,6.0,2.5,400000.0,California
 62084,Amazon,Product Designer,5.0,2.0,156000.0,California
 62085,Apple,Software Engineer,0.0,0.0,140000.0,California
 62086,Amazon,Software Engineering Manager,20.0,2.0,157000.0,Washington
@@ -52061,6 +52115,7 @@
 62098,Workday,Software Engineer,8.0,1.0,175000.0,California
 62099,Amazon,Software Engineer,12.0,3.0,160000.0,California
 62100,Amazon,Software Engineer,11.0,7.0,147700.0,Washington
+62101,Netflix,Software Engineer,8.0,0.0,375000.0,California
 62102,Thumbtack,Software Engineer,1.0,1.0,122000.0,California
 62103,Amazon,Software Engineer,4.0,4.0,134000.0,Washington
 62104,Amazon,Software Engineer,9.0,6.0,158400.0,Washington
@@ -52091,7 +52146,9 @@
 62129,Amazon,Software Engineer,3.0,3.0,142000.0,Washington
 62130,Amazon,Software Engineer,3.0,3.0,141500.0,Washington
 62131,Amazon,Product Manager,13.0,3.5,90100.0,Washington
+62132,Netflix,Software Engineer,10.0,2.0,410000.0,California
 62134,Amazon,Software Engineer,12.0,0.0,160000.0,Washington
+62135,Netflix,Software Engineer,7.0,0.0,425000.0,California
 62136,Amazon,Software Engineer,2.0,2.0,143000.0,Washington
 62137,Amazon,Software Engineer,3.0,3.0,134900.0,Washington
 62138,Amazon,Software Engineer,5.0,1.0,153000.0,Washington
