@@ -127,7 +127,6 @@ export class Histogram implements View {
         let maxCount = d3.max(vis.binnedData1, vis.yValue);
         if (vis.binnedData2) {
             const count2 = d3.max(vis.binnedData2, vis.yValue);
-            console.log(maxCount, count2)
             if (count2 > maxCount) {
                 maxCount = count2;
             }

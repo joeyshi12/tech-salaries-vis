@@ -106,7 +106,7 @@ export class BarChart implements View {
         // Sort average salary from highest to lowest and filter for the top 10
         vis.companyInfos = Array.from(averages, ([name, baseSalary]): CompanyInfo => ({name, baseSalary}))
             .sort((a, b) => b.baseSalary - a.baseSalary);
-        vis.companyInfos = vis.companyInfos.slice(0, 9);
+        vis.companyInfos = vis.companyInfos.slice(0, 10);
         vis.xScale.domain(vis.companyInfos.map(vis.xValue));
         vis.yScale.domain([0, d3.max(vis.companyInfos, vis.yValue)]);
 
