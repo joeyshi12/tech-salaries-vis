@@ -4,6 +4,9 @@ import { ChoroplethMap } from './choroplethMap';
 import { Histogram } from './histogram';
 import { BarChart } from './barChart';
 
+// Initialize dispatcher that is used to orchestrate events
+const dispatcher = d3.dispatch('filterCompanies');
+
 Promise.all([
     d3.csv('data/salaries_data.csv'),
     d3.json('data/states-albers-10m.json')
@@ -24,7 +27,7 @@ Promise.all([
         containerHeight: 600,
         margin: { top: 60, right: 40, bottom: 50, left: 70 },
         tooltipPadding: 15
-    });
+    }, dispatcher);
     const baseSalaryHistogram = new Histogram(records, {
         parentElement: '#base-salary-histogram',
     }, (d): number => d.baseSalary,
@@ -86,4 +89,28 @@ Promise.all([
         yearsOfExperienceHistogram.updateVis();
         yearsAtCompanyHistogram.updateVis();
     });
+
+    /**
+     * Dispatcher waits for 'filterCompanies' event
+     */
+    dispatcher.on('filterCompanies', (selectedCompanies: string[]) => {
+        let newData: SalaryRecord[];
+        if (selectedCompanies.length === 0 || selectedCompanies.length === 10) {
+            newData = records;
+        } else {
+            newData = records.filter((d) => selectedCompanies.includes(d.company));
+        }
+
+        choroplethMap.data = newData;
+        baseSalaryHistogram.data = newData;
+        yearsOfExperienceHistogram.data = newData;
+        yearsAtCompanyHistogram.data = newData;
+
+        choroplethMap.updateVis();
+        baseSalaryHistogram.updateVis();
+        yearsOfExperienceHistogram.updateVis();
+        yearsAtCompanyHistogram.updateVis();
+
+    });
+  
 }).catch(err => console.error(err));
