@@ -55,6 +55,11 @@ body {
     opacity: 0.8;
 }
 
+#bar-chart .bar.active {
+    stroke-width: 1px;
+    opacity: 0.9;
+}
+
 /* Sidebar */
 #sidebar {
     position: fixed;
