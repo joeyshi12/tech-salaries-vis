@@ -21,6 +21,7 @@ export class BarChart implements View {
     private chartArea: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private _selectedCompanies: string[] = [];
 
     public constructor(private _data: SalaryRecord[], private config: ViewConfig, private _dispatcher: d3.Dispatch<string[]>) {
         this.initVis();
@@ -29,6 +30,11 @@ export class BarChart implements View {
     public set data(val: SalaryRecord[]) {
         this._data = val;
     }
+
+    public set selectedCompanies(val: string[]) {
+        this._selectedCompanies = val;
+    }
+
 
     public initVis() {
         let vis = this;
@@ -117,7 +123,7 @@ export class BarChart implements View {
         let vis = this
 
         // Bind data to visual elements, update axes
-        vis.chartArea.selectAll('.bar')
+        let bars = vis.chartArea.selectAll('.bar')
             .data(vis.companyInfos, vis.xValue)
             .join('rect')
             .attr('class', 'bar')
@@ -143,12 +149,14 @@ export class BarChart implements View {
                 d3.select(this).classed('active', !isActive);
       
                 // Get active companies
-                const selectedCompanies = vis.chartArea.selectAll('.bar.active').data().map((d: CompanyInfo) => d.name);
+                vis._selectedCompanies = vis.chartArea.selectAll('.bar.active').data().map((d: CompanyInfo) => d.name);
                 
                 // Trigger filter event and pass array with the selected gender
-                vis._dispatcher.call('filterCompanies', event, selectedCompanies);
+                vis._dispatcher.call('filterCompanies', event, vis._selectedCompanies);
               });
 
+        bars.filter((d: CompanyInfo) => vis._selectedCompanies.includes(d.name))
+            .attr('class', 'bar active')
         // Update the axes/gridlines
         vis.xAxisG
           .call(vis.xAxis)

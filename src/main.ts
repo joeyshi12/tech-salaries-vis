@@ -101,6 +101,8 @@ Promise.all([
             newData = records.filter((d) => selectedCompanies.includes(d.company));
         }
 
+        barChart.selectedCompanies = selectedCompanies;
+
         choroplethMap.data = newData;
         baseSalaryHistogram.data = newData;
         yearsOfExperienceHistogram.data = newData;
