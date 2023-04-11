@@ -45,6 +45,12 @@ body {
     opacity: 1
 }
 
+#choropleth-map .state.active {
+    stroke: #e89f03;
+    stroke-width: 4;
+    opacity: 1;
+}
+
 #bar-chart .bar {
     fill: #ffcf58;
     opacity: 0.6;

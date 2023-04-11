@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { FeatureCollection } from 'geojson';
+import { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson';
 import {SalaryRecord, View, ViewConfig} from './view';
 
 type ChoroplethMapConfig = ViewConfig & {
@@ -19,6 +19,7 @@ export class ChoroplethMap implements View {
     private stateInfoMap: Map<string, StateInfo>;
     private colorScale: d3.ScaleSequential<string>;
     private infoGetter: (d: StateInfo) => number;
+    private activeState: string;
 
     private svg: d3.Selection<any, any, any, any>;
     private chart: d3.Selection<any, any, any, any>
@@ -26,7 +27,8 @@ export class ChoroplethMap implements View {
     constructor(private _data: SalaryRecord[],
                 private geoData: any,
                 private config: ChoroplethMapConfig,
-                private infoType: MapInfoType) {
+                private infoType: MapInfoType,
+                private dispatcher: d3.Dispatch<string[]>) {
         this.initVis();
     }
 
@@ -90,6 +92,7 @@ export class ChoroplethMap implements View {
             .style('fill', (d) => vis.colorScale(
                 vis.infoGetter(vis.stateInfoMap.get(d.properties.name)))
             )
+            .attr('active', (d) => d.properties.name === vis.activeState)
             .on('mousemove', (event, d) => {
                 d3.select('#tooltip')
                     .style('display', 'block')
@@ -103,6 +106,17 @@ export class ChoroplethMap implements View {
             })
             .on('mouseleave', () => {
                 d3.select('#tooltip').style('display', 'none');
+            })
+            .on('click', function(event, d) {
+                const isActive = d3.select(this).classed('active');
+                const activeState = isActive ? null : d.properties.name;
+                if (activeState && !vis.stateInfoMap.get(d.properties.name)?.recordCount) {
+                    return;
+                }
+                d3.select(this).classed('active', !isActive);
+                vis.chart.selectAll('.state.active').classed('active',
+                    (d: Feature) => d.properties.name === activeState)
+                vis.dispatcher.call('selectState', event, activeState);
             });
     }
 }

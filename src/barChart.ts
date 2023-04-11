@@ -23,7 +23,9 @@ export class BarChart implements View {
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private _selectedCompanies: string[] = [];
 
-    public constructor(private _data: SalaryRecord[], private config: ViewConfig, private _dispatcher: d3.Dispatch<string[]>) {
+    public constructor(private _data: SalaryRecord[],
+                       private config: ViewConfig,
+                       private _dispatcher: d3.Dispatch<string[]>) {
         this.initVis();
     }
 
@@ -147,10 +149,10 @@ export class BarChart implements View {
                 const isActive = d3.select(this).classed('active');
 
                 d3.select(this).classed('active', !isActive);
-      
+
                 // Get active companies
                 vis._selectedCompanies = vis.chartArea.selectAll('.bar.active').data().map((d: CompanyInfo) => d.name);
-                
+
                 // Trigger filter event and pass array with the selected gender
                 vis._dispatcher.call('filterCompanies', event, vis._selectedCompanies);
               });

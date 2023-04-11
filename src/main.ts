@@ -1,11 +1,14 @@
 import * as d3 from 'd3';
-import { SalaryRecord, toSalaryRecord } from './view';
+import { filterRecords, RecordFilter, SalaryRecord, toSalaryRecord } from './view';
 import { ChoroplethMap } from './choroplethMap';
 import { Histogram } from './histogram';
 import { BarChart } from './barChart';
 
+// State of active filters
+const filter: RecordFilter = {};
+
 // Initialize dispatcher that is used to orchestrate events
-const dispatcher = d3.dispatch('filterCompanies');
+const dispatcher: d3.Dispatch<string[]> = d3.dispatch('filterCompanies', 'selectState');
 
 Promise.all([
     d3.csv('data/salaries_data.csv'),
@@ -20,7 +23,7 @@ Promise.all([
         margin: { top: 20, right: 10, bottom: 10, left: 60 },
         tooltipPadding: 15,
         scale: 0.9
-    }, mapInfoType);
+    }, mapInfoType, dispatcher);
     const barChart = new BarChart(records, {
         parentElement: '#bar-chart',
         containerWidth: 470,
@@ -66,13 +69,8 @@ Promise.all([
             selectedCategories.push(selectedRole);
         }
 
-        let newData: SalaryRecord[];
-        if (selectedCategories.length === 0) {
-            newData = records;
-        } else {
-            newData = records.filter((d) => selectedCategories.includes(d.title));
-        }
-
+        filter.roles = selectedCategories;
+        const newData = filter.roles.length === 0 ? records : filterRecords(records, filter);
         choroplethMap.data = newData;
         barChart.data = newData;
         baseSalaryHistogram.data = newData;
@@ -114,5 +112,26 @@ Promise.all([
         yearsAtCompanyHistogram.updateVis();
 
     });
-  
+
+    /**
+     * Filter records by state on 'selectState' event
+     */
+    dispatcher.on('selectState', (state: string) => {
+        filter.state = state;
+        const newData = filterRecords(records, filter);
+        if (newData.length === 0) {
+            filter.state = null;
+            return;
+        }
+        barChart.data = newData;
+        baseSalaryHistogram.data = newData;
+        yearsOfExperienceHistogram.data = newData;
+        yearsAtCompanyHistogram.data = newData;
+
+        barChart.updateVis();
+        baseSalaryHistogram.updateVis();
+        yearsOfExperienceHistogram.updateVis();
+        yearsAtCompanyHistogram.updateVis();
+    })
+
 }).catch(err => console.error(err));
