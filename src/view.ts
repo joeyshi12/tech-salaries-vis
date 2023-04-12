@@ -35,31 +35,31 @@ export interface SalaryRecord {
     yearsAtCompany: number;
 }
 
-export function filterRecords(records: SalaryRecord[], filter: RecordFilter): SalaryRecord[] {
+export function filterRecords(records: SalaryRecord[], filter: RecordFilter, omitKeys: Set<string>): SalaryRecord[] {
     return records.filter((record: SalaryRecord) => {
-        if (filter.state && filter.state !== record.state) {
+        if (!omitKeys.has("state") && filter.state && filter.state !== record.state) {
             return false;
         }
-        if (filter.companies && !filter.companies.includes(record.company)) {
+        if (!omitKeys.has("company") && filter.companies && !filter.companies.includes(record.company)) {
             return false;
         }
-        if (filter.roles && !filter.roles.includes(record.title)) {
+        if (!omitKeys.has("title") && filter.roles.length !== 0 && !filter.roles.includes(record.title)) {
             return false;
         }
-        if (filter.salaryRange &&
+        if (!omitKeys.has("baseSalary") && filter.salaryRange &&
             (record.baseSalary < filter.salaryRange[0] || record.baseSalary > filter.salaryRange[1])) {
             return false;
         }
-        if (filter.experienceRange &&
+        if (!omitKeys.has("yearsOfExperience") && filter.experienceRange &&
             (record.yearsOfExperience < filter.experienceRange[0] || record.yearsOfExperience > filter.experienceRange[1])) {
             return false;
         }
-        if (filter.tenureRange &&
+        if (!omitKeys.has("yearsAtCompany") && filter.tenureRange &&
             (record.yearsAtCompany < filter.tenureRange[0] || record.yearsAtCompany > filter.tenureRange[1])) {
             return false;
         }
         return true;
-    })
+    });
 }
 
 export function toSalaryRecord(json: any): SalaryRecord {
