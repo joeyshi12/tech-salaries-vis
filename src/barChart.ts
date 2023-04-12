@@ -3,7 +3,8 @@ import { View, ViewConfig, SalaryRecord } from './view';
 
 interface CompanyInfo {
     name: string;
-    baseSalary: number;
+    averageSalary: number;
+    recordCount: number;
 }
 
 export class BarChart implements View {
@@ -21,14 +22,22 @@ export class BarChart implements View {
     private chartArea: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private _selectedCompanies: string[] = [];
 
-    public constructor(private _data: SalaryRecord[], private config: ViewConfig) {
+    public constructor(private _data: SalaryRecord[],
+                       private config: ViewConfig,
+                       private _dispatcher: d3.Dispatch<string[]>) {
         this.initVis();
     }
 
     public set data(val: SalaryRecord[]) {
         this._data = val;
     }
+
+    public set selectedCompanies(val: string[]) {
+        this._selectedCompanies = val;
+    }
+
 
     public initVis() {
         let vis = this;
@@ -98,14 +107,18 @@ export class BarChart implements View {
         let vis = this
 
         vis.xValue = (d): string => d.name;
-        vis.yValue = (d): number => d.baseSalary;
+        vis.yValue = (d): number => d.averageSalary;
 
         // Get the average base salary by company
-        let averages = d3.rollup(vis._data, v => d3.mean(v, d => d.baseSalary), d => d.company);
-
+        let companyData = d3.rollups(vis._data, 
+            (records: SalaryRecord[]) => ({
+                recordCount: records.length,
+                averageSalary: Math.round(d3.mean(records, (record: SalaryRecord) => record.baseSalary))
+            }),
+            (record: SalaryRecord) => record.company);
         // Sort average salary from highest to lowest and filter for the top 10
-        vis.companyInfos = Array.from(averages, ([name, baseSalary]): CompanyInfo => ({name, baseSalary}))
-            .sort((a, b) => b.baseSalary - a.baseSalary);
+        vis.companyInfos = Array.from(companyData, ([name, {recordCount, averageSalary}]): CompanyInfo => ({name, averageSalary, recordCount}))
+            .sort((a, b) => b.averageSalary - a.averageSalary);
         vis.companyInfos = vis.companyInfos.slice(0, 10);
         vis.xScale.domain(vis.companyInfos.map(vis.xValue));
         vis.yScale.domain([0, d3.max(vis.companyInfos, vis.yValue)]);
@@ -117,7 +130,7 @@ export class BarChart implements View {
         let vis = this
 
         // Bind data to visual elements, update axes
-        vis.chartArea.selectAll('.bar')
+        let bars = vis.chartArea.selectAll('.bar')
             .data(vis.companyInfos, vis.xValue)
             .join('rect')
             .attr('class', 'bar')
@@ -131,12 +144,29 @@ export class BarChart implements View {
                     .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')
                     .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
                     .html(`<div class="tooltip-title">${d.name}</div>
-                          <ul><li>Average salary: ${Math.round(d.baseSalary)}</li></ul>`);
+                          <ul>
+                            <li>Average salary: ${Math.round(d.averageSalary)}</li>
+                            <li>Number of records: ${d.recordCount}</li>
+                          </ul>`);
             })
             .on('mouseleave', () => {
                 d3.select('#tooltip').style('display', 'none');
-            });
+            })
+            .on('click', function(event, d) {
+                // Check if current company is active and toggle class
+                const isActive = d3.select(this).classed('active');
 
+                d3.select(this).classed('active', !isActive);
+
+                // Get active companies
+                vis._selectedCompanies = vis.chartArea.selectAll('.bar.active').data().map((d: CompanyInfo) => d.name);
+
+                // Trigger filter event and pass array with the selected gender
+                vis._dispatcher.call('filterCompanies', event, vis._selectedCompanies);
+              });
+
+        bars.filter((d: CompanyInfo) => vis._selectedCompanies.includes(d.name))
+            .attr('class', 'bar active')
         // Update the axes/gridlines
         vis.xAxisG
           .call(vis.xAxis)

@@ -1,8 +1,17 @@
 import * as d3 from 'd3';
-import { SalaryRecord, toSalaryRecord } from './view';
+import { filterRecords, RecordFilter, SalaryRecord, toSalaryRecord } from './view';
 import { ChoroplethMap } from './choroplethMap';
 import { Histogram } from './histogram';
 import { BarChart } from './barChart';
+
+// State of active filters
+const filter: RecordFilter = {
+    companies: [],
+    roles: []
+};
+
+// Initialize dispatcher that is used to orchestrate events
+const dispatcher: d3.Dispatch<string[]> = d3.dispatch('filterCompanies', 'selectState');
 
 Promise.all([
     d3.csv('data/salaries_data.csv'),
@@ -17,14 +26,14 @@ Promise.all([
         margin: { top: 20, right: 10, bottom: 10, left: 60 },
         tooltipPadding: 15,
         scale: 0.9
-    }, mapInfoType);
+    }, mapInfoType, dispatcher);
     const barChart = new BarChart(records, {
         parentElement: '#bar-chart',
         containerWidth: 470,
         containerHeight: 600,
         margin: { top: 60, right: 40, bottom: 50, left: 70 },
         tooltipPadding: 15
-    });
+    }, dispatcher);
     const baseSalaryHistogram = new Histogram(records, {
         parentElement: '#base-salary-histogram',
     }, (d): number => d.baseSalary,
@@ -63,27 +72,41 @@ Promise.all([
             selectedCategories.push(selectedRole);
         }
 
-        let newData: SalaryRecord[];
-        if (selectedCategories.length === 0) {
-            newData = records;
-        } else {
-            newData = records.filter((d) => selectedCategories.includes(d.title));
-        }
-
-        choroplethMap.data = newData;
-        barChart.data = newData;
-        baseSalaryHistogram.data = newData;
-        yearsOfExperienceHistogram.data = newData;
-        yearsAtCompanyHistogram.data = newData;
-
+        filter.roles = selectedCategories;
         baseSalaryHistogram.selectedTitles = selectedCategories;
         yearsOfExperienceHistogram.selectedTitles = selectedCategories;
         yearsAtCompanyHistogram.selectedTitles = selectedCategories;
+        updateViews();
+    });
+
+    /**
+     * Dispatcher waits for 'filterCompanies' event
+     */
+    dispatcher.on('filterCompanies', (selectedCompanies: string[]) => {
+        filter.companies = selectedCompanies;
+        updateViews();
+    });
+
+    /**
+     * Filter records by state on 'selectState' event
+     */
+    dispatcher.on('selectState', (state: string) => {
+        filter.state = state;
+        updateViews();
+    })
+
+    function updateViews() {
+        choroplethMap.data = filterRecords(records, filter, new Set(["state"]));
+        barChart.data = filterRecords(records, filter, new Set(["company"]));
+        baseSalaryHistogram.data = filterRecords(records, filter, new Set(["baseSalary"]));
+        yearsOfExperienceHistogram.data = filterRecords(records, filter, new Set(["yearsOfExperience"]));
+        yearsAtCompanyHistogram.data = filterRecords(records, filter, new Set(["yearsAtCompany"]));
 
         choroplethMap.updateVis();
         barChart.updateVis();
         baseSalaryHistogram.updateVis();
         yearsOfExperienceHistogram.updateVis();
         yearsAtCompanyHistogram.updateVis();
-    });
+    }
+
 }).catch(err => console.error(err));

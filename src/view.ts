@@ -17,6 +17,15 @@ export interface ViewConfig {
     tooltipPadding?: number;
 }
 
+export interface RecordFilter {
+    state?: string;
+    companies?: string[];
+    roles?: string[];
+    salaryRange?: [number, number];
+    experienceRange?: [number, number];
+    tenureRange?: [number, number];
+}
+
 export interface SalaryRecord {
     company: string;
     title: string;
@@ -24,6 +33,33 @@ export interface SalaryRecord {
     baseSalary: number;
     yearsOfExperience: number;
     yearsAtCompany: number;
+}
+
+export function filterRecords(records: SalaryRecord[], filter: RecordFilter, omitKeys: Set<string>): SalaryRecord[] {
+    return records.filter((record: SalaryRecord) => {
+        if (!omitKeys.has("state") && filter.state && filter.state !== record.state) {
+            return false;
+        }
+        if (!omitKeys.has("company") && filter.companies.length !== 0 && !filter.companies.includes(record.company)) {
+            return false;
+        }
+        if (!omitKeys.has("title") && filter.roles.length !== 0 && !filter.roles.includes(record.title)) {
+            return false;
+        }
+        if (!omitKeys.has("baseSalary") && filter.salaryRange &&
+            (record.baseSalary < filter.salaryRange[0] || record.baseSalary > filter.salaryRange[1])) {
+            return false;
+        }
+        if (!omitKeys.has("yearsOfExperience") && filter.experienceRange &&
+            (record.yearsOfExperience < filter.experienceRange[0] || record.yearsOfExperience > filter.experienceRange[1])) {
+            return false;
+        }
+        if (!omitKeys.has("yearsAtCompany") && filter.tenureRange &&
+            (record.yearsAtCompany < filter.tenureRange[0] || record.yearsAtCompany > filter.tenureRange[1])) {
+            return false;
+        }
+        return true;
+    });
 }
 
 export function toSalaryRecord(json: any): SalaryRecord {

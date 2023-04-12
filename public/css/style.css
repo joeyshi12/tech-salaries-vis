@@ -45,6 +45,12 @@ body {
     opacity: 1
 }
 
+#choropleth-map .state.active {
+    stroke: #e89f03;
+    stroke-width: 4;
+    opacity: 1;
+}
+
 #bar-chart .bar {
     fill: #ffcf58;
     opacity: 0.6;
@@ -53,6 +59,11 @@ body {
 #bar-chart .bar:hover {
     stroke-width: 1px;
     opacity: 0.8;
+}
+
+#bar-chart .bar.active {
+    stroke-width: 1px;
+    opacity: 0.9;
 }
 
 /* Sidebar */
