@@ -18,6 +18,8 @@ export class Histogram implements View {
     private chart: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private xAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private yAxisG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private brushG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
+    private brush: d3.BrushBehavior<unknown>;
     private bars2: d3.Selection<d3.BaseType, d3.Bin<SalaryRecord, number>, SVGGElement, unknown>;
 
     public constructor(private _data: SalaryRecord[],
@@ -80,6 +82,18 @@ export class Histogram implements View {
 
         vis.yAxisG = vis.chart.append('g')
             .attr('class', 'axis y-axis');
+
+        vis.brushG = vis.chart.append('g')
+            .attr('class', 'brush x-brush');
+
+        vis.brush = d3.brushX()
+            .extent([[0, 0], [vis.config.containerWidth, vis.config.containerHeight - 110]])
+            .on('brush', function({selection}) {
+                if (selection) vis.brushed(selection);
+              })
+              .on('end', function({selection}) {
+                if (!selection) vis.brushed(null);
+              });
 
         vis.svg.append('text')
             .attr('class', 'axis-title')
@@ -175,5 +189,30 @@ export class Histogram implements View {
         vis.yAxisG
             .call(vis.yAxis)
             .call(g => g.select('.domain').remove())
+
+            const defaultBrushSelection: d3.BrushSelection = [vis.xScale(200000), vis.xScale.range()[1]];
+            vis.brushG
+                .call(vis.brush)
+                .call(vis.brush.move, defaultBrushSelection);
     }
+
+    brushed(selection) {
+        let vis = this;
+    
+        // Check if the brush is still active or if it has been removed
+        if (selection) {
+          // Convert given pixel coordinates (range: [x0,x1]) into a time period (domain: [Date, Date])
+          const selectedDomain = selection.map(vis.xScale.invert, vis.xScale);
+    
+          // Update x-scale of the focus view accordingly
+          vis.xScale.domain(selectedDomain);
+        } else {
+          // Reset x-scale of the focus view (full time period)
+          vis.xScale.domain(vis.xScale.domain());
+        }
+    
+        // Redraw line and update x-axis labels in focus view
+        // vis.focusLinePath.attr('d', vis.line);
+        // vis.xAxisFocusG.call(vis.xAxisFocus);
+      }
 }
