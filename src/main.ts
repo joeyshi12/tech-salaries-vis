@@ -11,7 +11,7 @@ const filter: RecordFilter = {
 };
 
 // Initialize dispatcher that is used to orchestrate events
-const dispatcher: d3.Dispatch<string[]> = d3.dispatch('filterCompanies', 'selectState');
+const dispatcher: d3.Dispatch<string[]> = d3.dispatch('filterCompanies', 'selectState', 'filterHistogram');
 
 Promise.all([
     d3.csv('data/salaries_data.csv'),
@@ -38,15 +38,18 @@ Promise.all([
         parentElement: '#base-salary-histogram',
     }, (d): number => d.baseSalary,
      'Base Salary (Thousand USD)',
+     dispatcher,
      (val): string => String(val/1000));
     const yearsOfExperienceHistogram = new Histogram(records, {
         parentElement: '#years-of-experience-histogram',
     }, (d): number => d.yearsOfExperience,
-    'Years of Experience');
+    'Years of Experience',
+    dispatcher);
     const yearsAtCompanyHistogram = new Histogram(records, {
         parentElement: '#years-at-company-histogram',
     }, (d): number => d.yearsAtCompany,
-    'Years of Tenure');
+    'Years of Tenure',
+    dispatcher);
 
     d3.selectAll('#map-info-selector').on('change', function() {
         choroplethMap.mapInfoType = d3.select(this).property('value');
@@ -92,6 +95,17 @@ Promise.all([
      */
     dispatcher.on('selectState', (state: string) => {
         filter.state = state;
+        updateViews();
+    })
+
+    dispatcher.on('filterHistogram', (selection: [number, number] | null, parent: string) => {
+        if (parent === '#base-salary-histogram') {
+            filter.salaryRange = selection;
+        } else if (parent === '#years-of-experience-histogram') {
+            filter.experienceRange = selection;
+        } else if (parent === '#years-at-company-histogram') {
+            filter.tenureRange = selection;
+        }
         updateViews();
     })
 

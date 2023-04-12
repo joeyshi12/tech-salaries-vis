@@ -21,12 +21,15 @@ export class Histogram implements View {
     private brushG: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
     private brush: d3.BrushBehavior<unknown>;
     private bars2: d3.Selection<d3.BaseType, d3.Bin<SalaryRecord, number>, SVGGElement, unknown>;
+    private filterRange: [number, number] = [0, 0];
 
     public constructor(private _data: SalaryRecord[],
                        config: ViewConfig,
                        private xValue: (d: SalaryRecord) => number,
                        private chartTitle: string,
-                       private tickFormat?: (d: number) => string) {
+                       private _dispatcher: d3.Dispatch<string[]>,
+                       private tickFormat?: (d: number) => string,
+                       ) {
         this.config = {
             parentElement: config.parentElement,
             containerWidth: config.containerWidth ?? 470,
@@ -90,10 +93,11 @@ export class Histogram implements View {
             .extent([[0, 0], [vis.config.containerWidth, vis.config.containerHeight - 110]])
             .on('brush', function({selection}) {
                 if (selection) vis.brushed(selection);
-              })
-              .on('end', function({selection}) {
+            })
+            .on('end', function({selection}) {
                 if (!selection) vis.brushed(null);
-              });
+                vis._dispatcher.call('filterHistogram', selection, vis.filterRange, vis.config.parentElement);
+            });
 
         vis.svg.append('text')
             .attr('class', 'axis-title')
@@ -111,6 +115,10 @@ export class Histogram implements View {
             .attr('transform', 'rotate(-90)')
             .attr('dy', '.71em')
             .text('Count');
+
+        vis.brushG
+            .call(vis.brush)
+            .call(vis.brush.move, [vis.xScale(200000), vis.xScale.range()[1]]);
 
         vis.updateVis();
     }
@@ -189,30 +197,21 @@ export class Histogram implements View {
         vis.yAxisG
             .call(vis.yAxis)
             .call(g => g.select('.domain').remove())
-
-            const defaultBrushSelection: d3.BrushSelection = [vis.xScale(200000), vis.xScale.range()[1]];
-            vis.brushG
-                .call(vis.brush)
-                .call(vis.brush.move, defaultBrushSelection);
     }
 
     brushed(selection) {
         let vis = this;
-    
+
         // Check if the brush is still active or if it has been removed
         if (selection) {
           // Convert given pixel coordinates (range: [x0,x1]) into a time period (domain: [Date, Date])
-          const selectedDomain = selection.map(vis.xScale.invert, vis.xScale);
-    
-          // Update x-scale of the focus view accordingly
-          vis.xScale.domain(selectedDomain);
+          const lowerBound = vis.xScale.invert(selection[0]);
+          const upperBound = vis.xScale.invert(selection[1]);
+          vis.filterRange = [lowerBound, upperBound];
+          console.log(this.filterRange);
         } else {
           // Reset x-scale of the focus view (full time period)
-          vis.xScale.domain(vis.xScale.domain());
+          vis.filterRange = null;
         }
-    
-        // Redraw line and update x-axis labels in focus view
-        // vis.focusLinePath.attr('d', vis.line);
-        // vis.xAxisFocusG.call(vis.xAxisFocus);
       }
 }
