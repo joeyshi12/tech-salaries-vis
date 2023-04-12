@@ -40,7 +40,7 @@ export function filterRecords(records: SalaryRecord[], filter: RecordFilter, omi
         if (!omitKeys.has("state") && filter.state && filter.state !== record.state) {
             return false;
         }
-        if (!omitKeys.has("company") && filter.companies && !filter.companies.includes(record.company)) {
+        if (!omitKeys.has("company") && filter.companies.length !== 0 && !filter.companies.includes(record.company)) {
             return false;
         }
         if (!omitKeys.has("title") && filter.roles.length !== 0 && !filter.roles.includes(record.title)) {

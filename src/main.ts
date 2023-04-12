@@ -6,6 +6,7 @@ import { BarChart } from './barChart';
 
 // State of active filters
 const filter: RecordFilter = {
+    companies: [],
     roles: []
 };
 
