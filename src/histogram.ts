@@ -28,7 +28,7 @@ export class Histogram implements View {
                        private xValue: (d: SalaryRecord) => number,
                        private chartTitle: string,
                        private _dispatcher: d3.Dispatch<string[]>,
-                       private tickFormat?: (d: number) => string, 
+                       private tickFormat?: (d: number) => string,
                        ) {
         this.config = {
             parentElement: config.parentElement,
@@ -96,9 +96,6 @@ export class Histogram implements View {
             })
             .on('end', function({selection}) {
                 if (!selection) vis.brushed(null);
-                console.log("hello");
-                console.log(vis.config.parentElement);
-                console.log(vis.filterRange);
                 vis._dispatcher.call('filterHistogram', selection, vis.filterRange, vis.config.parentElement);
             });
 
@@ -118,6 +115,10 @@ export class Histogram implements View {
             .attr('transform', 'rotate(-90)')
             .attr('dy', '.71em')
             .text('Count');
+
+        vis.brushG
+            .call(vis.brush)
+            .call(vis.brush.move, [vis.xScale(200000), vis.xScale.range()[1]]);
 
         vis.updateVis();
     }
@@ -196,16 +197,11 @@ export class Histogram implements View {
         vis.yAxisG
             .call(vis.yAxis)
             .call(g => g.select('.domain').remove())
-
-            const defaultBrushSelection: d3.BrushSelection = [vis.xScale(200000), vis.xScale.range()[1]];
-            vis.brushG
-                .call(vis.brush)
-                .call(vis.brush.move, defaultBrushSelection);
     }
 
     brushed(selection) {
         let vis = this;
-    
+
         // Check if the brush is still active or if it has been removed
         if (selection) {
           // Convert given pixel coordinates (range: [x0,x1]) into a time period (domain: [Date, Date])
