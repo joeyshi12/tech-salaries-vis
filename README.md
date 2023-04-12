@@ -1,8 +1,9 @@
 # Visualizing Tech Salaries
 
 ## Running the project locally
-- Clone the repository and change into the root directory of the project
-- Run `npm install` to install dependencies and then `npm run dev` to start the local web server
+- Download the newest `build.zip` from <a href="https://github.students.cs.ubc.ca/CPSC447-2022W-T2/g10/releases">releases</a>
+    - This will include the static javascript, html, css, and relevant data files
+- Unzip the archive and run `http-server` from the project root
 
 ## Documentation
 - <a href="/docs/preprocessing.ipynb">Preprocessing Notebook</a>

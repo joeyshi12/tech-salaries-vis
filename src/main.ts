@@ -14,8 +14,8 @@ const filter: RecordFilter = {
 const dispatcher: d3.Dispatch<string[]> = d3.dispatch('filterCompanies', 'selectState', 'filterHistogram');
 
 Promise.all([
-    d3.csv('data/salaries_data.csv'),
-    d3.json('data/states-albers-10m.json')
+    d3.csv('./data/salaries_data.csv'),
+    d3.json('./data/states-albers-10m.json')
 ]).then(([data, geoData]) => {
     const mapInfoType = d3.select('#map-info-selector').property('value');
     const records = data.map(toSalaryRecord);
