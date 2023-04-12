@@ -97,7 +97,18 @@ export class Histogram implements View {
                 if (selection) vis.brushed(selection);
             })
             .on('end', function({selection}) {
-                if (!selection) vis.brushed(null);
+                if (!selection) {
+                    console.log("clicked")
+                    vis.brushed(null);
+                }
+                if (selection) {
+                    console.log("end highlight")
+                    if (vis.isSelectionEmpty(selection)) {
+                        //vis.brush.call(selection, null);
+                        vis.brush.clear(d3.select(`${vis.config.parentElement} .x-brush`));
+                        // d3.select('.brush').call(vis.brush.move, null);
+                    };
+                }
                 vis._dispatcher.call('filterHistogram', selection, vis.filterRange, vis.config.parentElement);
             });
 
@@ -209,10 +220,30 @@ export class Histogram implements View {
           const lowerBound = vis.xScale.invert(selection[0]);
           const upperBound = vis.xScale.invert(selection[1]);
           vis.filterRange = [lowerBound, upperBound];
-          console.log(this.filterRange);
         } else {
           // Reset x-scale of the focus view (full time period)
           vis.filterRange = null;
         }
       }
+
+    private isSelectionEmpty(selection) {
+        let vis = this;
+        console.log(selection)
+        const lowerBound = vis.xScale.invert(selection[0]);
+        const upperBound = vis.xScale.invert(selection[1]);
+        console.log([lowerBound, upperBound]);
+        switch (this.config.parentElement) {
+            case '#base-salary-histogram': {
+                return vis._data.filter(r => r.baseSalary >= lowerBound && r.baseSalary <= upperBound).length === 0;
+            }
+            case '#years-of-experience-histogram': {
+                return vis._data.filter(r => r.yearsOfExperience >= lowerBound && r.yearsOfExperience <= upperBound).length === 0; 
+            }
+            case '#years-at-company-histogram': {
+                return vis._data.filter(r => r.yearsAtCompany >= lowerBound && r.yearsAtCompany <= upperBound).length === 0; 
+            }
+            default:
+                return false;
+        }
+    }
 }
