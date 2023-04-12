@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: './src/main.ts',
-    mode: 'development',
+    mode: process.env["NODE_ENV"] === "production" ? "production" : "development",
     module: {
         rules: [
             {
