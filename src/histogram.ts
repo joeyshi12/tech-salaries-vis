@@ -54,7 +54,9 @@ export class Histogram implements View {
         vis.height = vis.config.containerHeight - vis.config.margin.top - vis.config.margin.bottom;
 
         vis.xScale = d3.scaleLinear()
-            .range([0, vis.width]);
+            .range([0, vis.width])
+            .domain(d3.extent(vis._data, vis.xValue));
+
         vis.yScale = d3.scaleLinear()
             .range([vis.height, 0]);
 
@@ -125,7 +127,6 @@ export class Histogram implements View {
 
     public updateVis() {
         let vis = this;
-        vis.xScale.domain(d3.extent(vis._data, vis.xValue));
 
         const bin = d3.bin<SalaryRecord, number>()
             .domain(vis.xScale.domain() as [number, number])

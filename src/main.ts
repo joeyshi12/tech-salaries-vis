@@ -95,6 +95,7 @@ Promise.all([
      */
     dispatcher.on('selectState', (state: string) => {
         filter.state = state;
+        choroplethMap.activeState = state;
         updateViews();
     })
 

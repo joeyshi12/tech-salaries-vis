@@ -19,7 +19,7 @@ export class ChoroplethMap implements View {
     private stateInfoMap: Map<string, StateInfo>;
     private colorScale: d3.ScaleSequential<string>;
     private infoGetter: (d: StateInfo) => number;
-    private activeState: string;
+    private _activeState: string;
 
     private svg: d3.Selection<any, any, any, any>;
     private chart: d3.Selection<any, any, any, any>
@@ -34,6 +34,10 @@ export class ChoroplethMap implements View {
 
     public set data(val: SalaryRecord[]) {
         this._data = val;
+    }
+
+    public set activeState(val: string) {
+        this._activeState = val;
     }
 
     public set mapInfoType(val: MapInfoType) {
@@ -87,12 +91,13 @@ export class ChoroplethMap implements View {
         vis.chart.selectAll('.state')
             .data(states.features)
             .join('path')
-            .attr('class', 'state')
+            .attr('class', (d) =>
+                d.properties.name === vis._activeState ? 'state active' : 'state')
             .attr('d', vis.geoPath)
             .style('fill', (d) => vis.colorScale(
                 vis.infoGetter(vis.stateInfoMap.get(d.properties.name)))
             )
-            .attr('active', (d) => d.properties.name === vis.activeState)
+            .attr('active', (d) => d.properties.name === vis._activeState)
             .on('mousemove', (event, d) => {
                 d3.select('#tooltip')
                     .style('display', 'block')
@@ -110,12 +115,9 @@ export class ChoroplethMap implements View {
             .on('click', function(event, d) {
                 const isActive = d3.select(this).classed('active');
                 const activeState = isActive ? null : d.properties.name;
-                if (activeState && !vis.stateInfoMap.get(d.properties.name)?.recordCount) {
+                if (activeState && !vis.stateInfoMap.get(activeState)?.recordCount) {
                     return;
                 }
-                d3.select(this).classed('active', !isActive);
-                vis.chart.selectAll('.state.active').classed('active',
-                    (d: Feature) => d.properties.name === activeState)
                 vis.dispatcher.call('selectState', event, activeState);
             });
     }
