@@ -1,6 +1,9 @@
 export interface View {
+    // Create scales, axes, and append static elements
     initVis(): void;
+    // Prepare the data before we render it.
     updateVis(): void;
+    // Bind data to visual elements (enter-update-exit) and update axes
     renderVis(): void;
 }
 
@@ -19,8 +22,8 @@ export interface ViewConfig {
 
 export interface RecordFilter {
     state?: string;
-    companies?: string[];
-    roles?: string[];
+    companies: string[];
+    roles: string[];
     salaryRange?: [number, number];
     experienceRange?: [number, number];
     tenureRange?: [number, number];
@@ -35,7 +38,15 @@ export interface SalaryRecord {
     yearsAtCompany: number;
 }
 
-export function filterRecords(records: SalaryRecord[], filter: RecordFilter, omitKeys: Set<string>): SalaryRecord[] {
+export type RecordKey = keyof SalaryRecord;
+
+/**
+ * Filters records by given record attribute filters for attributes not included in omitKeys
+ * @param records
+ * @param filter
+ * @param omitKeys
+ */
+export function filterRecords(records: SalaryRecord[], filter: RecordFilter, omitKeys: Set<RecordKey>): SalaryRecord[] {
     return records.filter((record: SalaryRecord) => {
         if (!omitKeys.has("state") && filter.state && filter.state !== record.state) {
             return false;

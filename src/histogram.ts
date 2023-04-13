@@ -1,5 +1,6 @@
 import { SalaryRecord, View, ViewConfig, titleColourMap } from './view';
 import * as d3 from 'd3';
+import { Dispatch } from "d3";
 
 export class Histogram implements View {
     private config: ViewConfig;
@@ -25,11 +26,10 @@ export class Histogram implements View {
 
     public constructor(private _data: SalaryRecord[],
                        config: ViewConfig,
+                       private _dispatcher: Dispatch<string[]>,
                        private xValue: (d: SalaryRecord) => number,
                        private chartTitle: string,
-                       private _dispatcher: d3.Dispatch<string[]>,
-                       private tickFormat?: (d: number) => string,
-                       ) {
+                       private tickFormat?: (d: number) => string) {
         this.config = {
             parentElement: config.parentElement,
             containerWidth: config.containerWidth ?? 470,
@@ -98,16 +98,12 @@ export class Histogram implements View {
             })
             .on('end', function({selection}) {
                 if (!selection) {
-                    console.log("clicked")
                     vis.brushed(null);
                 }
                 if (selection) {
-                    console.log("end highlight")
                     if (vis.isSelectionEmpty(selection)) {
-                        //vis.brush.call(selection, null);
                         vis.brush.clear(d3.select(`${vis.config.parentElement} .x-brush`));
-                        // d3.select('.brush').call(vis.brush.move, null);
-                    };
+                    }
                 }
                 vis._dispatcher.call('filterHistogram', selection, vis.filterRange, vis.config.parentElement);
             });
@@ -129,10 +125,7 @@ export class Histogram implements View {
             .attr('dy', '.71em')
             .text('Count');
 
-        vis.brushG
-            .call(vis.brush)
-            .call(vis.brush.move, [vis.xScale(200000), vis.xScale.range()[1]]);
-
+        vis.brushG.call(vis.brush);
         vis.updateVis();
     }
 
@@ -145,7 +138,9 @@ export class Histogram implements View {
             .thresholds(20);
 
         // Set binned data
-        if (vis._selectedTitles.length === 0) {
+        if (vis._data.length === 0) {
+            vis.binnedData1 = bin([]);
+        } else if (vis._selectedTitles.length === 0) {
             vis.binnedData1 = bin(vis._data);
         } else {
             const groups = d3.groups(vis._data, (d) => d.title)
@@ -211,7 +206,12 @@ export class Histogram implements View {
             .call(g => g.select('.domain').remove())
     }
 
-    brushed(selection) {
+    /**
+     * Updates filterRange based off of brush selection
+     * @param selection
+     * @private
+     */
+    private brushed(selection) {
         let vis = this;
 
         // Check if the brush is still active or if it has been removed
@@ -224,24 +224,24 @@ export class Histogram implements View {
           // Reset x-scale of the focus view (full time period)
           vis.filterRange = null;
         }
-      }
+    }
 
+    /**
+     * Returns true if there is a record within the selected attribute value range; false otherwise
+     * @param selection
+     * @private
+     */
     private isSelectionEmpty(selection) {
         let vis = this;
-        console.log(selection)
         const lowerBound = vis.xScale.invert(selection[0]);
         const upperBound = vis.xScale.invert(selection[1]);
-        console.log([lowerBound, upperBound]);
         switch (this.config.parentElement) {
-            case '#base-salary-histogram': {
-                return vis._data.filter(r => r.baseSalary >= lowerBound && r.baseSalary <= upperBound).length === 0;
-            }
-            case '#years-of-experience-histogram': {
-                return vis._data.filter(r => r.yearsOfExperience >= lowerBound && r.yearsOfExperience <= upperBound).length === 0; 
-            }
-            case '#years-at-company-histogram': {
-                return vis._data.filter(r => r.yearsAtCompany >= lowerBound && r.yearsAtCompany <= upperBound).length === 0; 
-            }
+            case '#base-salary-histogram':
+                return !vis._data.some(r => r.baseSalary >= lowerBound && r.baseSalary <= upperBound);
+            case '#years-of-experience-histogram':
+                return !vis._data.some(r => r.yearsOfExperience >= lowerBound && r.yearsOfExperience <= upperBound);
+            case '#years-at-company-histogram':
+                return !vis._data.some(r => r.yearsAtCompany >= lowerBound && r.yearsAtCompany <= upperBound);
             default:
                 return false;
         }

@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-import { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson';
-import {SalaryRecord, View, ViewConfig} from './view';
+import { FeatureCollection } from 'geojson';
+import { SalaryRecord, View, ViewConfig } from './view';
 
 type ChoroplethMapConfig = ViewConfig & {
     scale: number;
@@ -118,7 +118,7 @@ export class ChoroplethMap implements View {
                 if (activeState && !vis.stateInfoMap.get(activeState)?.recordCount) {
                     return;
                 }
-                vis.dispatcher.call('selectState', event, activeState);
+                vis.dispatcher.call('filterState', event, activeState);
             });
     }
 }
