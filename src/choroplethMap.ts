@@ -5,6 +5,8 @@ import { SalaryRecord, View, ViewConfig } from './view';
 
 type ChoroplethMapConfig = ViewConfig & {
     scale: number;
+    legendWidth: number;
+    legendHeight: number;
 }
 
 type MapInfoType = 'record' | 'salary';
@@ -14,21 +16,35 @@ interface StateInfo {
     averageSalary: number;
 }
 
+interface LegendStop {
+    color: string;
+    value: number;
+    offset: number;
+}
+
 export class ChoroplethMap implements View {
+    private width: number;
+    private height: number;
     private geoPath: d3.GeoPath<any, d3.GeoPermissibleObjects>;
     private stateInfoMap: Map<string, StateInfo>;
     private colorScale: d3.ScaleSequential<string>;
     private infoGetter: (d: StateInfo) => number;
     private _activeState: string;
+    private legendStops: LegendStop[];
+    private states: FeatureCollection;
 
     private svg: d3.Selection<any, any, any, any>;
-    private chart: d3.Selection<any, any, any, any>
+    private chart: d3.Selection<any, any, any, any>;
+    private linearGradient: d3.Selection<any, any, any, any>;
+    private legend: d3.Selection<any, any, any, any>;
+    private legendRect: d3.Selection<any, any, any, any>;
 
     constructor(private _data: SalaryRecord[],
-                private geoData: any,
+                geoData: any,
                 private config: ChoroplethMapConfig,
                 private infoType: MapInfoType,
                 private dispatcher: d3.Dispatch<string[]>) {
+        this.states = <FeatureCollection><unknown>topojson.feature(geoData, geoData.objects.states);
         this.initVis();
     }
 
@@ -47,6 +63,9 @@ export class ChoroplethMap implements View {
     public initVis() {
         let vis = this;
 
+        vis.width = vis.config.containerWidth - vis.config.margin.left - vis.config.margin.right;
+        vis.height = vis.config.containerHeight - vis.config.margin.top - vis.config.margin.bottom;
+
         vis.svg = d3.select('#choropleth-map')
             .attr('width', vis.config.containerWidth)
             .attr('height', vis.config.containerHeight);
@@ -56,6 +75,25 @@ export class ChoroplethMap implements View {
 
         // Initialize path generator
         vis.geoPath = d3.geoPath();
+
+        // Initialize gradient that we will later use for the legend
+        vis.linearGradient = vis.svg.append('defs').append('linearGradient')
+            .attr("id", "legend-gradient");
+
+        // Append legend
+        vis.legend = vis.chart.append('g')
+            .attr('class', 'legend')
+            .attr('transform',`translate(${vis.config.margin.left},${vis.config.containerHeight})`);
+
+        vis.legendRect = vis.legend.append('rect')
+            .attr('width', vis.config.legendWidth)
+            .attr('height', vis.config.legendHeight);
+
+        vis.legend.append('text')
+            .attr('class', 'legend-title')
+            .attr('dy', '.35em')
+            .attr('y', -10)
+            .text('Record count');
 
         vis.colorScale = d3.scaleSequential(d3.interpolateBlues);
         vis.updateVis();
@@ -79,17 +117,31 @@ export class ChoroplethMap implements View {
             }),
             (record: SalaryRecord) => record.state);
         vis.stateInfoMap = new Map(stateInfoPairs);
-        vis.colorScale.domain(d3.extent<[string, StateInfo], number>(stateInfoPairs,
+        for (const state of vis.states.features) {
+            console.log(vis.stateInfoMap.has(state.properties.name))
+            if (!vis.stateInfoMap.has(state.properties.name)) {
+                vis.stateInfoMap.set(state.properties.name, {recordCount: 0, averageSalary: 0});
+            }
+        }
+
+        vis.colorScale.domain(d3.extent<[string, StateInfo], number>(Array.from(vis.stateInfoMap),
             (pair) => vis.infoGetter(pair[1])));
+
+        // Define begin and end of the color gradient (legend)
+        const [min, max] = vis.colorScale.domain();
+        vis.legendStops = [
+            { color: vis.colorScale(min), value: min, offset: 0},
+            { color: vis.colorScale(max), value: max, offset: 100},
+        ];
+
         this.renderVis();
     }
 
     public renderVis() {
         let vis = this;
-        const states = <FeatureCollection><unknown>topojson.feature(vis.geoData, vis.geoData.objects.states);
 
         vis.chart.selectAll('.state')
-            .data(states.features)
+            .data(vis.states.features)
             .join('path')
             .attr('class', (d) =>
                 d.properties.name === vis._activeState ? 'state active' : 'state')
@@ -120,5 +172,33 @@ export class ChoroplethMap implements View {
                 }
                 vis.dispatcher.call('filterState', event, activeState);
             });
+
+        vis.chart.selectAll(".state.active").raise();
+
+        // Add legend labels
+        vis.legend.selectAll('.legend-label')
+            .data(vis.legendStops)
+            .join('text')
+            .attr('class', 'legend-label')
+            .attr('text-anchor', 'middle')
+            .attr('dy', '.35em')
+            .attr('y', 30)
+            .attr('x', (d,index) => {
+                return index == 0 ? 0 : vis.config.legendWidth;
+            })
+            .text(d => Math.round(d.value * 10 ) / 10);
+
+        // Update gradient for legend
+        vis.linearGradient.selectAll('stop')
+            .data(vis.legendStops)
+            .join('stop')
+            .attr('offset', d => d.offset)
+            .attr('stop-color', d => d.color);
+
+        console.log(vis.infoType);
+        vis.legend.select('text')
+            .text(vis.infoType === 'record' ? 'Record count' : 'Average salary')
+
+        vis.legendRect.attr('fill', 'url(#legend-gradient)');
     }
 }

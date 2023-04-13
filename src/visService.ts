@@ -25,15 +25,17 @@ export class VisService {
         this.choroplethMap = new ChoroplethMap(this.records, geoData, {
             parentElement: '#choropleth-map',
             containerWidth: 955,
-            containerHeight: 600,
-            margin: { top: 20, right: 10, bottom: 10, left: 60 },
+            containerHeight: 640,
+            margin: { top: 10, right: 25, bottom: 0, left: 40 },
             tooltipPadding: 15,
-            scale: 0.9
+            scale: 0.9,
+            legendWidth: 200,
+            legendHeight: 20
         }, mapInfoType, this.dispatcher);
         this.barChart = new BarChart(this.records, {
             parentElement: '#bar-chart',
             containerWidth: 470,
-            containerHeight: 600,
+            containerHeight: 640,
             margin: { top: 60, right: 40, bottom: 50, left: 70 },
             tooltipPadding: 15
         }, this.dispatcher);
