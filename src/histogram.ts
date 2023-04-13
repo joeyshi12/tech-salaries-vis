@@ -1,4 +1,4 @@
-import { SalaryRecord, View, ViewConfig, titleColourMap } from './view';
+import { SalaryRecord, View, ViewConfig, titleColourMap, RecordFilter } from './view';
 import * as d3 from 'd3';
 import { Dispatch } from "d3";
 
@@ -13,7 +13,6 @@ export class Histogram implements View {
     private yValue: (d: d3.Bin<SalaryRecord, number>) => number;
     private binnedData1: d3.Bin<SalaryRecord, number>[];
     private binnedData2: d3.Bin<SalaryRecord, number>[]
-    private _selectedTitles: string[];
 
     private svg: d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
     private chart: d3.Selection<SVGGElement, unknown, HTMLElement, any>;
@@ -26,6 +25,7 @@ export class Histogram implements View {
 
     public constructor(private _data: SalaryRecord[],
                        config: ViewConfig,
+                       private filter: RecordFilter,
                        private _dispatcher: Dispatch<string[]>,
                        private xValue: (d: SalaryRecord) => number,
                        private chartTitle: string,
@@ -36,16 +36,11 @@ export class Histogram implements View {
             containerHeight: config.containerHeight ?? 400,
             margin: config.margin ?? { top: 60, right: 40, bottom: 50, left: 80 }
         }
-        this._selectedTitles = [];
         this.initVis();
     }
 
     public set data(val: SalaryRecord[]) {
         this._data = val;
-    }
-
-    public set selectedTitles(val: string[]) {
-        this._selectedTitles = val;
     }
 
     public initVis() {
@@ -140,17 +135,17 @@ export class Histogram implements View {
         // Set binned data
         if (vis._data.length === 0) {
             vis.binnedData1 = bin([]);
-        } else if (vis._selectedTitles.length === 0) {
+        } else if (vis.filter.roles.length === 0) {
             vis.binnedData1 = bin(vis._data);
         } else {
             const groups = d3.groups(vis._data, (d) => d.title)
-                .filter(([title, _]) => vis._selectedTitles.includes(title));
+                .filter(([title, _]) => vis.filter.roles.includes(title));
             if (groups.length === 1) {
                 vis.binnedData1 = bin(groups[0][1]);
                 vis.binnedData2 = null;
             } else {
-                vis.binnedData1 = bin(groups.find(g => g[0] === vis._selectedTitles[0])[1]);
-                vis.binnedData2 = bin(groups.find(g => g[0] === vis._selectedTitles[1])[1]);
+                vis.binnedData1 = bin(groups.find(g => g[0] === vis.filter.roles[0])[1]);
+                vis.binnedData2 = bin(groups.find(g => g[0] === vis.filter.roles[1])[1]);
             }
         }
         vis.yValue = (d: d3.Bin<SalaryRecord, number>): number => d.length;
@@ -161,7 +156,7 @@ export class Histogram implements View {
                 maxCount = count2;
             }
         }
-        vis.yScale.domain([0, maxCount]);
+        vis.yScale.domain([0, Math.max(maxCount, 1)]);
         vis.renderVis();
     }
 
@@ -169,7 +164,7 @@ export class Histogram implements View {
         let vis = this;
         const barWidth = vis.width / vis.binnedData1.length - 1;
 
-        const fill1 = titleColourMap.get(vis._selectedTitles[0]) ?? 'rgb(99, 187, 110)';
+        const fill1 = titleColourMap.get(vis.filter.roles[0]) ?? 'rgb(99, 187, 110)';
         vis.chart.selectAll('.bar')
             .data(vis.binnedData1)
             .join('rect')
@@ -182,7 +177,7 @@ export class Histogram implements View {
             .attr('opacity', 0.6);
 
         if (vis.binnedData2) {
-            const fill2 = titleColourMap.get(vis._selectedTitles[1]);
+            const fill2 = titleColourMap.get(vis.filter.roles[1]);
             vis.bars2 = vis.chart.selectAll('.bar2')
                 .data(vis.binnedData2)
                 .join('rect')

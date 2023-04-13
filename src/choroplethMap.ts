@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 import { FeatureCollection } from 'geojson';
-import { SalaryRecord, View, ViewConfig } from './view';
+import { RecordFilter, SalaryRecord, View, ViewConfig } from './view';
 
 type ChoroplethMapConfig = ViewConfig & {
     scale: number;
@@ -29,7 +29,6 @@ export class ChoroplethMap implements View {
     private stateInfoMap: Map<string, StateInfo>;
     private colorScale: d3.ScaleSequential<string>;
     private infoGetter: (d: StateInfo) => number;
-    private _activeState: string;
     private legendStops: LegendStop[];
     private states: FeatureCollection;
 
@@ -43,6 +42,7 @@ export class ChoroplethMap implements View {
                 geoData: any,
                 private config: ChoroplethMapConfig,
                 private infoType: MapInfoType,
+                private filter: RecordFilter,
                 private dispatcher: d3.Dispatch<string[]>) {
         this.states = <FeatureCollection><unknown>topojson.feature(geoData, geoData.objects.states);
         this.initVis();
@@ -50,10 +50,6 @@ export class ChoroplethMap implements View {
 
     public set data(val: SalaryRecord[]) {
         this._data = val;
-    }
-
-    public set activeState(val: string) {
-        this._activeState = val;
     }
 
     public set mapInfoType(val: MapInfoType) {
@@ -143,12 +139,12 @@ export class ChoroplethMap implements View {
             .data(vis.states.features)
             .join('path')
             .attr('class', (d) =>
-                d.properties.name === vis._activeState ? 'state active' : 'state')
+                d.properties.name === vis.filter.state ? 'state active' : 'state')
             .attr('d', vis.geoPath)
             .style('fill', (d) => vis.colorScale(
                 vis.infoGetter(vis.stateInfoMap.get(d.properties.name)))
             )
-            .attr('active', (d) => d.properties.name === vis._activeState)
+            .attr('active', (d) => d.properties.name === vis.filter.state)
             .on('mousemove', (event, d) => {
                 d3.select('#tooltip')
                     .style('display', 'block')

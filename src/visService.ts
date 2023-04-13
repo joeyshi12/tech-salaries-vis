@@ -9,7 +9,7 @@ export class VisService {
     // Initialize dispatcher that is used to orchestrate events
     private readonly dispatcher: d3.Dispatch<string[]>;
     // State of active filters
-    private filter: RecordFilter;
+    private readonly filter: RecordFilter;
     // Views
     private choroplethMap: ChoroplethMap;
     private barChart: BarChart;
@@ -31,23 +31,23 @@ export class VisService {
             scale: 0.9,
             legendWidth: 200,
             legendHeight: 20
-        }, mapInfoType, this.dispatcher);
+        }, mapInfoType, this.filter, this.dispatcher);
         this.barChart = new BarChart(this.records, {
             parentElement: '#bar-chart',
             containerWidth: 470,
             containerHeight: 640,
             margin: { top: 60, right: 40, bottom: 50, left: 70 },
             tooltipPadding: 15
-        }, this.dispatcher);
+        }, this.filter, this.dispatcher);
         this.baseSalaryHistogram = new Histogram(this.records, {
             parentElement: '#base-salary-histogram',
-        }, this.dispatcher, (d): number => d.baseSalary, 'Base Salary (Thousand USD)', (val): string => String(val / 1000));
+        }, this.filter, this.dispatcher, (d): number => d.baseSalary, 'Base Salary (Thousand USD)', (val): string => String(val / 1000));
         this.yearsOfExperienceHistogram = new Histogram(this.records, {
             parentElement: '#years-of-experience-histogram',
-        }, this.dispatcher, (d): number => d.yearsOfExperience, 'Years of Experience');
+        }, this.filter, this.dispatcher, (d): number => d.yearsOfExperience, 'Years of Experience');
         this.yearsAtCompanyHistogram = new Histogram(this.records, {
             parentElement: '#years-at-company-histogram',
-        }, this.dispatcher, (d): number => d.yearsAtCompany, 'Years of Tenure');
+        }, this.filter, this.dispatcher, (d): number => d.yearsAtCompany, 'Years of Tenure');
     }
 
     /**
@@ -86,6 +86,7 @@ export class VisService {
 
         // Toggle categories while making sure only at most 2 is active
         const selectedRole = d3.select(event.target).attr('data-category');
+        console.log(selectedRole)
         if (selectedCategories.includes(selectedRole)) {
             d3.select(event.target).classed('active', false);
             selectedCategories = selectedCategories.filter((category) => category !== selectedRole);
@@ -96,10 +97,8 @@ export class VisService {
             selectedCategories.push(selectedRole);
         }
 
+        this.filter.companies = [];
         this.filter.roles = selectedCategories;
-        this.baseSalaryHistogram.selectedTitles = selectedCategories;
-        this.yearsOfExperienceHistogram.selectedTitles = selectedCategories;
-        this.yearsAtCompanyHistogram.selectedTitles = selectedCategories;
         this.updateViews();
     }
 
@@ -119,8 +118,8 @@ export class VisService {
      * @private
      */
     private filterByState(state: string) {
+        this.filter.companies = [];
         this.filter.state = state;
-        this.choroplethMap.activeState = state;
         this.updateViews();
     }
 
@@ -131,6 +130,7 @@ export class VisService {
      * @private
      */
     private filterByRange(range: [number, number], parentElement: string) {
+        this.filter.companies = [];
         switch (parentElement) {
             case '#base-salary-histogram':
                 this.filter.salaryRange = range;
