@@ -145,11 +145,12 @@ export class Histogram implements View {
         } else {
             const groups = d3.groups(vis._data, (d) => d.title)
                 .filter(([title, _]) => vis._selectedTitles.includes(title));
-            vis.binnedData1 = bin(groups.find(g => g[0] === vis._selectedTitles[0])[1]);
-            if (groups.length === 2) {
-                vis.binnedData2 = bin(groups.find(g => g[0] === vis._selectedTitles[1])[1]);
-            } else {
+            if (groups.length === 1) {
+                vis.binnedData1 = bin(groups[0][1]);
                 vis.binnedData2 = null;
+            } else {
+                vis.binnedData1 = bin(groups.find(g => g[0] === vis._selectedTitles[0])[1]);
+                vis.binnedData2 = bin(groups.find(g => g[0] === vis._selectedTitles[1])[1]);
             }
         }
         vis.yValue = (d: d3.Bin<SalaryRecord, number>): number => d.length;
