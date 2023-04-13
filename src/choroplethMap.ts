@@ -118,7 +118,6 @@ export class ChoroplethMap implements View {
             (record: SalaryRecord) => record.state);
         vis.stateInfoMap = new Map(stateInfoPairs);
         for (const state of vis.states.features) {
-            console.log(vis.stateInfoMap.has(state.properties.name))
             if (!vis.stateInfoMap.has(state.properties.name)) {
                 vis.stateInfoMap.set(state.properties.name, {recordCount: 0, averageSalary: 0});
             }
@@ -195,7 +194,6 @@ export class ChoroplethMap implements View {
             .attr('offset', d => d.offset)
             .attr('stop-color', d => d.color);
 
-        console.log(vis.infoType);
         vis.legend.select('text')
             .text(vis.infoType === 'record' ? 'Record count' : 'Average salary')
 
