@@ -5,8 +5,8 @@
 Visualization for tech salaries in America made with d3.
 This was a group project done for a UBC computer science course: CPSC 447.
 
-- <a href="/docs/preprocessing.ipynb">Preprocessing Notebook</a>
-- <a href="/docs/M3 Final Project Submission.pdf">Final Project Writeup</a>
+- <a href="/documentation/preprocessing.ipynb">Preprocessing Notebook</a>
+- <a href="/documentation/M3_Final_Project_Submission.pdf">Final Project Writeup</a>
 
 ## Running the project locally
 - Download the newest `build.zip` from <a href="https://github.students.cs.ubc.ca/CPSC447-2022W-T2/g10/releases">releases</a>
