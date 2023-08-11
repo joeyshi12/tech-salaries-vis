@@ -1,6 +1,6 @@
 # tech-salaries-vis
 
-![thumbnail](/thumbnail.png)
+![thumbnail](/img/thumbnail.png)
 
 Visualization for tech salaries in America made with d3.
 This was a group project done for a UBC computer science course: CPSC 447.
