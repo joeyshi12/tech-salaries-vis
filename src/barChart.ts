@@ -81,8 +81,8 @@ export class BarChart implements View {
         vis.svg.append('text')
             .attr('class', 'axis-title')
             .attr('font-weight', 'bold')
-            .attr('font-size', '20')
-            .attr('x', '10px')
+            .attr('font-size', '18')
+            .attr('x', '12px')
             .attr('y', '30px')
             .text('Top 10 Average Company Salaries');
 

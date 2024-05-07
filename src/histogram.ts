@@ -32,9 +32,9 @@ export class Histogram implements View {
                        private tickFormat?: (d: number) => string) {
         this.config = {
             parentElement: config.parentElement,
-            containerWidth: config.containerWidth ?? 470,
-            containerHeight: config.containerHeight ?? 400,
-            margin: config.margin ?? { top: 60, right: 40, bottom: 50, left: 80 }
+            containerWidth: config.containerWidth ?? 362,
+            containerHeight: config.containerHeight ?? 350,
+            margin: config.margin ?? { top: 50, right: 40, bottom: 50, left: 80 }
         }
         this.initVis();
     }
@@ -106,8 +106,8 @@ export class Histogram implements View {
         vis.svg.append('text')
             .attr('class', 'axis-title')
             .attr('font-weight', 'bold')
-            .attr('font-size', '20')
-            .attr('x', '10px')
+            .attr('font-size', '18')
+            .attr('x', '12px')
             .attr('y', '30px')
             .text(`${vis.chartTitle}`);
 

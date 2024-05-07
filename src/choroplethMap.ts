@@ -23,8 +23,6 @@ interface LegendStop {
 }
 
 export class ChoroplethMap implements View {
-    private width: number;
-    private height: number;
     private geoPath: d3.GeoPath<any, d3.GeoPermissibleObjects>;
     private stateInfoMap: Map<string, StateInfo>;
     private colorScale: d3.ScaleSequential<string>;
@@ -59,9 +57,6 @@ export class ChoroplethMap implements View {
     public initVis() {
         let vis = this;
 
-        vis.width = vis.config.containerWidth - vis.config.margin.left - vis.config.margin.right;
-        vis.height = vis.config.containerHeight - vis.config.margin.top - vis.config.margin.bottom;
-
         vis.svg = d3.select('#choropleth-map')
             .attr('width', vis.config.containerWidth)
             .attr('height', vis.config.containerHeight);
@@ -77,15 +72,16 @@ export class ChoroplethMap implements View {
             .attr("id", "legend-gradient");
 
         // Append legend
-        vis.legend = vis.chart.append('g')
+        vis.legend = vis.svg.append('g')
             .attr('class', 'legend')
-            .attr('transform',`translate(${vis.config.margin.left},${vis.config.containerHeight})`);
+            .attr('transform',`translate(${vis.config.margin.left},${vis.config.containerHeight - vis.config.margin.bottom - vis.config.legendHeight})`);
 
         vis.legendRect = vis.legend.append('rect')
             .attr('width', vis.config.legendWidth)
             .attr('height', vis.config.legendHeight);
 
         vis.legend.append('text')
+            .attr('font-size', '14')
             .attr('class', 'legend-title')
             .attr('dy', '.35em')
             .attr('y', -10)
@@ -106,12 +102,14 @@ export class ChoroplethMap implements View {
                 vis.infoGetter = (info: StateInfo) => info?.recordCount ?? 0;
                 vis.colorScale = d3.scaleSequential(d3.interpolateBlues);
         }
-        const stateInfoPairs = d3.rollups<SalaryRecord, StateInfo, string>(vis._data,
+        const stateInfoPairs = <[string, StateInfo][]>d3.flatRollup<SalaryRecord, StateInfo, string[]>(
+            vis._data,
             (records: SalaryRecord[]) => ({
                 recordCount: records.length,
                 averageSalary: Math.round(d3.mean(records, (record: SalaryRecord) => record.baseSalary))
             }),
-            (record: SalaryRecord) => record.state);
+            (record: SalaryRecord) => record.state
+        );
         vis.stateInfoMap = new Map(stateInfoPairs);
         for (const state of vis.states.features) {
             if (!vis.stateInfoMap.has(state.properties.name)) {
@@ -174,11 +172,12 @@ export class ChoroplethMap implements View {
         vis.legend.selectAll('.legend-label')
             .data(vis.legendStops)
             .join('text')
+            .attr('font-size', '12')
             .attr('class', 'legend-label')
             .attr('text-anchor', 'middle')
             .attr('dy', '.35em')
             .attr('y', 30)
-            .attr('x', (d,index) => {
+            .attr('x', (_, index) => {
                 return index == 0 ? 0 : vis.config.legendWidth;
             })
             .text(d => Math.round(d.value * 10 ) / 10);

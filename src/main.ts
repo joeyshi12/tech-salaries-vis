@@ -20,19 +20,19 @@ Promise.all([
 
     const choroplethMap = new ChoroplethMap(records, geoData, {
         parentElement: '#choropleth-map',
-        containerWidth: 955,
-        containerHeight: 640,
-        margin: { top: 10, right: 25, bottom: 0, left: 40 },
+        containerWidth: 740,
+        containerHeight: 520,
+        margin: { top: 10, right: 25, bottom: 40, left: 40 },
         tooltipPadding: 15,
-        scale: 0.9,
-        legendWidth: 200,
-        legendHeight: 20
+        scale: 0.7,
+        legendWidth: 160,
+        legendHeight: 16
     }, mapInfoType, filter, dispatcher);
 
     const barChart = new BarChart(records, {
         parentElement: '#bar-chart',
-        containerWidth: 470,
-        containerHeight: 640,
+        containerWidth: 360,
+        containerHeight: 520,
         margin: { top: 60, right: 40, bottom: 50, left: 70 },
         tooltipPadding: 15
     }, filter, dispatcher);
